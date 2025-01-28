@@ -9,17 +9,34 @@
 <body>
     <!-- Header Section (Navigation Bar) -->
     <header>
-        <nav>
-            <div class="logo">
-                <a href="#">PROCONNECT</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="logo">
+            <img src="/images/logo2.png" alt="Website Logo" class="logo">
+        </div>
+
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search you are looking for...">
+            <button class="search-btn">
+              <span class="search-icon">&#128269;</span>
+            </button>
+        </div>
+        <div class="sign">
+            <button class="sign-in">Sign In</button>
+            <button class="sign-up">Sign Up</button>
+        </div>
     </header>
+        <nav>
+                 <ul class="nav-links">
+                <li><a href="#dashboard"><b>Dashboard</b></a></li>
+                <li><a href="#services"> <b>Our Services</b></a></li>
+                <li><a href="#about"><b>About Us</b></a></li>
+                <li><a href="#Categories"><b>Categories</b></a></li>
+                <li><a href="#how_it_works"><b>How it works</b></a></li>
+                <li><a href="#hire_now"><b>Hire now</b></a></li>
+                <li><a href="#payment"><b>Payment Method</b></a></li>
+                <li><a href="#contact"><b>Call us</b></a></li>
+                </ul>
+                
+        </nav>
 
     <!-- Hero Section -->
     <section id="hero">
@@ -27,60 +44,333 @@
          <h1>Welcome to PROCONNECT</h1>
             <p>Your gateway to top-notch freelance professionals.</p>
             <a href="#services" class="cta-btn">Get Started</a>
+     </div>
+    <div>
+        <div class="c-hero__headings">
+            <h1 class="c-hero__title"> 	Find &amp; Hire <br>Expert Freelancers </h1>
+            <h2 class="c-hero__subTitle">
+                 
+            </h2>
+            <h3 class="c-hero__copy">Work with the best freelance talent from around the world on our secure,
+                 <br class="u-blockLargeOnly">flexible and cost-effective platform.</h3>
+             
         </div>
+        </div>
+        <div class="button-container">
+            <button class="btn" id="post-job">Post a Job</button>
+            <button class="btn" id="get-job">Get a Job</button>
+        </div>
+    
     </section>
+    
+    <main>
+        <section class="Categories">
+            <div class="category">
+                <!-- <div class="icon"><img src="/images/i1.png" alt="icon"></div> -->
+                <h3>Programming & Development</h3>
+            </div>
+
+            <div class="category">
+                <div class="icon"></div>
+                <h3>Writing & Translation</h3>
+            </div>
+            
+            <div class="category">
+                <div class="icon"></div>
+                <h3>Design & Art</h3>
+            </div>
+
+            <div class="category">
+                <div class="icon"></div>
+                <h3>Administrative & Secretarial</h3>
+            </div>
+
+            <div class="category">
+                <div class="icon"></div>
+                <h3>Sales & Marketing</h3>
+            </div>
+
+            <div class="category">
+                <div class="icon"></div>
+                <h3>Engineering & Architecture</h3>
+            </div>
+
+            <div class="category">
+                <div class="icon"></div>
+                <h3>Business & Finance</h3>
+            </div>
+
+            <div class="category">
+                <div class="icon"></div>
+                <h3>Education & Training</h3>
+            </div>
+
+            <div class="category">
+                <div class="icon"></div>
+                <h3>Legal</h3>
+            </div>
+        </section>
+    </main>
 
     <!-- About Section -->
     <section id="about">
         <div class="container">
             <h2>About Us</h2>
-            <p>Proconnect connects talented freelancers with businesses looking for high-quality services. Whether you're a freelancer or a client, we make it easy to work together and achieve success.</p>
+         <p>Learn more about our journey and how we connect talented freelancers with great opportunities!</p>
         </div>
     </section>
 
+    <!-- Our Mission -->
+    <section class="mission">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <p>Our mission is to empower freelancers across the globe by providing them with an easy-to-use platform that
+                 connects them with quality clients and projects. We strive to offer an environment that encourages growth, 
+                 creativity, and professional development.</p>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="story">
+        <div class="container">
+            <h2>Our Story</h2>
+            <p>We started as a small group of freelancers who shared a vision of creating a platform that would enable 
+                individuals to showcase their skills and find new opportunities. Over time, our platform has grown to serve
+         thousands of freelancers and clients worldwide, creating a community built on trust, collaboration, and innovation.</p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2>Meet Our Team</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="/images/ceo.jpg" alt="Team Member 1">
+                    <h3>Anjani Shaw</h3>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="/images/devloper.jpg" alt="Team Member 2">
+                    <h3>Subhranjali Panda</h3>
+                    <p>Chief Operating Officer</p>
+                </div>
+                <div class="team-member">
+                    <img src="/images/dev2.jpg" alt="Team Member 3">
+                    <h3>Mark Wilson</h3>
+                    <p>Lead Developer</p>
+                </div>
+                <div class="team-member">
+                    <img src="/images/designer.jpg" alt="Team Member 4">
+                    <h3>Alice Johnson</h3>
+                    <p>Marketing Director</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial">
+                <blockquote>
+                    "This platform has been a game changer for my freelance career. It made it so easy to find high-quality clients and manage my projects efficiently."
+                </blockquote>
+                <p>- Sarah Lee, Freelancer</p>
+            </div>
+            <div class="testimonial">
+                <blockquote>
+                    "As a client, I’ve been able to hire top talent for all my projects. I highly recommend this platform to anyone looking to find skilled freelancers."
+                </blockquote>
+                <p>- Mike Green, Client</p>
+            </div>
+        </div>
+   
+   
+
     <!-- Services Section -->
-    <section id="services">
+    <section class="services">
         <div class="container">
             <h2>Our Services</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <h3>Web Development</h3>
                     <p>Get professional web development services from experienced freelancers.</p>
+                    <img src="/images/image1.jpg" alt="Freelancing Icon 1">
                 </div>
                 <div class="service-card">
-                    <h3>Graphic Design</h3>
+                    <h3>Logo Design</h3>
                     <p>Creative design services to make your brand stand out.</p>
+                    <img src="/images/image2.jpg" alt="Freelancing Icon 2">
                 </div>
                 <div class="service-card">
-                    <h3>Writing & Content</h3>
-                    <p>High-quality content writing services for your blog, website, and more.</p>
+                    <h3>Product design</h3>
+                    <p>High-quality content products services for your blog, website, and more.</p>
+                    <img src="/images/image3.jpg" alt="Freelancing Icon 3">
                 </div>
+                <div class="service-card">
+                    <h3>Video editing services </h3>
+                    <p>High-quality video content services for yourwebsite, and more.</p>
+                    <img src="/images/image4.jpg" alt="Freelancing Icon 4">
+                </div>
+                <!--<div class="service-card">
+                    <h3>SEO</h3>
+                    <p>The goal is not to rank for the most keywords, the goal is to rank for the right ones.</p>
+                    <img src="/images/image5.jpg" alt="Freelancing Icon 5">
+                </div>
+            -->
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section class="contact-section">
         <div class="container">
-            <h2>Contact Us</h2>
-            <form>
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required>
+            <h1>Get in Touch with ProConnect</h1>
+            <p>Whether you’re a freelancer or a business, we’re here to help. Please contact us using any of the methods below.</p>
 
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Your email" required>
+            <div class="contact-methods">
+                <div class="contact-box">
+                    <h2>Email Us</h2>
+                    <p>For general inquiries, reach out to us at:</p>
+                    <a href="mailto:support@proconnect.com">support@proconnect.com</a>
+                    <p>If you’re a business looking for freelancer solutions:</p>
+                    <a href="mailto:projects@proconnect.com">projects@proconnect.com</a>
+                </div>
 
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Your message" required></textarea>
+                <div class="contact-box">
+                    <h2>Contact Form</h2>
+                    <form action="#" method="POST">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
 
-                <button type="submit">Send Message</button>
-            </form>
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject">
+                            <option value="General Inquiry">General Inquiry</option>
+                            <option value="Support Request">Support Request</option>
+                            <option value="Freelancer Inquiry">Freelancer Inquiry</option>
+                            <option value="Business Collaboration">Business Collaboration</option>
+                        </select>
+
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+
+                <div class="contact-box">
+                    <h2>Phone Support</h2>
+                    <p>If you need immediate assistance, feel free to call us at:</p>
+                    <p><strong>+1 (800) 123-4567</strong></p>
+                    <p>Our team is available Monday to Friday, from 9 AM to 6 PM.</p>
+                </div>
+
+                <div class="contact-box">
+                    <h2>Follow Us</h2>
+                    <p>Stay connected with us through social media:</p>
+                    <ul>
+                        <li><a href="https://facebook.com/proconnect" target="_blank">Facebook</a></li>
+                        <li><a href="https://twitter.com/proconnect" target="_blank">Twitter</a></li>
+                        <li><a href="https://linkedin.com/company/proconnect" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://instagram.com/company/proconnect" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+
+                <div class="contact-box">
+                    <h2>Visit Our Office</h2>
+                    <p>If you'd like to meet us in person, our office is located at:</p>
+                    <p><strong>ProConnect HQ</strong></p>
+                    <p>123 Freelancer Lane,proconnect ,California- Suite 200, Tech City, USA</p>
+                </div>
+                <div>
+                    <div class="contact-box">
+                        <h2>Visit Our website</h2>
+                        <p>our website not only give platform to everyone but also it provide essance to connect through out the world. </p>
+                        <p><strong>ProConnect website our concern to connect people and grow.</strong></p>
+                        <p>our sologan is to provide a certain specified job to each and everyone who is having the industrial skill.</p>
+                    </div> 
+                </div>
+                
+            </div>
         </div>
     </section>
 
+    <!--designer -->
+    <section class="designer-list">
+        <h2>Top Designers</h2>
+        <div class="designer-cards">
+          <div class="designer-card">
+            <img src="/images/d1.jpg" alt="Designer" class="designer-img">
+            <h3>Jane Doe</h3>
+            <p>UI/UX Designer</p>
+            <p>Expert in creating beautiful and functional user interfaces.</p>
+            <button class="hire-btn">Hire Now</button>
+          </div>
+    
+          <div class="designer-card">
+            <img src="/images/d2.jpg" alt="Designer" class="designer-img">
+            <h3>John Smith</h3>
+            <p>Web Designer</p>
+            <p>Specializes in modern and responsive websites.</p>
+            <button class="hire-btn">Hire Now</button>
+          </div>
+    
+          <div class="designer-card">
+            <img src="/images/d3.jpg" alt="Designer" class="designer-img">
+            <h3>Emily Brown</h3>
+            <p>Branding Expert</p>
+            <p>Experienced in logo and brand identity design.</p>
+            <button class="hire-btn">Hire Now</button>
+          </div>
+    
+          <div class="designer-card">
+            <img src="/images/d4.jpg" alt="Designer" class="designer-img">
+            <h3>David Lee</h3>
+            <p>Graphic Designer</p>
+            <p>Creating stunning graphics for various digital platforms.</p>
+            <button class="hire-btn">Hire Now</button>
+          </div>
+        </div>
+      </section>
+
+    <!--apply now-->
+    <div class="apply-container">
+        <h2>Apply to Become a Freelancer</h2>
+        <form action="#" method="POST" class="apply-form">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required placeholder="Enter your full name">
+    
+          <label for="email">Email Address:</label>
+          <input type="email" id="email" name="email" required placeholder="Enter your email address">
+    
+          <label for="portfolio">Portfolio Link:</label>
+          <input type="url" id="portfolio" name="portfolio" placeholder="Provide a link to your portfolio (optional)">
+    
+          <label for="skills">Skills:</label>
+          <textarea id="skills" name="skills" rows="4" required placeholder="List your skills and services"></textarea>
+    
+          <button type="submit" class="apply-btn">Apply Now</button>
+        </form>
+      </div>
+    
+    
+
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Freelance Hub. All Rights Reserved.</p>
+        <p>&copy; 2025 Proconnect All Rights Reserved.</p>
+        <div class="footer-content">
+            <div class="social-links">
+              <a href="https://www.facebook.com" class="social-icon">FB</a>
+              <a href="https://www.twitter.com" class="social-icon">Twitter</a>
+              <a href="https://www.linkedin.com" class="social-icon">LinkedIn</a>
+              <a href="https://www.instagram.com" class="social-icon">Instagram</a>
+            </div>
+          </div>
     </footer>
 </body>
 </html>
