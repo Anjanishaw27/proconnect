@@ -5,7 +5,7 @@ CREATE TABLE user (
     user_password VARCHAR(255) NOT NULL,
     user_type ENUM('CLIENT', 'FREELANCER') NOT NULL,
     user_phone VARCHAR(20),
-    user_profile_picture VARCHAR(255),
+    user_profile_picture image,
     user_bio TEXT,
     skills TEXT,
     created_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
