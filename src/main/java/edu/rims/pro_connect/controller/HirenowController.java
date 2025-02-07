@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HirenowController {
   @GetMapping("/hirenow")
   String hirenow() {
-    return "hirenow";
+    return "client/hirenow";
   }
 
 }
