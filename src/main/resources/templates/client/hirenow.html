@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire Now - Freelancing Platform</title>
+    <link rel="stylesheet" href="/style/client.hirenow.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Hire a Freelancer</h2>
+        <form id="hireForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <input type="text" id="jobTitle" placeholder="Job Title" required>
+            <textarea id="jobDescription" placeholder="Job Description" rows="4" required></textarea>
+            <select id="freelancer">
+                <option value="">Select Freelancer</option>
+                <option value="john_doe">John Doe</option>
+                <option value="jane_smith">Jane Smith</option>
+                <option value="mike_jones">Mike Jones</option>
+            </select>
+            <button type="submit">Hire Now</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('hireForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Freelancer hired successfully!');
+        });
+    </script>
+</body>
+</html>

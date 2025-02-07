@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancing Categories</title>
+    <link rel="stylesheet" href="../style/client.category.css">
+</head>
+<body>
+    <header>
+        <div class="hero-section">
+            <h1>Find the Best Freelancers for Every Project</h1>
+            <p>Explore categories and connect with top experts in every field.</p>
+            <a href="#categories" class="cta-button">Browse Categories</a>
+        </div>
+    </header>
+
+    <section id="search">
+        <input type="text" id="search-input" placeholder="Search categories or freelancers...">
+    </section>
+
+    <section id="categories">
+        <h2>Browse Categories</h2>
+        <div class="categories-container">
+            <div class="category-card" data-category="web-dev">
+                <img src="web-dev-icon.png" alt="Web Development">
+                <h3>Web Development</h3>
+                <p>Build websites and web applications with top developers.</p>
+            </div>
+            <div class="category-card" data-category="graphic-design">
+                <img src="graphic-design-icon.png" alt="Graphic Design">
+                <h3>Graphic Design</h3>
+                <p>Create stunning visuals and designs for your brand.</p>
+            </div>
+            <div class="category-card" data-category="content-writing">
+                <img src="content-writing-icon.png" alt="Content Writing">
+                <h3>Content Writing</h3>
+                <p>High-quality content for blogs, articles, and more.</p>
+            </div>
+            <div class="category-card" data-category="marketing">
+                <img src="marketing-icon.png" alt="Marketing">
+                <h3>Marketing</h3>
+                <p>Grow your business with expert marketing strategies.</p>
+            </div>
+            <div class="category-card" data-category="translation">
+                <img src="translation-icon.png" alt="Translation">
+                <h3>Translation</h3>
+                <p>Expert language translation services for global reach.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured">
+        <h2>Featured Freelancers</h2>
+        <div class="featured-freelancers">
+            <div class="freelancer">
+                <img src="freelancer1.jpg" alt="Freelancer 1">
+                <h3>John Doe</h3>
+                <p>Web Developer</p>
+                <p>Rating: ★★★★★</p>
+            </div>
+            <div class="freelancer">
+                <img src="freelancer2.jpg" alt="Freelancer 2">
+                <h3>Jane Smith</h3>
+                <p>Graphic Designer</p>
+                <p>Rating: ★★★★☆</p>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Modal for Category Details -->
+    <div id="category-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modal-title">Category Details</h3>
+            <p id="modal-description">Category description will appear here.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
