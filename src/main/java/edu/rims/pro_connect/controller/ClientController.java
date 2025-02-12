@@ -11,5 +11,4 @@ public class ClientController {
   String clienthome() {
     return "client/home";
   }
-
 }
