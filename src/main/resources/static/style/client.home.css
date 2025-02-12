@@ -59,7 +59,6 @@
 }
 
 .sign{
-    
     top: 20px; /* Adjust as needed */
     right: 10px; /* Adjust as needed */
     display: flex;
@@ -68,6 +67,11 @@
     padding: 10px 15px;
     gap:20px;
     color: white;
+}
+
+.sign a{
+    text-decoration: none;
+    color: inherit;
 }
 .sign-in{
     background-color: #17A2B8;
