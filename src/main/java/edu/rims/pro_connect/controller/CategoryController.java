@@ -13,5 +13,5 @@ public class CategoryController {
     @GetMapping("/category")
     public String category() {
         return "client/category";
-}
+    }
 }

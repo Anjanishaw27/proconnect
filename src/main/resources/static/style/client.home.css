@@ -60,15 +60,25 @@
 }
 
 .sign{
+<<<<<<< HEAD
     
     top: 20px; 
     right: 10px; 
+=======
+    top: 20px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+>>>>>>> 07aafbcbc92dc573e2b4f2e0a643debae24869a2
     display: flex;
     position: absolute;
     width: 300px;
     padding: 10px 15px;
     gap:20px;
     color: white;
+}
+
+.sign a{
+    text-decoration: none;
+    color: inherit;
 }
 .sign-in{
     background-color: #17A2B8;
