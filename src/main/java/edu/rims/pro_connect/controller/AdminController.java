@@ -4,17 +4,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
-
-
 @Controller
-@RequestMapping("/Admin")
+@RequestMapping("/admindashboard")
 public class AdminController {
-  @GetMapping("/index")
- String adminIndex() {
-    return "admin/index";
-}
+  @GetMapping("/admindashboard")
+ String admindashboard() {
+    return "/client/admindashboard";
+
+  }
 
 }
-  
+ 
 
-
+ 

@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freelancing Categories</title>
+    <link rel="stylesheet" href="/style/fragment/common.css">
     <link rel="stylesheet" href="../style/client.category.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header>
+
+    <header data-th-replace="~{fragment/common :: header}"></header>
+
+    <nav data-th-replace="~{fragment/common :: nav}"></nav>
+
+    
+    <section class="heading">
         <div class="hero-section">
             <h1>Find the Best Freelancers for Every Project</h1>
             <p>Explore categories and connect with top experts in every field.</p>
             <a href="#categories" class="cta-button">Browse Categories</a>
         </div>
-    </header>
+    </section>
 
     <section id="search">
         <input type="text" id="search-input" placeholder="Search categories or freelancers...">
@@ -23,27 +33,27 @@
         <h2>Browse Categories</h2>
         <div class="categories-container">
             <div class="category-card" data-category="web-dev">
-                <img src="web-dev-icon.png" alt="Web Development">
+                <img src="/images/web.jpeg" alt="Web Development">
                 <h3>Web Development</h3>
                 <p>Build websites and web applications with top developers.</p>
             </div>
             <div class="category-card" data-category="graphic-design">
-                <img src="graphic-design-icon.png" alt="Graphic Design">
+                <img src="/images/graph.jpeg" alt="Graphic Design">
                 <h3>Graphic Design</h3>
                 <p>Create stunning visuals and designs for your brand.</p>
             </div>
             <div class="category-card" data-category="content-writing">
-                <img src="content-writing-icon.png" alt="Content Writing">
+                <img src="/images/content.jpeg" alt="Content Writing">
                 <h3>Content Writing</h3>
                 <p>High-quality content for blogs, articles, and more.</p>
             </div>
             <div class="category-card" data-category="marketing">
-                <img src="marketing-icon.png" alt="Marketing">
+                <img src="/images/marketing.png" alt="Marketing">
                 <h3>Marketing</h3>
                 <p>Grow your business with expert marketing strategies.</p>
             </div>
             <div class="category-card" data-category="translation">
-                <img src="translation-icon.png" alt="Translation">
+                <img src="/images/translate.jpg" alt="Translation">
                 <h3>Translation</h3>
                 <p>Expert language translation services for global reach.</p>
             </div>
@@ -54,16 +64,28 @@
         <h2>Featured Freelancers</h2>
         <div class="featured-freelancers">
             <div class="freelancer">
-                <img src="freelancer1.jpg" alt="Freelancer 1">
-                <h3>John Doe</h3>
+                <img src="/images/designer.jpg" alt="Freelancer 1">
+                <h3>John Doeison</h3>
                 <p>Web Developer</p>
                 <p>Rating: ★★★★★</p>
             </div>
             <div class="freelancer">
-                <img src="freelancer2.jpg" alt="Freelancer 2">
+                <img src="/images/sd.jpg" alt="Freelancer 2">
                 <h3>Jane Smith</h3>
                 <p>Graphic Designer</p>
                 <p>Rating: ★★★★☆</p>
+            </div>
+            <div class="freelancer">
+                <img src="/images/dev2.jpg" alt="Freelancer 1">
+                <h3>Elish daishan</h3>
+                <p>Frontend Devloper</p>
+                <p>Rating: ★★★★</p>
+            </div>
+            <div class="freelancer">
+                <img src="/images/devloper.jpg" alt="Freelancer 2">
+                <h3>Obama jinskin </h3>
+                <p> Backend Devloper</p>
+                <p>Rating: ★★★☆</p>
             </div>
         </div>
     </section>
@@ -79,6 +101,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <footer data-th-replace="~{fragment/common :: footer}"></footer>
 </body>
 </html>

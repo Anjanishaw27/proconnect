@@ -9,8 +9,8 @@ body {
     line-height: 1.6;
 }
 
-header {
-    background-color: #4CAF50;
+.heading {
+    background-color: #17A2B8;
     color: white;
     text-align: center;
     padding: 60px 20px;

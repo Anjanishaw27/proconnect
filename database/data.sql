@@ -3,6 +3,14 @@ INSERT INTO users (name, email, password, user_type, phone, profile_picture, bio
 ('Alice Smith', 'alice@example.com', 'securepass', 'freelancer', '+9876543210', 'alice.jpg', 'Web Developer with 5 years of experience.', 'HTML, CSS, JavaScript, PHP'),
 ('Mark Lee', 'mark@example.com', 'pass123', 'freelancer', '+1112223333', 'mark.jpg', 'Graphic designer & logo expert.', 'Photoshop, Illustrator, Branding');
 
+INSERT INTO category (category_id, category_name, description, created_by, updated_by)
+VALUES 
+(1, 'Web Development', 'All web development-related jobs and projects.', 'admin', 'admin'),
+(2, 'Graphic Design', 'Category for graphic designers and creatives.', 'admin', 'admin'),
+(3, 'Content Writing', 'Writing, editing, and content creation jobs.', 'admin', 'admin'),
+(4, 'Digital Marketing', 'SEO, social media, and online marketing projects.', 'admin', 'admin'),
+(5, 'Mobile App Development', 'Android and iOS app development.', 'admin', 'admin');
+
 INSERT INTO projects (client_id, title, description, budget, status) VALUES
 (1, 'Website Development', 'Need a responsive website for my business.', 500.00, 'open'),
 (1, 'Logo Design', 'Create a modern logo for my startup.', 100.00, 'open');
