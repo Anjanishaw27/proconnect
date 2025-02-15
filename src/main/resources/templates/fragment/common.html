@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-   
+
 </head>
 
 <body>
@@ -30,44 +30,35 @@
             <button class="sign-in"><span><i class="fa-solid fa-right-to-bracket"></i></span>
                 <a href="/login/login">Login</a></button>
             <button class="call"><span><i class="fa-solid fa-phone"></i></span>
-                <a href="/contact/contact"></a>Call Us</button>
->>>>>>> baf2de4f70b0e07930d7a401ce329ff69228bd87
-
-                
+                <a href="/contact/contact">Call Us</a></button>
         </div>
 
     </header>
     <nav>
         <ul class="nav-links">
-            <li>
-               <div class="dashboard-container">
-                  <span id="dropdownText"><b>Dashboard</b></span>
-                        <i class="fas fa-chevron-down" onclick="toggleDropdown()"></i>
-                        <div class="dropdown">
-                            <div class="dropdown-content" id="dashboardDropdown" >
+            <li onclick="toggleDropdown()">
+                <div class="dashboard-container">
+                    <span id="dropdownText"><b>Dashboard</b></span>
+                    <i class="fas fa-chevron-down "></i>
+                    <div class="dropdown hidden">
+                        <div class="dropdown-content" id="dashboardDropdown">
 
-                                <ul style="list-style: none;">
-                                    <li>
-                                        <a href="/clientdashboard/clientdashboard">Client Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <a href="/admindashboard/admindashboard">Admin Dashboard</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <ul>
+                                <li>
+                                    <a href="/clientdashboard/clientdashboard">Client Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="/admindashboard/admindashboard">Admin Dashboard</a>
+                                </li>
+                            </ul>
                         </div>
-                   
+                    </div>
                 </div>
-                </b></a>
-              
-           <!-- <div>
-                <select>
-                <option> <a href="/clientdashboard/clientdashboard">Client Dashboard</a></option>
-                <option> <a href="/admindashboard/admindashboard">Admin Dashboard</a></option>
-                </select>
-             </div>-->
-             
-               
+            </li>
+
+
+
+
             <li><a href="/solution/solution"> <b>Our Solutions</b></a></li>
             <li><a href="#about"><b>About Us</b></a></li>
             <li><a href="/category/category"><b>Categories</b></a></li>
@@ -75,9 +66,9 @@
             <li><a href="/hirenow/hirenow"><b>Hire now</b></a></li>
             <li><a href="#become a seller"><b>Become a Seller</b></a></li>
             <li><a href="#payment method"><b>Payment Method</b></a></li>
-         
+
         </ul>
-     </nav>
+    </nav>
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section about">
@@ -97,8 +88,7 @@
             </div>
             <script>
                 function toggleDropdown() {
-                    var dropdown = document.getElementById("dashboardDropdown");
-                    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+                    document.querySelector(".dropdown").classList.toggle('hidden');
                 }
             </script>
 
