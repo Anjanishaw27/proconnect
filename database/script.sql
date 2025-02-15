@@ -20,7 +20,7 @@ CREATE TABLE user (
 );
 
 CREATE TABLE category (
-    category_id INT AUTO_INCREMENT PRIMARY KEY,
+    category_id VARCHAR(255) PRIMARY KEY,
     category_name VARCHAR(255) UNIQUE NOT NULL,
     description TEXT,
     created_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
