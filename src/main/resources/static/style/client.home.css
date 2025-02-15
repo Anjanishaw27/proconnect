@@ -60,14 +60,10 @@
 }
 
 .sign{
-<<<<<<< HEAD
-    
     top: 20px; 
     right: 10px; 
-=======
-    top: 20px; /* Adjust as needed */
-    right: 10px; /* Adjust as needed */
->>>>>>> 07aafbcbc92dc573e2b4f2e0a643debae24869a2
+    top: 20px; 
+    right: 10px; 
     display: flex;
     position: absolute;
     width: 300px;

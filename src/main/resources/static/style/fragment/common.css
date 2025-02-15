@@ -69,6 +69,10 @@
     gap:20px;
     color: white;
 }
+.sign a{
+    text-decoration: none;
+    color: inherit;
+}
 .sign-in{
     background-color: #17A2B8;
     
