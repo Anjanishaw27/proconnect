@@ -10,12 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script>
-        function toggleDropdown() {
-            var dropdown = document.getElementById("dashboardDropdown");
-            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-        }
-    </script>
+   
 </head>
 
 <body>
@@ -34,16 +29,16 @@
         <div class="sign">
             <button class="sign-in"><span><i class="fa-solid fa-right-to-bracket"></i></span>
                 <a href="/login/login">Login</a></button>
-            <button class="call"><span><i class="fa-solid fa-phone"></i></span>Call Us</button>
+            <button class="call"><span><i class="fa-solid fa-phone"></i></span>
+                <a href="/contact/contact"></a>Call Us</button>
         </div>
 
     </header>
     <nav>
         <ul class="nav-links">
             <li>
-                <div class="dashboard-container">
-                    <aside class="sidebar">
-                        <span id="dropdownText"><b>Dashboard</b></span>
+              <!---  <div class="dashboard-container">
+                  <span id="dropdownText"><b>Dashboard</b></span>
                         <i class="fas fa-chevron-down" onclick="toggleDropdown()"></i>
                         <div class="dropdown">
                             <div class="dropdown-content" id="dashboardDropdown" style="display: none;">
@@ -57,21 +52,27 @@
                                 </ul>
                             </div>
                         </div>
-                    </aside>
+                   
                 </div>
-                </b></a>
+                </b></a>-->
+               <li> Dashboard ▼
+                    <div class="dropdown-menu">
+                        <a href="/clientdashboard/clientdashboard">Client Dashboard</a>
+                        <a href="/admindashboard/admindashboard">Admin Dashboard</a>
+                    </div>
+                </div>
+
             </li>
-            <li><a href="#services"> <b>Our Services</b></a></li>
+            <li><a href="/solution/solution"> <b>Our Solutions</b></a></li>
             <li><a href="#about"><b>About Us</b></a></li>
             <li><a href="/category/category"><b>Categories</b></a></li>
             <li><a href="#how_it_works"><b>How it works</b></a></li>
             <li><a href="/hirenow/hirenow"><b>Hire now</b></a></li>
             <li><a href="#become a seller"><b>Become a Seller</b></a></li>
-            <li><a href="#payment"><b>Solutions</b></a></li>
-            <li><a href="#contact"><b>Payment Method</b></a></li>
+            <li><a href="#payment method"><b>Payment Method</b></a></li>
+         
         </ul>
-
-    </nav>
+     </nav>
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section about">
@@ -89,6 +90,12 @@
                     <li><a href="#">Contact Us</a></li>
                 </ul>
             </div>
+            <script>
+                function toggleDropdown() {
+                    var dropdown = document.getElementById("dashboardDropdown");
+                    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+                }
+            </script>
 
             <div class="footer-section support">
                 <h3>Support</h3>
