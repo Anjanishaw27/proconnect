@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Payment</title>
+    <link rel="stylesheet" href="/style/fragment/common.css">
+    <link rel="stylesheet" href="../style/client.payment.css">
+    <link rel="stylesheet" href="/script/payment.js">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header data-th-replace="~{fragment/common :: header}"></header>
+    <nav data-th-replace="~{fragment/common :: nav}"></nav>
+
+    <div class="payment-container">
+        <h2>💳 Secure Payment</h2>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h3>📜 Order Summary</h3>
+            <p><strong>Freelancer:</strong> John Smith</p>
+            <p><strong>Service:</strong> Graphic Design</p>
+            <p><strong>Base Price:</strong> $250.00</p>
+            <p><strong>Tax (5%):</strong> $12.50</p>
+            <p class="total"><strong>Total Payable:</strong> <span>$262.50</span></p>
+        </div>
+
+        <form id="payment-form">
+            <!-- Billing Info -->
+            <h3>👤 Billing Details</h3>
+            <div class="input-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="John Doe" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="example@gmail.com" required>
+            </div>
+
+            <!-- Payment Method -->
+            <h3>💰 Payment Method</h3>
+            <div class="input-group">
+                <label for="payment-method">Select Payment Method</label>
+                <select id="payment-method">
+                    <option value="credit-card">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="crypto">Cryptocurrency</option>
+                </select>
+            </div>
+
+            <!-- Credit Card Details -->
+            <div id="card-details" class="hidden">
+                <div class="credit-card-preview">
+                    <div class="card-number-display">**** **** **** ****</div>
+                    <div class="card-name-display">Cardholder Name</div>
+                </div>
+
+                <div class="input-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="card-name">Name on Card</label>
+                    <input type="text" id="card-name" placeholder="John Doe" required>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="expiry">Expiry Date</label>
+                        <input type="text" id="expiry" placeholder="MM/YY" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="123" required>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">💰 Pay Now</button>
+        </form>
+    </div>
+
+    <footer data-th-replace="~{fragment/common :: footer}"></footer>
+</body>
+</html>
