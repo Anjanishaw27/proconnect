@@ -206,3 +206,17 @@ body{
 .container.active .toggle-right{
     transform: translateX(200%);
 }
+
+.radio-container {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 50px;
+}
+.radio-container label {
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+}

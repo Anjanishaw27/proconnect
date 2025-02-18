@@ -124,6 +124,9 @@
             </div>
         </div>
     </main>
+    <div class="add-content">
+        <a href="/category/category">All Categories</a>
+    </div>
     <video src="/video/v2.mp4" autoplay muted loop></video>
 
 
@@ -211,10 +214,76 @@
 
 
         <!-- Services Section -->
-        <section class="services">
-            <div class="container">
-                <h2>OUR SERVICES</h2>
-                <div class="site-footer-marquee" data-site-footer-marquee="" style="--item-count: 8;">
+       <!-- <section class="services">-->
+           <!-- <div class="container">-->
+           <!-- <h2>MEET OUR DEVELOPERS</h2>    
+    <div class="gallery-wrapper">
+        
+        <div class="arrow" onclick="previousProfile()">&#9665;</div>
+        <div class="container" id="freelancerContainer"></div>
+        <div class="arrow" onclick="nextProfile()">&#9655;</div>
+    </div>
+    <div class="add-content1">
+        <a href="/developer/developer">See All</a>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const freelancers = [
+            [
+                { name: "Alice Johnson", description: "Web Developer", 
+                details: "Expert in HTML, CSS, JavaScript.", image: "../images/sd.jpg" },
+                { name: "Bob Smith", description: "Graphic Designer", 
+                details: "Specialized in Adobe Photoshop and Illustrator.", image: "../images/sd.jpg" },
+                { name: "Charlie Davis", description: "SEO Expert", 
+                details: "Experienced in search engine optimization strategies.", image: "../images/sd.jpg" },
+                { name: "Diana Prince", description: "App Developer", 
+                details: "Develops mobile applications for Android and iOS.", image: "../images/sd.jpg" }
+            ],
+            [
+                { name: "David Lee", description: "Content Writer",
+                 details: "Writes engaging and SEO-friendly content.", image: "../images/sd.jpg" },
+                { name: "Emma Brown", description: "Marketing Specialist",
+                 details: "Expert in digital marketing and social media campaigns.", image: "../images/sd.jpg" },
+                { name: "Frank White", description: "UI/UX Designer", 
+                details: "Creates user-friendly and aesthetically pleasing designs.", image: "../images/sd.jpg" },
+                { name: "George Miller", description: "Software Engineer", 
+                details: "Builds scalable and efficient software solutions.", image: "../images/sd.jpg" }
+            ]
+        ];
+
+        function renderProfiles() {
+            const container = document.getElementById("freelancerContainer");
+            container.innerHTML = "";
+            freelancers[currentIndex].forEach(freelancer => {
+                const card = document.createElement("div");
+                card.classList.add("freelancer-card");
+                card.innerHTML = `
+                    <img src="${freelancer.image}" alt="${freelancer.name}">
+                    <h3>${freelancer.name}</h3>
+                    <p>${freelancer.description}</p>
+                    <p class="description">${freelancer.details}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function previousProfile() {
+            currentIndex = (currentIndex - 1 + freelancers.length) % freelancers.length;
+            renderProfiles();
+        }
+
+        function nextProfile() {
+            currentIndex = (currentIndex + 1) % freelancers.length;
+            renderProfiles();
+        }
+
+        renderProfiles();
+    </script>-->
+    <!--  </div>-->
+    <!--</section>-->
+
+                <!--<div class="site-footer-marquee" data-site-footer-marquee="" style="--item-count: 8;">
                     <div class="site-footer-marquee__track">
                         <div class="site-footer-marquee__grid">
                             <a href="/shots/popular/animation" class="site-footer-marquee-item "
@@ -293,13 +362,13 @@
                                         srcset="https://cdn.dribbble.com/userupload/17191934/file/still-76724cd340a87bc6fdbc9b7b406bce18.png?format=webp&amp;resize=320x240&amp;vertical=center 320w, https://cdn.dribbble.com/userupload/17191934/file/still-76724cd340a87bc6fdbc9b7b406bce18.png?format=webp&amp;resize=400x300&amp;vertical=center 400w, https://cdn.dribbble.com/userupload/17191934/file/still-76724cd340a87bc6fdbc9b7b406bce18.png?format=webp&amp;resize=640x480&amp;vertical=center 640w, https://cdn.dribbble.com/userupload/17191934/file/still-76724cd340a87bc6fdbc9b7b406bce18.png?format=webp&amp;resize=752x564&amp;vertical=center 752w, https://cdn.dribbble.com/userupload/17191934/file/still-76724cd340a87bc6fdbc9b7b406bce18.png?format=webp&amp;resize=1024x768&amp;vertical=center 1024w, https://cdn.dribbble.com/userupload/17191934/file/still-76724cd340a87bc6fdbc9b7b406bce18.png?format=webp&amp;resize=1200x900&amp;vertical=center 1200w, https://cdn.dribbble.com/userupload/17191934/file/still-76724cd340a87bc6fdbc9b7b406bce18.png?format=webp&amp;resize=1504x1128&amp;vertical=center 1504w, https://cdn.dribbble.com/userupload/17191934/file/still-76724cd340a87bc6fdbc9b7b406bce18.png?format=webp&amp;resize=2048x1536&amp;vertical=center 2048w, https://cdn.dribbble.com/userupload/17191934/file/still-76724cd340a87bc6fdbc9b7b406bce18.png?format=webp&amp;resize=317x238&amp;vertical=center 317w, https://cdn.dribbble.com/userupload/17191934/file/still-76724cd340a87bc6fdbc9b7b406bce18.png?format=webp&amp;resize=634x476&amp;vertical=center 634w, https://cdn.dribbble.com/userupload/17191934/file/still-76724cd340a87bc6fdbc9b7b406bce18.png?format=webp&amp;resize=200x150&amp;vertical=center 200w">
                                 </div>
 
-                                <!-- <div class="site-footer-marquee-item__title">Typography</div>
+                                <div class="site-footer-marquee-item__title">Typography</div>
                           </a>
                           <a href="/shots/popular/branding" class="site-footer-marquee-item " style="--stack-color-1: #E6FDC9; --stack-color-2: #EDF3D8;">
                             <div class="site-footer-marquee-item__stack"></div>
                             <div class="site-footer-marquee-item__media">
                               <img alt="Branding" width="200" height="150" class="lazyautosizes lazyloaded" data-sizes="auto" data-aspectratio="1.3333333333333333" data-srcset="https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=320x240&amp;vertical=center 320w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=400x300&amp;vertical=center 400w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=640x480&amp;vertical=center 640w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=752x564&amp;vertical=center 752w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=1024x768&amp;vertical=center 1024w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=1200x900&amp;vertical=center 1200w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=1504x1128&amp;vertical=center 1504w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=2048x1536&amp;vertical=center 2048w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=317x238&amp;vertical=center 317w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=634x476&amp;vertical=center 634w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=200x150&amp;vertical=center 200w" sizes="200px" srcset="https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=320x240&amp;vertical=center 320w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=400x300&amp;vertical=center 400w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=640x480&amp;vertical=center 640w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=752x564&amp;vertical=center 752w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=1024x768&amp;vertical=center 1024w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=1200x900&amp;vertical=center 1200w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=1504x1128&amp;vertical=center 1504w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=2048x1536&amp;vertical=center 2048w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=317x238&amp;vertical=center 317w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=634x476&amp;vertical=center 634w, https://cdn.dribbble.com/userupload/17059756/file/original-cabc1f3c118a87e424bc97a8bc5f5266.jpg?crop=215x0-2542x1745&amp;format=webp&amp;resize=200x150&amp;vertical=center 200w">
-                            </div>-->
+                            </div>
 
                                 <div class="site-footer-marquee-item__title">Branding</div>
                             </a>
@@ -443,32 +512,30 @@
                     <div class="service-card">
                         <h3>Web Development</h3>
                         <p>Get professional web development services from experienced freelancers.</p>
-                        <!--<img src="/images/image1.jpg" alt="Freelancing Icon 1">-->
+                        <img src="/images/image1.jpg" alt="Freelancing Icon 1">
                     </div>
                     <div class="service-card">
                         <h3>Logo Design</h3>
                         <p>Creative design services to make your brand stand out.</p>
-                        <!-- <img src="/images/image2.jpg" alt="Freelancing Icon 2">-->
+                         <img src="/images/image2.jpg" alt="Freelancing Icon 2">
                     </div>
                     <div class="service-card">
                         <h3>Product design</h3>
                         <p>High-quality content products services for your blog, website, and more.</p>
-                        <!--  <img src="/images/image3.jpg" alt="Freelancing Icon 3">-->
+                          <img src="/images/image3.jpg" alt="Freelancing Icon 3">
                     </div>
                     <div class="service-card">
                         <h3>Video editing services </h3>
                         <p>High-quality video content services for yourwebsite, and more.</p>
-                        <!--- <img src="/images/image4.jpg" alt="Freelancing Icon 4">-->
+                        <img src="/images/image4.jpg" alt="Freelancing Icon 4">
                     </div>
                     <div class="service-card">
                         <h3>SEO</h3>
                         <p>The goal is not to rank for the most keywords, the goal is to rank for the right ones.</p>
-                        <!--  <img src="/images/image5.jpg" alt="Freelancing Icon 5">-->
+                         <img src="/images/image5.jpg" alt="Freelancing Icon 5">
                     </div>
-
-                </div>
-            </div>
-        </section>
+                        -->
+              
 
         <!-- Contact Section -->
         <section class="contact-section">
@@ -541,7 +608,7 @@
 
         <!--designer -->
         <section class="designer-list">
-            <h2>TOP DESIGNERS</h2>
+            <h2>MEET OUR DEVELOPERS</h2>
             <div class="designer-cards">
                 <div class="designer-card">
                     <img src="/images/d1.jpg" alt="Designer" class="designer-img">
@@ -576,6 +643,10 @@
                 </div>
             </div>
         </section>
+        <div class="add-content1">
+            <a href="/developer/developer">See All</a>
+        </div>
+
         <!--make it all happen with freelancer-->
         <div class="makehappen">
             <h2>Make it all happen with freelancer</h2>
