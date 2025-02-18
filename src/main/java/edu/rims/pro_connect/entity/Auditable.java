@@ -17,10 +17,10 @@ public class Auditable {
     @Column(name = "updated_date")
     private LocalDateTime updatedDate;
     
-    @Column(name = "created_by", length = 255)
+    @Column(name = "created_by")
     private String createdBy;
 
-    @Column(name = "updated_by", length = 255)
+    @Column(name = "updated_by")
     private String updatedBy;
     
 }

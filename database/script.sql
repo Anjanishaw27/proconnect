@@ -22,7 +22,7 @@ CREATE TABLE user (
 CREATE TABLE category (
     category_id VARCHAR(255) PRIMARY KEY,
     category_name VARCHAR(255) UNIQUE NOT NULL,
-    description TEXT,
+   category_description description TEXT,
     created_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     created_by VARCHAR(255),
@@ -32,9 +32,9 @@ CREATE TABLE category (
 CREATE TABLE project (
     project_id VARCHAR(255) PRIMARY KEY,
     project_title VARCHAR(255) NOT NULL,
-    description TEXT NOT NULL,
+    project_description TEXT,
     project_budget DECIMAL(10,2) NOT NULL,
-    status ENUM('OPEN', 'IN_PROGRSS', 'COMPLETED', 'CANCELLED') DEFAULT 'OPEN',
+    project_status ENUM('OPEN', 'IN_PROGRSS', 'COMPLETED', 'CANCELLED') DEFAULT 'OPEN',
     created_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     created_by VARCHAR(255),
@@ -44,11 +44,10 @@ CREATE TABLE project (
 
 CREATE TABLE payment (
     payment_id INT AUTO_INCREMENT PRIMARY KEY,
-    project_id INT NOT NULL,
     client_id INT NOT NULL,
     freelancer_id INT NOT NULL,
     amount DECIMAL(10,2) NOT NULL,
-    status ENUM('PENDING', 'COMPLETED', 'FAILED') DEFAULT 'PENDING',
+    payment_status ENUM('PENDING', 'COMPLETED', 'FAILED') DEFAULT 'PENDING',
     payment_method ENUM('PAYPAL', 'CREDIT_CARD', 'BANK_TRANSFER') NOT NULL,
     transaction_id VARCHAR(255) UNIQUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -99,18 +98,7 @@ CREATE TABLE freelancer_skill (
     updated_by  VARCHAR(255),
 );
 
-CREATE TABLE notification (
-    notification_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    message TEXT NOT NULL,
-    is_read BOOLEAN DEFAULT FALSE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-    created_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    created_by VARCHAR(255),
-    updated_by  VARCHAR(255),
-);
+
 
 
 CREATE TABLE contact_message (

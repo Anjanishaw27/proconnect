@@ -12,11 +12,11 @@ import lombok.Setter;
 public class Category extends Auditable {
 
     @Id
-    @Column(name = "category_id", nullable = false, length = 255)
+    @Column(name = "category_id")
     @GeneratedValue(strategy = GenerationType.UUID)
     private String categoryId;
 
-    @Column(name = "category_name", nullable = false, length = 255)
+    @Column(name = "category_name", nullable = false)
     private String categoryName;
 
     @Column(name = "category_description", nullable = false, columnDefinition = "TEXT")
