@@ -32,56 +32,12 @@
     <section id="categories">
         <h2>Browse Categories</h2>
         <div class="categories-container">
-            <div class="category-card" data-category="web-dev">
+            <div class="category-card" data-category="web-dev" data-th-each="category:${categories}">
                 <img src="/images/web.jpeg" alt="Web Development">
-                <h3>Web Development</h3>
-                <p>Build websites and web applications with top developers.</p>
+                <h3 data-th-text="${category.categoryName}"></h3>
+                <p data-th-text="${category.categoryDescription}"></p>
             </div>
-            <div class="category-card" data-category="graphic-design">
-                <img src="/images/graph.jpeg" alt="Graphic Design">
-                <h3>Graphic Design</h3>
-                <p>Create stunning visuals and designs for your brand.</p>
-            </div>
-            <div class="category-card" data-category="content-writing">
-                <img src="/images/content.jpeg" alt="Content Writing">
-                <h3>Content Writing</h3>
-                <p>High-quality content for blogs, articles, and more.</p>
-            </div>
-            <div class="category-card" data-category="marketing">
-                <img src="/images/marketing.png" alt="Marketing">
-                <h3>Marketing</h3>
-                <p>Grow your business with expert marketing strategies.</p>
-            </div>
-            <div class="category-card" data-category="translation">
-                <img src="/images/translate.jpg" alt="Translation">
-                <h3>Translation</h3>
-                <p>Expert language translation services for global reach.</p>
-            </div>
-            <div class="category-card" data-category="translation">
-                <img src="/images/translate.jpg" alt="Translation">
-                <h3>Animation</h3>
-                <p>Expert language translation services for global reach.</p>
-            </div>
-            <div class="category-card" data-category="translation">
-                <img src="/images/translate.jpg" alt="Translation">
-                <h3>Video editing</h3>
-                <p>Expert language translation services for global reach.</p>
-            </div>
-            <div class="category-card" data-category="translation">
-                <img src="/images/translate.jpg" alt="Translation">
-                <h3>Moblie app devlopment</h3>
-                <p>Expert language translation services for global reach.</p>
-            </div>
-            <div class="category-card" data-category="translation">
-                <img src="/images/translate.jpg" alt="Translation">
-                <h3>Logo design</h3>
-                <p>Expert language translation services for global reach.</p>
-            </div>
-            <div class="category-card" data-category="translation">
-                <img src="/images/translate.jpg" alt="Translation">
-                <h3>Datascience and AI </h3>
-                <p>Expert language translation services for global reach.</p>
-            </div>
+            
         </div>
     </section>
 

@@ -33,7 +33,7 @@ CREATE TABLE project (
     project_id VARCHAR(255) PRIMARY KEY,
     project_title VARCHAR(255) NOT NULL,
     project_description TEXT,
-    project_budget DECIMAL(10,2) NOT NULL,
+    project_budget DOUBLE(10,2) NOT NULL,
     project_status ENUM('OPEN', 'IN_PROGRSS', 'COMPLETED', 'CANCELLED') DEFAULT 'OPEN',
     created_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -42,11 +42,24 @@ CREATE TABLE project (
 
 );
 
+-- Bids Table (Freelancers bid on projects)
+CREATE TABLE Bids (
+    bid_id INT AUTO_INCREMENT PRIMARY KEY,
+    project_id INT NOT NULL,
+    freelancer_id INT NOT NULL,
+    bid_amount DOUBLE(10,2) NOT NULL,
+    proposal TEXT NOT NULL,
+    status ENUM('pending', 'accepted', 'rejected') DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (project_id) REFERENCES Projects(project_id) ON DELETE CASCADE,
+    FOREIGN KEY (freelancer_id) REFERENCES Users(user_id) ON DELETE CASCADE
+);
+
 CREATE TABLE payment (
-    payment_id INT AUTO_INCREMENT PRIMARY KEY,
+    payment_id VARCHAR(255),
     client_id INT NOT NULL,
     freelancer_id INT NOT NULL,
-    amount DECIMAL(10,2) NOT NULL,
+    amount DOUBLE(10,2) NOT NULL,
     payment_status ENUM('PENDING', 'COMPLETED', 'FAILED') DEFAULT 'PENDING',
     payment_method ENUM('PAYPAL', 'CREDIT_CARD', 'BANK_TRANSFER') NOT NULL,
     transaction_id VARCHAR(255) UNIQUE,
@@ -59,6 +72,16 @@ CREATE TABLE payment (
     created_by VARCHAR(255),
     updated_by  VARCHAR(255),
 );
+
+CREATE TABLE profile (
+    profile_id INT PRIMARY KEY AUTO_INCREMENT,  -- Unique ID for each developer
+    profile_name VARCHAR(100) NOT NULL,         -- Developer's Name
+    profile_skills TEXT NOT NULL,               -- Skills List
+    profile_experience INT NOT NULL,            -- Years of Experience
+    profile_email VARCHAR(100) UNIQUE NOT NULL, -- Email (must be unique)
+    profile_location VARCHAR(100)               -- Location
+);
+
 
 CREATE TABLE review (
     review_id INT AUTO_INCREMENT PRIMARY KEY,

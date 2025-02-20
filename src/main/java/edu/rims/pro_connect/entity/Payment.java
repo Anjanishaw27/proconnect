@@ -16,7 +16,7 @@ public class Payment extends Auditable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "payment_id")
-    private Long paymentId;
+    private String paymentId;
 
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
