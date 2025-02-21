@@ -50,4 +50,6 @@ public class User extends Auditable {
     @OneToMany(mappedBy = "user")
     private List<Payment> payments;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Freelancer freelancer;
 }

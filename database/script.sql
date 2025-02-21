@@ -19,6 +19,25 @@ CREATE TABLE user (
     updated_by  VARCHAR(255),
 );
 
+CREATE TABLE freelancer (
+    freelancer_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    full_name VARCHAR(255),
+    rating DECIMAL(3,2),
+    location VARCHAR(255), 
+    language VARCHAR(100),
+    completed_projects INT DEFAULT 0,
+    total_clients INT DEFAULT 0,
+    years_experience INT,
+    specialization TEXT,
+    skills TEXT,
+    profile_description TEXT,
+    profile_picture VARCHAR(255),
+    joined_date DATE,
+    FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE
+);
+
+
 CREATE TABLE category (
     category_id VARCHAR(255) PRIMARY KEY,
     category_name VARCHAR(255) UNIQUE NOT NULL,
