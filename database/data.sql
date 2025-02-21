@@ -47,9 +47,6 @@ INSERT INTO reviews (project_id, client_id, freelancer_id, rating, review_text) 
 (1, 1, 2, 5, 'Excellent work! The website was delivered on time and looks great.'),
 (2, 1, 3, 4, 'Good logo, but needed some revisions.');
 
-INSERT INTO messages (sender_id, receiver_id, message) VALUES
-(1, 2, 'Hi, I need a website developed. Can we discuss the details?'),
-(2, 1, 'Sure! I can start immediately. Let’s discuss your requirements.');
 
 INSERT INTO contact_messages (name, email, phone, message) VALUES
 ('Michael Johnson', 'michael@example.com', '+1987654321', 'I need help with my account.'),
