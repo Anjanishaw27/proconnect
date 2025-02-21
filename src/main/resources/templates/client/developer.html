@@ -1,394 +1,222 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freelancer Search</title>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Profile Card</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 </head>
-
 <body class="bg-gray-100">
-    <div class="bg-gray-700 text-white py-4">
-        <div class="container mx-auto text-center">
-            <h1 class="text-3xl font-bold mt-4">Search Expert Freelancers for Any Project</h1>
-            <p class="text-lg">Looking for top quality Freelance talent? PeoplePerHour has you covered.</p>
-        </div>
-    </div>
-    <div class="bg-gray-900 py-4">
-        <div class="container mx-auto flex justify-center">
-            <div class="relative w-full max-w-2xl">
-                <input type="text" class="w-full py-3 pl-4 pr-16 rounded-full shadow-md focus:outline-none" placeholder="Search freelancers">
-                <button class="absolute right-0 top-0 mt-3 mr-4 text-orange-500">
-                    <i class="fas fa-search"></i>
-                </button>
+    <div class="container mx-auto p-4">
+        <div class="bg-white border border-gray-300 rounded-lg p-6 w-full max-w-7xl mx-auto mb-6">
+            <div class="flex items-center">
+                <img alt="Profile picture of a man with glasses and a beard" class="w-24 h-24 rounded-full mr-6" height="100" src="https://storage.googleapis.com/a1aa/image/YUJ8Vx4VaDwXUmykoc4yuuqjUwRnVhP129llgDGhLwA.jpg" width="100"/>
+                <div>
+                    <h2 class="text-2xl font-semibold">
+                        David Michael
+                        <span class="text-orange-500">
+                            <i class="fas fa-star"></i>
+                            4.97/5
+                        </span>
+                    </h2>
+                    <p class="text-gray-600">
+                        WordPress developer on Codeable since 07 Aug, 2020
+                        <span class="text-orange-500">•</span>
+                        5 years
+                    </p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-map-marker-alt text-gray-500 mr-2"></i>
+                        <a class="text-teal-600 hover:underline" href="#">Stirling, United Kingdom</a>
+                    </div>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-language text-gray-500 mr-2"></i>
+                        <span class="text-gray-600">English</span>
+                    </div>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-check-circle text-gray-500 mr-2"></i>
+                        <span class="text-gray-600">184 Completed Projects</span>
+                    </div>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-users text-gray-500 mr-2"></i>
+                        <span class="text-gray-600">79 clients</span>
+                    </div>
+                </div>
             </div>
-            <button class="ml-4 bg-gray-200 text-gray-700 py-3 px-6 rounded-full shadow-md flex items-center">
-                <i class="fas fa-th-large mr-2"></i> Categories
-            </button>
+            <p class="mt-4 text-gray-700">
+                Hey, I’m David – I specialise in building high performance, secure and scalable plugins for Easy Digital Downloads, AffiliateWP, Restrict Content Pro, Sugar Calendar, WP Simple Pay Pro, Gravity Forms and WooCommerce.
+            </p>
+            <button class="mt-4 bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700">VIEW DAVID</button>
+            <div class="mt-4 flex flex-wrap gap-2">
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">AFFILIATEWP</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">ANYTHING BACKEND</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">BUSINESS DEVELOPMENT</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">CUSTOM API INTEGRATION</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">CUSTOM THEMES</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">EASY DIGITAL DOWNLOADS</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">FULL STACK</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">GAMIPRESS</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">GRAVITY FORMS</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">KINSTA</span>
+            </div>
         </div>
-    </div>
-  
- <body class="bg-white">
-  <div class="container mx-auto px-4 py-8">
-   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-    <!-- Profile Card 1 -->
-    <div class="bg-white shadow-md rounded-lg overflow-hidden">
-     <img alt="Profile image of Kowalski" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/hCkw4ArrfeVLCcFVCpyXaSInjJMj8qIjPY3U388roAU.jpg" width="300"/>
-     <div class="p-4">
-      <h3 class="text-xl font-semibold mb-2">
-       Kowalski
-      </h3>
-      <p class="text-gray-600 mb-2">
-       <i class="fas fa-map-marker-alt">
-       </i>
-       de Farnals, Spain
-      </p>
-      <div class="flex items-center mb-2">
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-      </div>
-      <p class="text-gray-600 mb-2">
-       Completed Projects: 235
-      </p>
-      <p class="text-gray-600 mb-4">
-       Joined: October 2021
-      </p>
-      <button class="bg-black text-white py-2 px-4 rounded">
-       <a href="/profile/profile">VIEW KOWALSKI'S PROFILE</a>
-      </button>
-     </div>
-    </div>
-    <!-- Profile Card 2 -->
-    <div class="bg-white shadow-md rounded-lg overflow-hidden">
-     <img alt="Profile image of Hunor Szőcs" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/JjFipv61q-dERnXSK6_Tq6RtgRhEAparqAzEe-FWn3o.jpg" width="300"/>
-     <div class="p-4">
-      <h3 class="text-xl font-semibold mb-2">
-       Hunor Szőcs
-      </h3>
-      <p class="text-gray-600 mb-2">
-       <i class="fas fa-map-marker-alt">
-       </i>
-       Târgu Mureș, Romania
-      </p>
-      <div class="flex items-center mb-2">
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-      </div>
-      <p class="text-gray-600 mb-2">
-       Completed Projects: 104
-      </p>
-      <p class="text-gray-600 mb-4">
-       Joined: December 2022
-      </p>
-      <button class="bg-black text-white py-2 px-4 rounded">
-       VIEW HUNOR'S PROFILE
-      </button>
-     </div>
-    </div>
-    <!-- Profile Card 3 -->
-    <div class="bg-white shadow-md rounded-lg overflow-hidden">
-     <img alt="Profile image of Sajid Javed" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/8Rw-rUx2llgqIwdKoxY7xZ133EYiz0fHtSWXWohE8vw.jpg" width="300"/>
-     <div class="p-4">
-      <h3 class="text-xl font-semibold mb-2">
-       Sajid Javed
-      </h3>
-      <p class="text-gray-600 mb-2">
-       <i class="fas fa-map-marker-alt">
-       </i>
-       Islamabad, Pakistan
-      </p>
-      <div class="flex items-center mb-2">
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-      </div>
-      <p class="text-gray-600 mb-2">
-       Completed Projects: 34
-      </p>
-      <p class="text-gray-600 mb-4">
-       Joined: February 2023
-      </p>
-      <button class="bg-black text-white py-2 px-4 rounded">
-       VIEW SAJID'S PROFILE
-      </button>
-     </div>
-    </div>
-    <!-- Profile Card 4 -->
-    <div class="bg-white shadow-md rounded-lg overflow-hidden">
-     <img alt="Profile image of Spyros Vlachopoulos" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/HekSUkkmdnkUtUHpcCOCUd9HTFFEEi1aJU2HOY2EVqw.jpg" width="300"/>
-     <div class="p-4">
-      <h3 class="text-xl font-semibold mb-2">
-       Spyros Vlachopoulos
-      </h3>
-      <p class="text-gray-600 mb-2">
-       <i class="fas fa-map-marker-alt">
-       </i>
-       Thessaloniki, Greece
-      </p>
-      <div class="flex items-center mb-2">
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-      </div>
-      <p class="text-gray-600 mb-2">
-       Completed Projects: 1031
-      </p>
-      <p class="text-gray-600 mb-4">
-       Joined: May 2014
-      </p>
-      <button class="bg-black text-white py-2 px-4 rounded">
-       VIEW SPYROS' PROFILE
-      </button>
-     </div>
-    </div>
-    <!-- Profile Card 5 -->
-    <div class="bg-white shadow-md rounded-lg overflow-hidden">
-     <img alt="Profile image of Robin S" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/IJ_3RzPQl18DCc2nJpab1El3F-FvdWZK8I-G0mhgLso.jpg" width="300"/>
-     <div class="p-4">
-      <h3 class="text-xl font-semibold mb-2">
-       Robin S
-      </h3>
-      <p class="text-gray-600 mb-2">
-       <i class="fas fa-map-marker-alt">
-       </i>
-       United Kingdom
-      </p>
-      <div class="flex items-center mb-2">
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-       <i class="fas fa-heart text-black">
-       </i>
-      </div>
-      <p class="text-gray-600 mb-2">
-       Completed Projects: 1031
-      </p>
-      <p class="text-gray-600 mb-4">
-       Joined: May 2014
-      </p>
-      <button class="bg-black text-white py-2 px-4 rounded">
-       VIEW ROBIN'S PROFILE
-      </button>
-     </div>
-    </div>
-   </div>
-  </div>
 
-  <body class="bg-white">
-    <div class="container mx-auto px-4 py-8">
-     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-      <!-- Profile Card 1 -->
-      <div class="bg-white shadow-md rounded-lg overflow-hidden">
-       <img alt="Profile image of Kowalski" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/hCkw4ArrfeVLCcFVCpyXaSInjJMj8qIjPY3U388roAU.jpg" width="300"/>
-       <div class="p-4">
-        <h3 class="text-xl font-semibold mb-2">
-         Kowalski
-        </h3>
-        <p class="text-gray-600 mb-2">
-         <i class="fas fa-map-marker-alt">
-         </i>
-         de Farnals, Spain
-        </p>
-        <div class="flex items-center mb-2">
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
+        <div class="bg-white border border-gray-300 rounded-lg p-6 w-full max-w-7xl mx-auto">
+            <div class="flex items-center">
+                <img alt="Profile picture of a man with glasses and a beard" class="w-24 h-24 rounded-full mr-6" height="100" src="https://storage.googleapis.com/a1aa/image/YUJ8Vx4VaDwXUmykoc4yuuqjUwRnVhP129llgDGhLwA.jpg" width="100"/>
+                <div>
+                    <h2 class="text-2xl font-semibold">
+                        David Michael
+                        <span class="text-orange-500">
+                            <i class="fas fa-star"></i>
+                            4.97/5
+                        </span>
+                    </h2>
+                    <p class="text-gray-600">
+                        WordPress developer on Codeable since 07 Aug, 2020
+                        <span class="text-orange-500">•</span>
+                        5 years
+                    </p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-map-marker-alt text-gray-500 mr-2"></i>
+                        <a class="text-teal-600 hover:underline" href="#">Stirling, United Kingdom</a>
+                    </div>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-language text-gray-500 mr-2"></i>
+                        <span class="text-gray-600">English</span>
+                    </div>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-check-circle text-gray-500 mr-2"></i>
+                        <span class="text-gray-600">184 Completed Projects</span>
+                    </div>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-users text-gray-500 mr-2"></i>
+                        <span class="text-gray-600">79 clients</span>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-4 text-gray-700">
+                Hey, I’m David – I specialise in building high performance, secure and scalable plugins for Easy Digital Downloads, AffiliateWP, Restrict Content Pro, Sugar Calendar, WP Simple Pay Pro, Gravity Forms and WooCommerce.
+            </p>
+            <button class="mt-4 bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700">VIEW DAVID</button>
+            <div class="mt-4 flex flex-wrap gap-2">
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">AFFILIATEWP</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">ANYTHING BACKEND</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">BUSINESS DEVELOPMENT</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">CUSTOM API INTEGRATION</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">CUSTOM THEMES</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">EASY DIGITAL DOWNLOADS</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">FULL STACK</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">GAMIPRESS</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">GRAVITY FORMS</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">KINSTA</span>
+            </div>
         </div>
-        <p class="text-gray-600 mb-2">
-         Completed Projects: 235
-        </p>
-        <p class="text-gray-600 mb-4">
-         Joined: October 2021
-        </p>
-        <button class="bg-black text-white py-2 px-4 rounded">
-         VIEW KOWALSKI'S PROFILE
-        </button>
-       </div>
-      </div>
-      <!-- Profile Card 2 -->
-      <div class="bg-white shadow-md rounded-lg overflow-hidden">
-       <img alt="Profile image of Hunor Szőcs" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/JjFipv61q-dERnXSK6_Tq6RtgRhEAparqAzEe-FWn3o.jpg" width="300"/>
-       <div class="p-4">
-        <h3 class="text-xl font-semibold mb-2">
-         Hunor Szőcs
-        </h3>
-        <p class="text-gray-600 mb-2">
-         <i class="fas fa-map-marker-alt">
-         </i>
-         Târgu Mureș, Romania
-        </p>
-        <div class="flex items-center mb-2">
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-        </div>
-        <p class="text-gray-600 mb-2">
-         Completed Projects: 104
-        </p>
-        <p class="text-gray-600 mb-4">
-         Joined: December 2022
-        </p>
-        <button class="bg-black text-white py-2 px-4 rounded">
-         VIEW HUNOR'S PROFILE
-        </button>
-       </div>
-      </div>
-      <!-- Profile Card 3 -->
-      <div class="bg-white shadow-md rounded-lg overflow-hidden">
-       <img alt="Profile image of Sajid Javed" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/8Rw-rUx2llgqIwdKoxY7xZ133EYiz0fHtSWXWohE8vw.jpg" width="300"/>
-       <div class="p-4">
-        <h3 class="text-xl font-semibold mb-2">
-         Sajid Javed
-        </h3>
-        <p class="text-gray-600 mb-2">
-         <i class="fas fa-map-marker-alt">
-         </i>
-         Islamabad, Pakistan
-        </p>
-        <div class="flex items-center mb-2">
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-        </div>
-        <p class="text-gray-600 mb-2">
-         Completed Projects: 34
-        </p>
-        <p class="text-gray-600 mb-4">
-         Joined: February 2023
-        </p>
-        <button class="bg-black text-white py-2 px-4 rounded">
-         VIEW SAJID'S PROFILE
-        </button>
-       </div>
-      </div>
-      <!-- Profile Card 4 -->
-      <div class="bg-white shadow-md rounded-lg overflow-hidden">
-       <img alt="Profile image of Spyros Vlachopoulos" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/HekSUkkmdnkUtUHpcCOCUd9HTFFEEi1aJU2HOY2EVqw.jpg" width="300"/>
-       <div class="p-4">
-        <h3 class="text-xl font-semibold mb-2">
-         Spyros Vlachopoulos
-        </h3>
-        <p class="text-gray-600 mb-2">
-         <i class="fas fa-map-marker-alt">
-         </i>
-         Thessaloniki, Greece
-        </p>
-        <div class="flex items-center mb-2">
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-        </div>
-        <p class="text-gray-600 mb-2">
-         Completed Projects: 1031
-        </p>
-        <p class="text-gray-600 mb-4">
-         Joined: May 2014
-        </p>
-        <button class="bg-black text-white py-2 px-4 rounded">
-         VIEW SPYROS' PROFILE
-        </button>
-       </div>
-      </div>
-      <!-- Profile Card 5 -->
-      <div class="bg-white shadow-md rounded-lg overflow-hidden">
-       <img alt="Profile image of Robin S" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/IJ_3RzPQl18DCc2nJpab1El3F-FvdWZK8I-G0mhgLso.jpg" width="300"/>
-       <div class="p-4">
-        <h3 class="text-xl font-semibold mb-2">
-         Robin S
-        </h3>
-        <p class="text-gray-600 mb-2">
-         <i class="fas fa-map-marker-alt">
-         </i>
-         United Kingdom
-        </p>
-        <div class="flex items-center mb-2">
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-         <i class="fas fa-heart text-black">
-         </i>
-        </div>
-        <p class="text-gray-600 mb-2">
-         Completed Projects: 1031
-        </p>
-        <p class="text-gray-600 mb-4">
-         Joined: May 2014
-        </p>
-        <button class="bg-black text-white py-2 px-4 rounded">
-         VIEW ROBIN'S PROFILE
-        </button>
-       </div>
-      </div>
-     </div>
     </div>
- 
- </body>
- </html>
+
+    <div class="container mx-auto p-4">
+        <div class="bg-white border border-gray-300 rounded-lg p-6 w-full max-w-7xl mx-auto mb-6">
+            <div class="flex items-center">
+                <img alt="Profile picture of a man with glasses and a beard" class="w-24 h-24 rounded-full mr-6" height="100" src="https://storage.googleapis.com/a1aa/image/YUJ8Vx4VaDwXUmykoc4yuuqjUwRnVhP129llgDGhLwA.jpg" width="100"/>
+                <div>
+                    <h2 class="text-2xl font-semibold">
+                        David Michael
+                        <span class="text-orange-500">
+                            <i class="fas fa-star"></i>
+                            4.97/5
+                        </span>
+                    </h2>
+                    <p class="text-gray-600">
+                        WordPress developer on Codeable since 07 Aug, 2020
+                        <span class="text-orange-500">•</span>
+                        5 years
+                    </p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-map-marker-alt text-gray-500 mr-2"></i>
+                        <a class="text-teal-600 hover:underline" href="#">Stirling, United Kingdom</a>
+                    </div>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-language text-gray-500 mr-2"></i>
+                        <span class="text-gray-600">English</span>
+                    </div>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-check-circle text-gray-500 mr-2"></i>
+                        <span class="text-gray-600">184 Completed Projects</span>
+                    </div>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-users text-gray-500 mr-2"></i>
+                        <span class="text-gray-600">79 clients</span>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-4 text-gray-700">
+                Hey, I’m David – I specialise in building high performance, secure and scalable plugins for Easy Digital Downloads, AffiliateWP, Restrict Content Pro, Sugar Calendar, WP Simple Pay Pro, Gravity Forms and WooCommerce.
+            </p>
+            <button class="mt-4 bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700">VIEW DAVID</button>
+            <div class="mt-4 flex flex-wrap gap-2">
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">AFFILIATEWP</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">ANYTHING BACKEND</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">BUSINESS DEVELOPMENT</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">CUSTOM API INTEGRATION</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">CUSTOM THEMES</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">EASY DIGITAL DOWNLOADS</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">FULL STACK</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">GAMIPRESS</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">GRAVITY FORMS</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">KINSTA</span>
+            </div>
+        </div>
+
+        <div class="bg-white border border-gray-300 rounded-lg p-6 w-full max-w-7xl mx-auto">
+            <div class="flex items-center">
+                <img alt="Profile picture of a man with glasses and a beard" class="w-24 h-24 rounded-full mr-6" height="100" src="https://storage.googleapis.com/a1aa/image/YUJ8Vx4VaDwXUmykoc4yuuqjUwRnVhP129llgDGhLwA.jpg" width="100"/>
+                <div>
+                    <h2 class="text-2xl font-semibold">
+                        David Michael
+                        <span class="text-orange-500">
+                            <i class="fas fa-star"></i>
+                            4.97/5
+                        </span>
+                    </h2>
+                    <p class="text-gray-600">
+                        WordPress developer on Codeable since 07 Aug, 2020
+                        <span class="text-orange-500">•</span>
+                        5 years
+                    </p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-map-marker-alt text-gray-500 mr-2"></i>
+                        <a class="text-teal-600 hover:underline" href="#">Stirling, United Kingdom</a>
+                    </div>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-language text-gray-500 mr-2"></i>
+                        <span class="text-gray-600">English</span>
+                    </div>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-check-circle text-gray-500 mr-2"></i>
+                        <span class="text-gray-600">184 Completed Projects</span>
+                    </div>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-users text-gray-500 mr-2"></i>
+                        <span class="text-gray-600">79 clients</span>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-4 text-gray-700">
+                Hey, I’m David – I specialise in building high performance, secure and scalable plugins for Easy Digital Downloads, AffiliateWP, Restrict Content Pro, Sugar Calendar, WP Simple Pay Pro, Gravity Forms and WooCommerce.
+            </p>
+            <button class="mt-4 bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700">VIEW DAVID</button>
+            <div class="mt-4 flex flex-wrap gap-2">
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">AFFILIATEWP</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">ANYTHING BACKEND</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">BUSINESS DEVELOPMENT</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">CUSTOM API INTEGRATION</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">CUSTOM THEMES</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">EASY DIGITAL DOWNLOADS</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">FULL STACK</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">GAMIPRESS</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">GRAVITY FORMS</span>
+                <span class="bg-gray-200 text-gray-800 py-1 px-3 rounded">KINSTA</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
