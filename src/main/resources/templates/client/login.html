@@ -21,10 +21,14 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email for registeration</span>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Your Password" required>
+                <input type="tel" id="phone" placeholder="Enter Contact Information" name="phone" pattern="[0-9]{10}" required>
+                <input type="text" placeholder="Add Bio">
                 <div class="radio-container">
+                    <label>User Role:</label>
                         <label>
                             <input type="radio" name="userType" value="client"> Client
                         </label>
@@ -47,16 +51,16 @@
                     <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
-
-                <input list="User_role" name="UserRole" placeholder="User Role">
+                <span>or use your email password</span>
+                <input list="User_role" name="UserRole" placeholder="User Role" required>
                 <datalist id="User_role">
                     <option value="Customer">
                     <option value="Tech-Expert">
                     <option value="Admin">
                 </datalist>
 
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
                 <a href="#">Forget Your Password?</a>
                 <button>Sign In</button>
             </form>
