@@ -24,7 +24,7 @@ public class Freelancer {
     @Column(name = "full_name", length = 255)
     private String fullName;
 
-    @Column(name = "rating", precision = 3, scale = 2)
+    @Column(name = "rating")
     private Double rating;
 
     @Column(name = "location", length = 255)
