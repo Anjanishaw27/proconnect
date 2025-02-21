@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 public class Payment extends Auditable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "payment_id")
     private String paymentId;
 
