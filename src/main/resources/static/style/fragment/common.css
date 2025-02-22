@@ -63,7 +63,8 @@
 
 .sign {
     top: 20px;
-    right: 5px;
+    right: 10px;
+    
     display: flex;
     position: absolute;
     padding: 10px 15px;
@@ -91,15 +92,10 @@
 
 .call i {
     padding: 10px;
+    
 }
 
-.reg{
-    background-color: #17A2B8;
-}
 
-.reg i{
-    padding: 10px;
-}
 
 header {
     background-color: #17A2B8;
@@ -128,7 +124,7 @@ nav {
 
 .dropdown {
     position: absolute;
-    background-color: #17A2B8;
+    mbackground-color: #17A2B8;
     padding-block: 1rem;
     top: 3.1rem;
     left: -0.3rem;
