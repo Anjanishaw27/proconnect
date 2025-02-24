@@ -51,3 +51,35 @@ INSERT INTO reviews (project_id, client_id, freelancer_id, rating, review_text) 
 INSERT INTO contact_messages (name, email, phone, message) VALUES
 ('Michael Johnson', 'michael@example.com', '+1987654321', 'I need help with my account.'),
 ('Samantha Brown', 'samantha@example.com', '+1122334455', 'Looking for more details about your services.');
+
+INSERT INTO freelancer (user_id, full_name, rating, location, language, completed_projects, total_clients, years_experience, specialization, skills, profile_description, profile_picture, joined_date)
+VALUES
+(1, 'David Michael', 4.97, 'Stirling, United Kingdom', 'English', 184, 79, 5, 
+ 'WordPress Development', 
+ 'AFFILIATEWP, ANYTHING BACKEND, BUSINESS DEVELOPMENT, CUSTOM API INTEGRATION, CUSTOM THEMES, EASY DIGITAL DOWNLOADS, FULL STACK, GAMIPRESS, GRAVITY FORMS, KINSTA',
+ 'Hey, I’m David – I specialise in building high performance, secure and scalable plugins for Easy Digital Downloads, AffiliateWP, Restrict Content Pro, Sugar Calendar, WP Simple Pay Pro, Gravity Forms and WooCommerce.', 
+ 'https://storage.googleapis.com/a1aa/image/YUJ8Vx4VaDwXUmykoc4yuuqjUwRnVhP129llgDGhLwA.jpg', 
+ '2020-08-07'),
+
+(2, 'Sarah Johnson', 4.85, 'New York, USA', 'English, Spanish', 210, 90, 7, 
+ 'Full Stack Development', 
+ 'REACT, NODE.JS, DATABASES, API DEVELOPMENT, CLOUD COMPUTING', 
+ 'Passionate full-stack developer with expertise in building scalable applications, APIs, and cloud-based solutions.', 
+ 'https://storage.googleapis.com/a1aa/image/sample_sarah.jpg', 
+ '2018-06-15');
+
+(3, 'Emily Johnson', 4.85, 'Los Angeles, USA', 'English, Spanish', 150, 65, 6, 'Full Stack Web Development', 'React,Node.js,Express,MongoDB,Tailwind CSS,API Development', 
+ 'I’m a passionate full-stack developer helping businesses build high-performance, user-friendly web applications.', 
+ 'https://randomuser.me/api/portraits/women/45.jpg', '2018-06-15'),
+
+(4, 'Michael Smith', 4.90, 'Toronto, Canada', 'English, French', 210, 90, 7, 'E-commerce & Shopify Expert', 'Shopify,Magento,PHP,UI/UX Design,SEO Optimization', 
+ 'Helping brands scale their online stores through effective Shopify solutions and SEO strategies.', 
+ 'https://randomuser.me/api/portraits/men/52.jpg', '2016-04-22'),
+
+(5, 'Sophia Brown', 4.80, 'Berlin, Germany', 'German, English', 120, 50, 4, 'Mobile App Development', 'Flutter,Dart,Android,iOS,Firebase,Cloud Functions', 
+ 'Expert in developing cross-platform mobile applications using Flutter and Firebase.', 
+ 'https://randomuser.me/api/portraits/women/29.jpg', '2019-11-10'),
+
+(6, 'James Wilson', 4.88, 'Sydney, Australia', 'English', 175, 85, 6, 'Cybersecurity & Ethical Hacking', 'Penetration Testing,Network Security,Ethical Hacking,Python,Cloud Security', 
+ 'Certified ethical hacker with extensive experience in securing web applications and networks.', 
+ 'https://randomuser.me/api/portraits/men/60.jpg', '2017-03-05');
