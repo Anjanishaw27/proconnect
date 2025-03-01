@@ -57,6 +57,7 @@ h1 {
     border-radius: 5px;
     margin-top: 10px;
 }
+
 @media (max-width: 768px) {
     .steps {
         grid-template-columns: 1fr;

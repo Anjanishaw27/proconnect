@@ -3,13 +3,20 @@ INSERT INTO users (name, email, password, user_type, phone, profile_picture, bio
 ('Alice Smith', 'alice@example.com', 'securepass', 'freelancer', '+9876543210', 'alice.jpg', 'Web Developer with 5 years of experience.', 'HTML, CSS, JavaScript, PHP'),
 ('Mark Lee', 'mark@example.com', 'pass123', 'freelancer', '+1112223333', 'mark.jpg', 'Graphic designer & logo expert.', 'Photoshop, Illustrator, Branding');
 
-INSERT INTO category (category_id, category_name, description, created_by, updated_by) VALUES
-(UUID(), 'Web Development', 'Building websites, front-end, back-end, and full-stack development', 'Admin', 'Admin'),
-(UUID(), 'Graphic Design', 'Creating logos, branding, UI/UX, and digital illustrations', 'Admin', 'Admin'),
-(UUID(), 'Writing & Translation', 'Content writing, copywriting, blogging, and language translation', 'Admin', 'Admin'),
-(UUID(), 'Digital Marketing', 'SEO, social media marketing, PPC campaigns, and email marketing', 'Admin', 'Admin'),
-(UUID(), 'Video & Animation', 'Explainer videos, video editing, animation, and motion graphics', 'Admin', 'Admin'),
-(UUID(), 'Business Consulting', 'Financial planning, market research, and business strategy', 'Admin', 'Admin');
+INSERT INTO category (category_id, category_name, category_description, category_status, created_by, updated_by) VALUES
+(UUID(), 'Web Development', 'Building websites, front-end, back-end, and full-stack development','open', 'Admin', 'Admin'),
+(UUID(), 'Graphic Design', 'Creating logos, branding, UI/UX, and digital illustrations','open', 'Admin', 'Admin'),
+(UUID(), 'Writing & Translation', 'Content writing, copywriting, blogging, and language translation','in progress', 'Admin', 'Admin'),
+(UUID(), 'Digital Marketing', 'SEO, social media marketing, PPC campaigns, and email marketing','open', 'Admin', 'Admin'),
+(UUID(), 'Video & Animation', 'Explainer videos, video editing, animation, and motion graphics','canceled', 'Admin', 'Admin'),
+(UUID(), 'Business Consulting', 'Financial planning, market research, and business strategy','open', 'Admin', 'Admin');
+(UUID(), 'Mobile App Development', 'Developing iOS and Android applications, including UI/UX design','in progress', 'Admin', 'Admin'),  
+(UUID(), 'Cybersecurity', 'Protecting systems, networks, and data from cyber threats and attacks','open', 'Admin', 'Admin'),  
+(UUID(), 'E-commerce & Dropshipping', 'Building online stores, managing dropshipping, and product listing optimization','completed', 'Admin', 'Admin'),  
+(UUID(), 'Game Development', 'Designing and developing games for PC, mobile, and consoles using various engines','in progress', 'Admin', 'Admin'),  
+(UUID(), 'Artificial Intelligence & Machine Learning', 'Creating AI models, chatbots, automation, and predictive analytics','completed', 'Admin', 'Admin');  
+
+
 
 INSERT INTO projects (client_id, title, description, budget, status) VALUES
 (1, 'Website Development', 'Need a responsive website for my business.', 500.00, 'open'),

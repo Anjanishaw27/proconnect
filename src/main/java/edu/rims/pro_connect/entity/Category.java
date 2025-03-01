@@ -22,4 +22,9 @@ public class Category extends Auditable {
     @Column(name = "category_description", nullable = false, columnDefinition = "TEXT")
     private String categoryDescription;
 
+    @Column(name = "category_image_url", length = 250)
+    private String categoryImageUrl ;
+
+    @Column(name = "category_status", nullable = false, columnDefinition = "TEXT")
+    private String categoryStatus;
 }

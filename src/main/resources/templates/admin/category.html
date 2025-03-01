@@ -3,68 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Dashboard</title>
-    <link rel="stylesheet" href="../style/devdashboard.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/admin/admindashboard.css">
+    <link rel="stylesheet" href="../style/admin/category.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<style>/* General Page Styles */
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        background-color: #f4f4f4;
-    }
-    
-    /* Sidebar Styles */
-    .sidebar {
-        width: 200px;
-        background-color: #2c3e50;
-        color: white;
-        height: 100vh;
-        padding-top: 20px;
-        position: fixed;
-        left: 0;
-        top: 0;
-    }
-    
-    .sidebar h2 {
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 24px;
-    }
-    
-    .sidebar ul {
-        list-style: none;
-        padding: 0;
-    }
-    
-    .sidebar ul li {
-        padding: 15px 20px;
-        display: flex;
-        align-items: center;
-        transition: background 0.3s;
-    }
-    
-    .sidebar ul li i {
-        margin-right: 10px;
-    }
-    
-    .sidebar ul li a {
-        color: white;
-        text-decoration: none;
-        flex: 1;
-    }
-    
-    .sidebar ul li:hover {
-        background-color: #34495e;
-    }
-    
-    /* Main Content */
+
+    <style>
     .content {
-        margin-left: 270px;
+        margin-left: 10px;
         padding: 20px;
         width: calc(100% - 270px);
     }
@@ -76,6 +26,7 @@
     /* Search Bar */
     .search-container {
         margin-bottom: 20px;
+        display: flex;
     }
     
     .search-bar {
@@ -176,67 +127,87 @@
         }
     }
     </style>
+</head>
 <body>
-    <div class="sidebar">
-        <h2>ProConnect</h2>
-        <ul>
-            <li><i class="fas fa-tachometer-alt"></i><a href="#">Dashboard</a></li>
-            <li><i class="fas fa-briefcase"></i><a href="#">Browse Projects</a></li>
-            <li><i class="fas fa-tasks"></i><a href="#">My Projects</a></li>
-            <li><i class="fas fa-dollar-sign"></i><a href="#">Earnings</a></li>
-            <li><i class="fas fa-envelope"></i><a href="#">Messages</a></li>
-            <li><i class="fas fa-sign-out-alt"></i><a href="#">Logout</a></li>
-        </ul>
-    </div>
+
+    <aside data-th-replace="~{admin/admindashboard :: aside}"></aside>
+       
+       
     <main class="content">
-        <h1>Freelancer Dashboard</h1>
+        <h1>Admin Dashboard</h1>
         <div class="search-container">
             <input type="text" id="pageSearchBar" placeholder="Search categories..." class="search-bar">
         </div>
         <button onclick="openModal()">Add Category</button>
+
         <div id="categoryModal" class="modal" style="display: none;">
-            <h2>Add Category</h2>
-            <input type="text" id="categoryName" placeholder="Category Name">
-            <textarea id="freelancerName" placeholder="Freelancer Name"></textarea>
-            <input type="file" id="categoryImage">
+            <h2>Add Category</h2> 
+
+            <form id="categoryForm" method="post" action="/admin/category" enctype="multipart/form-data"></form>
+            <label for="categoryName">Category Name:</label>
+            <input type="text" name="categoryName" id="categoryName">
+
+            <label for="categoryDescription">Category Description:</label>
+            <input type="text" name="categoryDescription" id="categoryDescription">
+
+            <label for="categoryImage">Category Image:</label>
+            <input type="file" name="categoryImageFile" id="categoryImage" accept="image/png, image/jpeg, image/jpg">
+
+            <label for="categoryStatus">Category Status:</label>
             <select id="categoryStatus">
-                <option value="available">Available</option>
-                <option value="unavailable">Unavailable</option>
+                <option value="Open">Open</option>
+                <option value="In_Progress">In_Progress</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancel">Cancel</option>
             </select>
+
             <button onclick="addCategory()">Submit</button>
-             <button onclick="closeModal()">Cancel</button> 
+            <button onclick="closeModal()">Cancel</button>
+        </form>
         </div>
+
         <table border="1">
             <thead>
                 <tr>
-                    <th>Serial NO.</th>
                     <th>Category Name</th>
-                    <th>Freelancer Name</th>
+                    <th>Category Description</th>
                     <th>Image</th>
                     <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody id="categoryTableBody">
+                <tr data-th-each="category:${categories}">
+                    <td data-th-text="${category.categoryName}"></td>
+                    <td data-th-text="${category.categoryDescription}"></td>
+                    <td></td>
+                    <td data-th-text="${category.categoryStatus}"></td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </main>
+
 
     <script>
         function openModal() {
             document.getElementById("categoryModal").style.display = "block";
         }
 
-         function closeModal() {
+        function closeModal() {
             document.getElementById("categoryModal").style.display = "none";
         }
 
         function addCategory() {
             var name = document.getElementById("categoryName").value;
-            var freelancer = document.getElementById("freelancerName").value;
+            var description = document.getElementById("categoryDescription").value;
             var image = document.getElementById("categoryImage").files[0] ? document.getElementById("categoryImage").files[0].name : "No Image";
             var status = document.getElementById("categoryStatus").value;
 
-            if (!name || !freelancer) {
+            if (!name || !description) {
                 alert("Please enter all required fields!");
                 return;
             }
@@ -245,9 +216,8 @@
             var rowCount = table.rows.length;
             var row = table.insertRow();
 
-            row.innerHTML = `<td>${rowCount + 1}</td>
-                             <td>${name}</td>
-                             <td>${freelancer}</td>
+            row.innerHTML = `<td>${name}</td>
+                             <td>${description}</td>
                              <td>${image}</td>
                              <td>${status}</td>`;
 
@@ -256,9 +226,9 @@
 
             // Clear Fields
             document.getElementById("categoryName").value = "";
-            document.getElementById("freelancerName").value = "";
+            document.getElementById("categoryDescription").value = "";
             document.getElementById("categoryImage").value = "";
-            document.getElementById("categoryStatus").value = "available";
+            document.getElementById("categoryStatus").value = "open";
         }
     </script>
 </body>
