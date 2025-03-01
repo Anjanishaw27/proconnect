@@ -1,6 +1,6 @@
 package edu.rims.pro_connect.constant;
 
-public enum ProjectStatus {
+public enum CategoryStatus {
     OPEN, 
     IN_PROGRESS, 
     COMPLETED, 

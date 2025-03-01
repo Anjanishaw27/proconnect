@@ -15,7 +15,7 @@ public class Freelancer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "freelancer_id")
-    private Long freelancerId;
+    private long freelancerId;
 
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)

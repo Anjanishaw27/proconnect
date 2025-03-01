@@ -41,7 +41,9 @@ CREATE TABLE freelancer (
 CREATE TABLE category (
     category_id VARCHAR(255) PRIMARY KEY,
     category_name VARCHAR(255) UNIQUE NOT NULL,
-   category_description description TEXT,
+    category_description description TEXT,
+    category_image_url Text null,
+    category_status ENUM('OPEN', 'IN_PROGRESS', 'COMPLETED', 'CANCELLED') DEFAULT 'OPEN',
     created_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     created_by VARCHAR(255),
@@ -92,16 +94,6 @@ CREATE TABLE payment (
     updated_by  VARCHAR(255),
 );
 
-CREATE TABLE profile (
-    profile_id INT PRIMARY KEY AUTO_INCREMENT,  -- Unique ID for each developer
-    profile_name VARCHAR(100) NOT NULL,         -- Developer's Name
-    profile_skills TEXT NOT NULL,               -- Skills List
-    profile_experience INT NOT NULL,            -- Years of Experience
-    profile_email VARCHAR(100) UNIQUE NOT NULL, -- Email (must be unique)
-    profile_location VARCHAR(100)               -- Location
-);
-
-
 CREATE TABLE review (
     review_id INT AUTO_INCREMENT PRIMARY KEY,
     project_id INT NOT NULL,
@@ -139,9 +131,6 @@ CREATE TABLE freelancer_skill (
     created_by VARCHAR(255),
     updated_by  VARCHAR(255),
 );
-
-
-
 
 CREATE TABLE contact_message (
     id INT AUTO_INCREMENT PRIMARY KEY,
