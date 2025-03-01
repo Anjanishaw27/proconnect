@@ -10,11 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ProfileController {
 
     @GetMapping("/profile")
-    public String profile(Model model) {
-
-        List<Profile> profiles = profileRepository.findAll();
-
-        model.addAttribute("profiles", profiles);
+    public String profile() {
         return "client/profile";
     }
 
