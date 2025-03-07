@@ -3,6 +3,7 @@ package edu.rims.pro_connect.controller;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,11 +45,16 @@ public class AdmindashboardController {
   public String categoryAdd(@ModelAttribute Category category, @RequestParam("categoryImageFile") MultipartFile file)
    throws IOException{
     if(!file.isEmpty()){
-      FileOutputStream fileOutputStream = new FileOutputStream("upload_images/"+ file.getOriginalFilename());
+      String originalFilename = file.getOriginalFilename();
+      String extName = originalFilename.substring(originalFilename.lastIndexOf("."));
+      String fileName = "upload_images/"+ UUID.randomUUID().toString() + extName;
+      FileOutputStream fileOutputStream = new FileOutputStream(fileName);
       fileOutputStream.write(file.getBytes());
       fileOutputStream.close();
+      category.setCategoryImageUrl(fileName);
     }
-   return "redirect:/admin/category";
+    categoryRepository.save(category);
+    return "redirect:/admin/category";
   }
   
 }

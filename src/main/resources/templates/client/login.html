@@ -42,7 +42,7 @@
             </form>
         </div>
         <div class="form-container sign-in">
-            <form>
+            <form action="/client/login" method="post">
                 <h1>Sign In</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -51,14 +51,16 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email password</span>
-                <input list="User_role" name="UserRole" placeholder="User Role" required>
+                 <input list="User_role" name="UserRole" placeholder="User Role">
                 <datalist id="User_role">
-                    <option value="Customer">
+                    <option value="Client">
                     <option value="Tech-Expert">
+                    <option value="Admin"></option>
                 </datalist>
 
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Password" required>
+                <input type="text" placeholder="Email" name="username">
+                <input type="password" placeholder="Password" name="password">
+                <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
                 <a href="#">Forget Your Password?</a>
                 <button type="submit">Sign In</button>
             </form>

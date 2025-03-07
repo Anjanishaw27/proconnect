@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Dashboard</title>
+    <link rel="stylesheet" href="/style/admin/admindashboard.css">
+    <link rel="stylesheet" href="../style/admin/category.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <aside data-th-replace="~{freelancer/freelancerdashboard :: aside}"></aside>
+    <main class="content">
+        <h1>Freelancer Dashboard</h1>
+        <div class="search-container">
+            <input type="text" id="pageSearchBar" placeholder="Search categories..." class="search-bar">
+        </div>
+        <button onclick="openModal()">Add Project</button>
+
+        <div id="projectModal" class="modal" style="display: none;">
+            <h2>Add Project</h2> 
+
+            <form id="projectForm" method="post" action="freelancer/freelancer/project" enctype="multipart/form-data"></form>
+            <label for="projectTitle">Project Name:</label>
+            <input type="text" name="projectTitle" id="projectTitle">
+
+            <label for="projectDescription">Project Description:</label>
+            <input type="text" name="projectDescription" id="projectDescription">
+
+            <label for="projectImage">Project Image:</label>
+            <input type="file" name="ProjectImageFile" id="projectImage" accept="image/png, image/jpeg, image/jpg">
+
+            <label for="projectStatus">Project Status:</label>
+            <select id="projectStatus" name="projectStatus">
+                <option value="Open">Open</option>
+                <option value="In_Progress">In_Progress</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancel">Cancel</option>
+            </select>
+
+            <!-- <button onclick="addCategory()">Submit</button> -->
+            <input type="submit" value="Add">
+        </form>
+            <button onclick="closeModal()">Cancel</button>
+        
+        </div>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Project Description</th>
+                    <th>Image</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="projectTableBody">
+                <tr data-th-each="project:${projects}">
+                    <td data-th-text="${project.projectTitle}"></td>
+                    <td data-th-text="${project.projectDescription}"></td>
+                    <td></td>
+                    <td data-th-text="${project.projectStatus}"></td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+
+    <script>
+        function openModal() {
+            document.getElementById("projectModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("projectModal").style.display = "none";
+        }
+
+        // function addCategory() {
+        //     var name = document.getElementById("categoryName").value;
+        //     var description = document.getElementById("categoryDescription").value;
+        //     var image = document.getElementById("categoryImage").files[0] ? document.getElementById("categoryImage").files[0].name : "No Image";
+        //     var status = document.getElementById("categoryStatus").value;
+
+        //     if (!name || !description) {
+        //         alert("Please enter all required fields!");
+        //         return;
+        //     }
+
+        //     var table = document.getElementById("categoryTableBody");
+        //     var rowCount = table.rows.length;
+        //     var row = table.insertRow();
+
+        //     row.innerHTML = `<td>${name}</td>
+        //                      <td>${description}</td>
+        //                      <td>${image}</td>
+        //                      <td>${status}</td>`;
+
+        //     // Close Modal
+        //     closeModal();
+
+        //     // Clear Fields
+        //     document.getElementById("categoryName").value = "";
+        //     document.getElementById("categoryDescription").value = "";
+        //     document.getElementById("categoryImage").value = "";
+        //     document.getElementById("categoryStatus").value = "open";
+        // }
+    </script>
+</body>
+
+
+</html>

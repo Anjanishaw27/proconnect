@@ -25,8 +25,7 @@ INSERT INTO projects (client_id, title, description, budget, status) VALUES
 INSERT INTO payment (
     payment_id, client_id, freelancer_id, amount, payment_status, 
     payment_method, transaction_id, created_at, created_date, updated_date, 
-    created_by, updated_by
-) VALUES
+    created_by, updated_by) VALUES
 (UUID(), 101, 201, 500.00, 'COMPLETED', 'PAYPAL', UUID(), NOW(), NOW(), NOW(), 'Admin', 'Admin'),
 (UUID(), 102, 202, 1200.50, 'PENDING', 'CREDIT_CARD', UUID(), NOW(), NOW(), NOW(), 'Admin', 'Admin'),
 (UUID(), 103, 203, 750.75, 'FAILED', 'BANK_TRANSFER', UUID(), NOW(), NOW(), NOW(), 'Admin', 'Admin'),

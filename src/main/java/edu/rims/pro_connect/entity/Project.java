@@ -21,10 +21,12 @@ public class Project {
     @Column(name = "project_description", columnDefinition = "TEXT")
     private String projectDescription;
 
-    @Column(name = "project_budget", nullable = false, precision = 10, scale = 2)
-    private BigDecimal projectBudget;
+  
+    @Column(name = "project_image_url", length = 250)
+    private String projectImageUrl ;
 
-
+    @Column(name = "project_status", nullable = false, columnDefinition = "TEXT")
+    private String projectStatus;
 
     
 }

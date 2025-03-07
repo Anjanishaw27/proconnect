@@ -1,0 +1,19 @@
+.content {
+    flex: 1;
+    padding: 20px;
+}
+header h1 {
+    margin: 0 0 20px 0;
+}
+.stats {
+    display: flex;
+    gap: 20px;
+}
+.stat-box {
+    background: white;
+    padding: 20px;
+    flex: 1;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
