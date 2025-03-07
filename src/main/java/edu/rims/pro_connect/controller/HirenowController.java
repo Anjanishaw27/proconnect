@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-@RequestMapping("/hirenow")
 public class HirenowController {
   @GetMapping("/hirenow")
   String hirenow() {
