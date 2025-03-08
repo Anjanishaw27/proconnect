@@ -27,12 +27,11 @@ public class LoginController {
     @PostMapping("/sign-up")
     public String signUp(@ModelAttribute User user) {
         userRepository.save(user);
-        System.out.println(user.getUserName());
-        System.out.println(user.getUserEmail());
-        System.out.println(user.getUserPassword());
-        
-        System.out.println(user.getUserPhone());
-        System.out.println(user.getUserBio());
+        // System.out.println(user.getUserName());
+        // System.out.println(user.getUserEmail());
+        // System.out.println(user.getUserPassword());
+        // System.out.println(user.getUserPhone());
+        // System.out.println(user.getUserBio());
         return "redirect:/client/login";
     }
     
