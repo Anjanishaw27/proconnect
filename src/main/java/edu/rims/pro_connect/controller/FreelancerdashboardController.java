@@ -44,5 +44,8 @@ public class FreelancerdashboardController {
       projectRepository.save(project);
       return "redirect:/freelancer/project";
   }
-  
+  @GetMapping("/earning")
+    String freelancerearning(){
+      return "freelancer/earning";
+  } 
 }

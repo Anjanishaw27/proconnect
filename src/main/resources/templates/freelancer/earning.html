@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earnings Page</title>
+    <link rel="stylesheet" href="/style/admin/admindashboard.css">
+    <link rel="stylesheet" href="../style/admin/category.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .earnings-summary {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .card {
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            color: white;
+            width: 22%;
+        }
+
+        .total-earnings { background: #4CAF50; }
+        .pending-earnings { background: #FFC107; }
+        .available-balance { background: #2196F3; }
+        .withdrawn { background: #FF5722; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #2196F3;
+            color: white;
+        }
+
+        .completed { color: green; }
+        .pending { color: orange; }
+
+        button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 16px;
+            color: white;
+            background: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <aside data-th-replace="~{freelancer/freelancerdashboard :: aside}"></aside>
+    <div class="container">
+        <h1>Earnings Overview</h1>
+
+        <!-- Earnings Summary -->
+        <div class="earnings-summary">
+            <div class="card total-earnings">
+                <p>Total Earnings</p>
+                <h2>$5000</h2>
+            </div>
+            <div class="card pending-earnings">
+                <p>Pending Earnings</p>
+                <h2>$700</h2>
+            </div>
+            <div class="card available-balance">
+                <p>Available Balance</p>
+                <h2 id="balance">$3000</h2>
+            </div>
+            <div class="card withdrawn">
+                <p>Withdrawn</p>
+                <h2>$2000</h2>
+            </div>
+        </div>
+
+        <!-- Transaction History -->
+        <h2>Transaction History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2025-03-05</td>
+                    <td>$500</td>
+                    <td class="completed">Completed</td>
+                </tr>
+                <tr>
+                    <td>2025-03-10</td>
+                    <td>$700</td>
+                    <td class="pending">Pending</td>
+                </tr>
+                <tr>
+                    <td>2025-03-15</td>
+                    <td>$1200</td>
+                    <td class="completed">Completed</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Withdraw Funds -->
+        <h2>Withdraw Funds</h2>
+        <button id="withdrawButton">Withdraw $500</button>
+    </div>
+
+    <script>
+        document.getElementById('withdrawButton').addEventListener('click', function() {
+            let balanceElement = document.getElementById('balance');
+            let currentBalance = parseInt(balanceElement.innerText.replace('$', ''));
+            if (currentBalance >= 500) {
+                balanceElement.innerText = '$' + (currentBalance - 500);
+            } else {
+                alert('Insufficient balance!');
+            }
+        });
+    </script>
+
+</body>
+</html>

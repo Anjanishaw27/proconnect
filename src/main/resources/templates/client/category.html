@@ -32,11 +32,13 @@
     <section id="categories">
         <h2>Browse Categories</h2>
         <div class="categories-container">
-            <div class="category-card" data-category="web-dev" data-th-each="category:${categories}">
-                <img src="/images/web.jpeg" alt="Web Development">
-                <h3 data-th-text="${category.categoryName}"></h3>
-                <p data-th-text="${category.categoryDescription}"></p>
-            </div>
+            <a data-th-href="|/freelancer/home?categoryId=${category.categoryId}|" data-th-each="category:${categories}">
+                <div class="category-card" data-category="web-dev">
+                    <img src="/images/web.jpeg" alt="Web Development">
+                    <h3 data-th-text="${category.categoryName}"></h3>
+                    <p data-th-text="${category.categoryDescription}"></p>
+                </div>
+            </a>
             
         </div>
     </section>

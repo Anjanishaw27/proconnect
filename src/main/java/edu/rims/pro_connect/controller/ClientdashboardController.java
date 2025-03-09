@@ -11,4 +11,8 @@ public class ClientdashboardController {
     String clientdashboard(){
         return "client/clientdashboard";
     }
+    @GetMapping("/profile")
+    String clientprofile(){
+        return "clientdashboard/profile";
+}
 }
