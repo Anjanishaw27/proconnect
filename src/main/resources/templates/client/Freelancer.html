@@ -5,14 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hire Java Developers</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/style/fragment/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
     <style>
         /* styles.css */
-body {
+/* body {
     font-family: Arial, sans-serif;
     background-color: #fff;
     margin: 0;
     padding: 20px;
-}
+} */
 
 .java-section {
     max-width: 600px;
@@ -128,9 +133,12 @@ h3 {
     </style>
 </head>
 <body>
+    <header data-th-replace="~{fragment/common :: header}"></header>
+
+    <nav data-th-replace="~{fragment/common :: nav}"></nav>
 
 <div class="java-section">
-    <h1>Hire the best <span>Java developers</span></h1>
+    <h1>Hire the best <span> developers</span></h1>
     <p>Check out Java developers with the skills you need for your next job.</p>
     <button class="hire-button">Hire freelancers</button>
 </div>
@@ -144,8 +152,12 @@ h3 {
         <p class="rating" th:text="${freelancer.rating} + '/5'"></p>
         <p class="rating" th:text="${freelancer.yearsExperience} + ' years'"></p>
         <div class="skills">
-            <span>🏆 Java</span>
-            <span>Distributed Computing</span>
+            <span th:each="skill : ${#strings.arraySplit(freelancer.skills, ',')}"
+                        class="bg-gray-200 text-gray-800 py-1 px-3 rounded"
+                        th:text="${skill}">
+                    </span>
+            <!-- <span>🏆 Java</span>
+            <span>Distributed Computing</span> -->
         </div>
         <a data-th-href="|/freelancer/pdp?id=${freelancer.freelancerId}|" class="see-more">See more</a>
     </div>
@@ -194,6 +206,6 @@ h3 {
 </div>
 
 
-
+<footer data-th-replace="~{fragment/common :: footer}"></footer>
 </body>
 </html>

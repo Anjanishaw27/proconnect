@@ -57,5 +57,7 @@ public class Freelancer {
     @Column(name = "joined_date")
     @Temporal(TemporalType.DATE)
     private Date joinedDate;
+
+
 }
 

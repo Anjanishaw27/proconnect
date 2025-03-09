@@ -27,4 +27,6 @@ public class Category extends Auditable {
 
     @Column(name = "category_status", nullable = false, columnDefinition = "TEXT")
     private String categoryStatus;
+
+    
 }
