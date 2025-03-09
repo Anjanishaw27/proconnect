@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.rims.pro_connect.entity.Category;
+import edu.rims.pro_connect.entity.Freelancer;
 import edu.rims.pro_connect.repository.CategoryRepository;
 
 @Controller
@@ -24,5 +26,12 @@ public class CategoryController {
 
         model.addAttribute("categories", categories);
         return "client/category";
+    }
+
+    @GetMapping("/freelancer")
+    public String categoryFreelancerList(Model model, @RequestParam String categoryId) {
+        Category category = categoryRepository.findById(categoryId).orElseThrow();
+        model.addAttribute("category", category);
+        return "client/freelancer";
     }
 }

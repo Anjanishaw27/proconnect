@@ -32,7 +32,7 @@
     <section id="categories">
         <h2>Browse Categories</h2>
         <div class="categories-container">
-            <a data-th-href="|/freelancer/home?categoryId=${category.categoryId}|" data-th-each="category:${categories}">
+            <a data-th-href="|/category/freelancer?categoryId=${category.categoryId}|" data-th-each="category:${categories}">
                 <div class="category-card" data-category="web-dev">
                     <img src="/images/web.jpeg" alt="Web Development">
                     <h3 data-th-text="${category.categoryName}"></h3>

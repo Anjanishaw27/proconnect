@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.rims.pro_connect.entity.Freelancer;
 import edu.rims.pro_connect.repository.FreelancerRepository;
@@ -25,5 +26,13 @@ public class FreelancerController {
         model.addAttribute("freelancers", freelancers);
         return "client/freelancer";
     }
+
+    @GetMapping("/pdp")
+    public String freelancerPdp(@RequestParam long id, Model model){
+        Freelancer freelancer = freelancerRepository.findById(id).orElseThrow();
+        model.addAttribute("freelancer", freelancer);
+        return "client/pdp";
+    }
+
 }
 
