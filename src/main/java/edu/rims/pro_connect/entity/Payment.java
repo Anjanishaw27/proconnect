@@ -6,7 +6,6 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 
-
 @Entity
 @Table(name = "payment")
 @Setter
@@ -14,29 +13,25 @@ import java.math.BigDecimal;
 public class Payment extends Auditable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "payment_id")
-    private String paymentId;
+    @GeneratedValue(strategy = GenerationType.UUID) // Auto-generates UUID
+    @Column(name = "payment_id", length = 36, updatable = false, nullable = false)
+    private String paymentId; 
 
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
-    private User client;
+    private User client; // Client entity
 
     @ManyToOne
     @JoinColumn(name = "freelancer_id", nullable = false)
-    private User freelancer;
+    private Freelancer freelancer; // Freelancer entity
 
     @Column(name = "amount", nullable = false, precision = 10, scale = 2)
     private BigDecimal amount;
 
-    
-    @Column(name = "transaction_id", unique = true)
+    @Column(name = "transaction_id", unique = true, nullable = false, length = 100)
     private String transactionId;
-    @Id
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-
+    @OneToOne
+    @JoinColumn(name = "project_id", nullable = false)
+    private Project project;
 }
-

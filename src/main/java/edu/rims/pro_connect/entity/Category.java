@@ -1,5 +1,7 @@
 package edu.rims.pro_connect.entity;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 import lombok.Getter;
@@ -28,5 +30,6 @@ public class Category extends Auditable {
     @Column(name = "category_status", nullable = false, columnDefinition = "TEXT")
     private String categoryStatus;
 
-    
+    @OneToMany(mappedBy = "category")
+    private List<Project> projects;
 }

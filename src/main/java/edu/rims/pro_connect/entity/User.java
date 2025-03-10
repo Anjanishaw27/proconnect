@@ -1,19 +1,18 @@
 package edu.rims.pro_connect.entity;
 
-import jakarta.persistence.*;
-
 import java.util.List;
 
 import edu.rims.pro_connect.constant.UserType;
-
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "user")
-public class User extends Auditable {
+@Table(name = "users")
+@Inheritance(strategy = InheritanceType.JOINED) // Separate table for each subclass
+public class User extends Auditable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +29,7 @@ public class User extends Auditable {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private UserType userType;
+    private UserType userType; // CLIENT or FREELANCER
 
     @Column(length = 20)
     private String userPhone;
@@ -41,15 +40,6 @@ public class User extends Auditable {
     @Column(columnDefinition = "TEXT")
     private String userProfilePicture;
 
-    @Column(columnDefinition = "TEXT")
-    private String skill;
-
-    @ManyToMany(mappedBy = "freelancers")
-    private List<Skill> skills;
-
-    @OneToMany(mappedBy = "user")
-    private List<Payment> payments;
-
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private Freelancer freelancer;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Project> projects;
 }

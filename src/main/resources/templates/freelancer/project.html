@@ -25,31 +25,31 @@
         <button onclick="openModal()">Add Project</button>
 
         <div id="projectModal" class="modal" style="display: none;">
-            <h2>Add Project</h2> 
+            <h2>Add Project</h2>
 
-            <form id="projectForm" method="post" action="freelancer/freelancer/project" enctype="multipart/form-data"></form>
-            <label for="projectTitle">Project Name:</label>
-            <input type="text" name="projectTitle" id="projectTitle">
+            <form id="projectForm" method="post" action="/freelancer/freelancer/project" enctype="multipart/form-data">
+                <label for="projectTitle">Project Name:</label>
+                <input type="text" name="projectTitle" id="projectTitle">
 
-            <label for="projectDescription">Project Description:</label>
-            <input type="text" name="projectDescription" id="projectDescription">
+                <label for="projectDescription">Project Description:</label>
+                <input type="text" name="projectDescription" id="projectDescription">
 
-            <label for="projectImage">Project Image:</label>
-            <input type="file" name="ProjectImageFile" id="projectImage" accept="image/png, image/jpeg, image/jpg">
+                <label for="projectImage">Project Image:</label>
+                <input type="file" name="ProjectImageFile" id="projectImage" accept="image/png, image/jpeg, image/jpg">
 
-            <label for="projectStatus">Project Status:</label>
-            <select id="projectStatus" name="projectStatus">
-                <option value="Open">Open</option>
-                <option value="In_Progress">In_Progress</option>
-                <option value="Completed">Completed</option>
-                <option value="Cancel">Cancel</option>
-            </select>
+                <label for="projectStatus">Project Status:</label>
+                <select id="projectStatus" name="projectStatus">
+                    <option value="Open">Open</option>
+                    <option value="In_Progress">In_Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Cancel">Cancel</option>
+                </select>
 
-            <!-- <button onclick="addCategory()">Submit</button> -->
-            <input type="submit" value="Add">
-        </form>
+                <!-- <button onclick="addCategory()">Submit</button> -->
+                <input type="submit" value="Add" style="color: red;">
+            </form>
             <button onclick="closeModal()">Cancel</button>
-        
+
         </div>
 
         <table border="1">

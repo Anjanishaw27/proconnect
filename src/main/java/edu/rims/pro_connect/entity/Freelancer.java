@@ -1,28 +1,17 @@
 package edu.rims.pro_connect.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
 @Entity
-@Table(name = "freelancer")
 @Getter
 @Setter
-
-public class Freelancer {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "freelancer_id")
-    private long freelancerId;
-
-    @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-
-    @Column(name = "full_name", length = 255)
-    private String fullName;
+@Table(name = "freelancer")
+@PrimaryKeyJoinColumn(name = "user_id") // Inherits primary key from User
+public class Freelancer extends User {
 
     @Column(name = "rating")
     private Double rating;
@@ -34,13 +23,13 @@ public class Freelancer {
     private String language;
 
     @Column(name = "completed_projects", columnDefinition = "INT DEFAULT 0")
-    private Integer completedProjects;
+    private int completedProjects;
 
     @Column(name = "total_clients", columnDefinition = "INT DEFAULT 0")
-    private Integer totalClients;
+    private int totalClients;
 
     @Column(name = "years_experience")
-    private Integer yearsExperience;
+    private int yearsExperience;
 
     @Column(name = "specialization", columnDefinition = "TEXT")
     private String specialization;
@@ -48,16 +37,7 @@ public class Freelancer {
     @Column(name = "skills", columnDefinition = "TEXT")
     private String skills;
 
-    @Column(name = "profile_description", columnDefinition = "TEXT")
-    private String profileDescription;
-
-    @Column(name = "profile_picture", length = 255)
-    private String profilePicture;
-
     @Column(name = "joined_date")
     @Temporal(TemporalType.DATE)
     private Date joinedDate;
-
-
 }
-
