@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.rims.pro_connect.entity.Category;
-import edu.rims.pro_connect.entity.Freelancer;
+//import edu.rims.pro_connect.entity.Freelancer;
 import edu.rims.pro_connect.repository.CategoryRepository;
 
 @Controller

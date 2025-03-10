@@ -35,8 +35,9 @@ public class ProductController {
         if(categoryImageUrl != null && categoryImageUrl.startsWith("http")){
             return null;
         }
-        FileInputStream fis = new FileInputStream(categoryImageUrl);
-        return fis.readAllBytes();
+        try(FileInputStream fis = new FileInputStream(categoryImageUrl)){
+            return fis.readAllBytes();
+        }
     }
     
 }
