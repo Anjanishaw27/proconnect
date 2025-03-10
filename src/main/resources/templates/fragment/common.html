@@ -17,18 +17,18 @@
     <header>
         <div class="logo">
             <a href="/client/home"><img src="/images/logo2.png" alt="Website Logo" class="logo"></a>
-            
+
         </div>
 
-        <form action="/search"></form>
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Search you are looking for...">
-            <button class="search-btn">
-                <span class="search-icon">&#128269;</span>
-            </button>
-        </div>
-        
-        
+        <form action="/product/search">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search you are looking for...">
+                <button class="search-btn">
+                    <span class="search-icon">&#128269;</span>
+                </button>
+            </div>
+        </form>
+
         <div class="sign">
             <button class="sign-in"><span><i class="fa-solid fa-right-to-bracket"></i></span>
                 <a href="/client/login">Sign-In</a></button>
@@ -37,13 +37,13 @@
             <button class="logout"><span><i class="fas fa-sign-out-alt"></i></span>
                 <a href="#">Logout</a>
 
-              </button>  
+            </button>
         </div>
 
     </header>
     <nav>
         <ul class="nav-links">
-          
+
             <li onclick="toggleDropdown()">
                 <div class="dashboard-container">
                     <span id="dropdownText"><b>Dashboard</b></span>
