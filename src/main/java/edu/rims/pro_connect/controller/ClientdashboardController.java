@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/clientdashboard")
+@RequestMapping("/client")
 public class ClientdashboardController {
     @GetMapping("/clientdashboard")
     String clientdashboard(){
@@ -13,6 +13,6 @@ public class ClientdashboardController {
     }
     @GetMapping("/profile")
     String clientprofile(){
-        return "clientdashboard/profile";
-}
+        return "client/profile";
+    }
 }
