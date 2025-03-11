@@ -36,19 +36,19 @@ VALUES
 
 INSERT INTO project (project_id, project_title, project_description, project_image_url, project_status, client_id, freelancer_id, category_id)
 VALUES 
-(UUID(), 'E-commerce Website', 'A fully functional e-commerce platform with payment integration.', '', 'OPEN', 1, 2, 101),
-(UUID(), 'AI Chatbot', 'An AI-powered chatbot for customer service automation.', '', 'IN_PROGRESS', 3, 4, 102),
-(UUID(), 'Marketing Campaign', 'A digital marketing strategy focusing on social media ads.', '', 'COMPLETED', 5, 7, 103),
-(UUID(), 'Portfolio Website', 'A personal website for showcasing design work.', '', 'OPEN', 1, 6, 101),
-(UUID(), 'Food Delivery App', 'A cross-platform mobile app for online food delivery.', '', 'IN_PROGRESS', 5, 8, 104);
+(UUID(), 'E-commerce Website', 'A fully functional e-commerce platform with payment integration.', '', 'OPEN', 1, 2, '79a6904a-fea4-11ef-9217-507b9d88e91a'),
+(UUID(), 'AI Chatbot', 'An AI-powered chatbot for customer service automation.', '', 'IN_PROGRESS', 3, 4, '79a693c8-fea4-11ef-9217-507b9d88e91a'),
+(UUID(), 'Marketing Campaign', 'A digital marketing strategy focusing on social media ads.', '', 'COMPLETED', 5, 7, '79a695a9-fea4-11ef-9217-507b9d88e91a'),
+(UUID(), 'Portfolio Website', 'A personal website for showcasing design work.', '', 'OPEN', 1, 6, '79a69695-fea4-11ef-9217-507b9d88e91a'),
+(UUID(), 'Food Delivery App', 'A cross-platform mobile app for online food delivery.', '', 'IN_PROGRESS', 5, 8, '79a6979f-fea4-11ef-9217-507b9d88e91a');
 
-INSERT INTO payment (payment_id, project_id, client_id, freelancer_id, amount, payment_status, payment_method, transaction_id, created_by, updated_by)
-VALUES 
-(UUID(), 'P001', 1, 2, 1500.00, 'COMPLETED', 'PAYPAL', 'TXN123456', 'John Doe', 'John Doe'),
-(UUID(), 'P002', 3, 4, 2500.50, 'PENDING', 'CREDIT_CARD', 'TXN789012', 'Michael Johnson', 'Michael Johnson'),
-(UUID(), 'P003', 5, 7, 800.75, 'FAILED', 'BANK_TRANSFER', 'TXN345678', 'Alice Brown', 'Sophia Wilson'),
-(UUID(), 'P004', 1, 6, 1200.00, 'COMPLETED', 'PAYPAL', 'TXN901234', 'Jane Smith', 'Jane Smith'),
-(UUID(), 'P005', 5, 8, 1800.30, 'PENDING', 'CREDIT_CARD', 'TXN567890', 'Rajesh Kumar', 'Rajesh Kumar');
+-- INSERT INTO payment (payment_id, project_id, client_id, freelancer_id, amount, payment_status, payment_method, transaction_id, created_by, updated_by)
+-- VALUES 
+-- (UUID(), 'P001', 1, 2, 1500.00, 'COMPLETED', 'PAYPAL', 'TXN123456', 'John Doe', 'John Doe'),
+-- (UUID(), 'P002', 3, 4, 2500.50, 'PENDING', 'CREDIT_CARD', 'TXN789012', 'Michael Johnson', 'Michael Johnson'),
+-- (UUID(), 'P003', 5, 7, 800.75, 'FAILED', 'BANK_TRANSFER', 'TXN345678', 'Alice Brown', 'Sophia Wilson'),
+-- (UUID(), 'P004', 1, 6, 1200.00, 'COMPLETED', 'PAYPAL', 'TXN901234', 'Jane Smith', 'Jane Smith'),
+-- (UUID(), 'P005', 5, 8, 1800.30, 'PENDING', 'CREDIT_CARD', 'TXN567890', 'Rajesh Kumar', 'Rajesh Kumar');
 
 INSERT INTO category (category_id, category_name, category_description, category_status, created_by, updated_by) VALUES
 (UUID(), 'Web Development', 'Building websites, front-end, back-end, and full-stack development','open', 'Admin', 'Admin'),
