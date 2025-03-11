@@ -78,7 +78,6 @@ CREATE TABLE payment (
     client_id INT NOT NULL,
     freelancer_id INT NOT NULL,
     amount DOUBLE(10,2) NOT NULL,
-    payment_status ENUM('PENDING', 'COMPLETED', 'FAILED') DEFAULT 'PENDING',
     payment_method ENUM('PAYPAL', 'CREDIT_CARD', 'BANK_TRANSFER') NOT NULL,
     transaction_id VARCHAR(255) UNIQUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
