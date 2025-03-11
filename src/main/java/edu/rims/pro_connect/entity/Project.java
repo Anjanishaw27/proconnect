@@ -4,14 +4,11 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-
-
-
 @Entity
 @Getter
 @Setter
 @Table(name = "project")
-public class Project {
+public class Project extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID) // Generates UUID automatically

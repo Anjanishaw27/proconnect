@@ -10,7 +10,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "users")
+@Table(name = "user")
 @Inheritance(strategy = InheritanceType.JOINED) // Separate table for each subclass
 public class User extends Auditable{
 
