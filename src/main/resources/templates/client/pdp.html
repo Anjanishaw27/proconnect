@@ -16,12 +16,11 @@
 
     <nav data-th-replace="~{fragment/common :: nav}"></nav>
 
-    
 
 
 
-    <div
-        class="bg-white border border-gray-300 rounded-lg p-6 w-full max-w-7xl mx-auto mb-6">
+
+    <div class="bg-white border border-gray-300 rounded-lg p-6 w-full max-w-7xl mx-auto mb-6">
         <div class="flex items-center">
             <img alt="Profile picture of a man with glasses and a beard" class="w-24 h-24 rounded-full mr-6"
                 height="100"
@@ -29,7 +28,7 @@
                 width="100" />
             <div>
                 <h2 class="text-2xl font-semibold">
-                    <span th:text="${freelancer.fullName}"></span>
+                    <span th:text="${freelancer.userName}"></span>
 
                     <span class="text-orange-500">
                         <i class="fas fa-star"></i>
@@ -38,24 +37,26 @@
                     </span>
                 </h2>
                 <p class="text-gray-600">
-                    WordPress developer on Codeable<span th:text="${freelancer.joinedDate}"></span>
-                            
+                    <span th:text="${freelancer.joinedDate}"></span>
+
                     <span class="text-orange-500">•</span>
                     <span th:text="${freelancer.yearsExperience} + ' years'"></span>
 
                 </p>
                 <div class="flex items-center mt-2">
                     <i class="fas fa-map-marker-alt text-gray-500 mr-2"></i>
-                    <a class="text-teal-600 hover:underline" href="#"><span th:text="${freelancer.location}" class="text-teal-600"></span>
+                    <a class="text-teal-600 hover:underline" href="#"><span th:text="${freelancer.location}"
+                            class="text-teal-600"></span>
                     </a>
                 </div>
                 <div class="flex items-center mt-2">
                     <i class="fas fa-language text-gray-500 mr-2"></i>
-                     <span th:text="${freelancer.language}" class="text-gray-600"></span>
+                    <span th:text="${freelancer.language}" class="text-gray-600"></span>
                 </div>
                 <div class="flex items-center mt-2">
                     <i class="fas fa-check-circle text-gray-500 mr-2"></i>
-                    <span th:text="${freelancer.completedProjects} + ' Completed Projects'" class="text-gray-600"></span>
+                    <span th:text="${freelancer.completedProjects} + ' Completed Projects'"
+                        class="text-gray-600"></span>
                 </div>
                 <div class="flex items-center mt-2">
                     <i class="fas fa-users text-gray-500 mr-2"></i>
@@ -64,14 +65,14 @@
                 </div>
             </div>
         </div>
-        <p class="mt-4 text-gray-700" th:text="${freelancer.profileDescription}"></p>
+        <p class="mt-4 text-gray-700" th:text="${freelancer.userBio}"></p>
 
-        <button class="mt-4 bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700"> View <span th:text="${freelancer.fullName}"></span></button>
+        <button class="mt-4 bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700"> View <span
+                th:text="${freelancer.userName}"></span></button>
         <div class="mt-4 flex flex-wrap gap-2">
             <span th:each="skill : ${#strings.arraySplit(freelancer.skills, ',')}"
-                        class="bg-gray-200 text-gray-800 py-1 px-3 rounded"
-                        th:text="${skill}">
-                    </span>
+                class="bg-gray-200 text-gray-800 py-1 px-3 rounded" th:text="${skill}">
+            </span>
 
         </div>
     </div>

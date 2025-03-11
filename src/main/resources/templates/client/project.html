@@ -20,11 +20,15 @@
     padding: 20px;
 } */
 
-        h1 {
+        .java-section {
+            /* max-width: 600px; */
             text-align: center;
-            font-size: 32px;
+            margin: 50px auto;
+        }
+
+        h1 {
+            font-size: 2rem;
             color: green;
-            margin-block: 2rem;
         }
 
         p {
@@ -55,21 +59,22 @@
 } */
 
         .developers-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            padding-inline: 5rem;
             flex-wrap: wrap;
         }
 
         .developer-card {
             background: #fff;
             border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 15px;
-            width: 250px;
+            border-radius: 0.8rem;
+            padding: 1rem;
+            /* width: 250px; */
             text-align: center;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
+            /* position: relative; */
         }
 
         .developer-card img {
@@ -90,9 +95,9 @@
             font-weight: bold;
         }
 
-        .skills-container {
+        .description {
             display: -webkit-box;
-            -webkit-line-clamp: 2;
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -100,23 +105,11 @@
             max-width: 100%;
             margin-bottom: 1rem;
             text-align: justify;
-            height: 60px;
         }
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            /* Wrap skills to multiple lines */
-            gap: 5px;
+        .see-btn {
+            text-align: end;
         }
-
-        .skills span {
-            background: #eee;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-        }
-
 
         .see-more {
             background-color: green;
@@ -126,6 +119,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 14px;
+            text-decoration: none;
         }
 
         .see-more:hover {
@@ -139,24 +133,32 @@
 
     <nav data-th-replace="~{fragment/common :: nav}"></nav>
 
-    <h1>Hire the best <span> developers</span></h1>
-    <div class="developers-container">
-        <div class="developer-card" th:each="freelancer : ${freelancers}">
-            <img src="/images/sd.jpg" alt="Profile">
-            <h3 th:text="${freelancer.userName}"></h3>
-            <p class="rating" th:text="|${freelancer.rating}/5|"></p>
-            <p class="rating" th:text="|Experience: ${freelancer.yearsExperience} years|"></p>
-            <div class="skills-container">
-                <div class="skills">
-                    <span th:each="skill : ${#strings.arraySplit(freelancer.skills, ',')}"
-                        class="bg-gray-200 text-gray-800 py-1 px-3 rounded" th:text="${skill}">
-                    </span>
-                </div>
-            </div>
-            <a data-th-href="|/freelancer/pdp?id=${freelancer.userId}|" class="see-more">See more</a>
-        </div>
+    <div class="java-section">
+        <h1>Find Your Next Project & Work with Top Clients!</h1>
     </div>
 
+
+    <h5 data-th-if="${#lists.size(category.projects) == 0}" style="text-align: center; color: red;"> No Projects Listed
+        Yet!!!
+    </h5>
+    <div class="developers-container">
+        <div class="developer-card" th:each="project : ${category.projects}">
+            <img src="/images/image1.jpg" alt="">
+            <h3 th:text="${project.projectTitle}"></h3>
+            <p th:text="|Listed By: ${project.user.userName}|"></p>
+            <p class="rating" th:text="${project.projectStatus}"></p>
+            <p class="rating" th:text="|Listed: ${project.createdDate}|"></p>
+            <div class="description-div">
+                <p class="description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam aperiam officia atque minus incidunt
+                    sapiente repellendus tenetur adipisci dolorem fugiat.
+                </p>
+            </div>
+            <div class="see-btn">
+                <a data-th-href="|/project/pdp?id=${project.projectId}|" class="see-more">See more</a>
+            </div>
+        </div>
+    </div>
 
 
     <footer data-th-replace="~{fragment/common :: footer}"></footer>
