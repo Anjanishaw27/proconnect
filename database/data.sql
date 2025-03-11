@@ -7,13 +7,16 @@
 -- (3, 'Mark Lee', 'mark@example.com', 'pass123', 'FREELANCER', '+1112223333', 'mark.jpg', 'Graphic designer & logo expert.', 'Photoshop, Illustrator, Branding', 'system', NOW(), 'system', NOW());
 
 
-INSERT INTO user (user_name, user_email, user_password, user_type, user_phone, user_profile_picture, user_bio, created_date, updated_date, created_by, updated_by)
+INSERT INTO user (user_id, user_name, user_email, user_password, user_type, user_phone, user_profile_picture, user_bio, created_date, updated_date, created_by, updated_by)
 VALUES 
-('John Doe', 'johndoe@example.com', 'securepassword123', 'CLIENT', '+1234567890', LOAD_FILE('/path/to/john.jpg'), 'Experienced software developer.', NOW(), NOW(), 'admin', 'admin'),
-('Jane Smith', 'janesmith@example.com', 'mypassword789', 'FREELANCER', '+1987654321', LOAD_FILE('/path/to/jane.jpg'), 'Freelance graphic designer.', NOW(), NOW(), 'admin', 'admin'),
-('Michael Johnson', 'michaelj@example.com', 'pass1234', 'CLIENT', '+1122334455', LOAD_FILE('/path/to/michael.jpg'), 'Project manager with 10+ years of experience.', NOW(), NOW(), 'admin', 'admin'),
-('Emily Davis', 'emilyd@example.com', 'password5678', 'FREELANCER', '+1567890123', LOAD_FILE('/path/to/emily.jpg'), 'Software engineer specializing in AI and ML.', NOW(), NOW(), 'admin', 'admin'),
-('Robert Wilson', 'robertw@example.com', 'robertpass999', 'CLIENT', '+1678901234', LOAD_FILE('/path/to/robert.jpg'), 'Entrepreneur with a passion for tech startups.', NOW(), NOW(), 'admin', 'admin');
+(1, 'John Doe', 'johndoe@example.com', 'securepassword123', 'CLIENT', '+1234567890', '', 'Entrepreneur looking for tech solutions.', NOW(), NOW(), 'admin', 'admin'),
+(2, 'Jane Smith', 'janesmith@example.com', 'mypassword789', 'FREELANCER', '+1987654321', '', 'Freelance graphic designer.', NOW(), NOW(), 'admin', 'admin'),
+(3, 'Michael Johnson', 'michaelj@example.com', 'pass1234', 'CLIENT', '+1122334455', '', 'Business owner in need of automation.', NOW(), NOW(), 'admin', 'admin'),
+(4, 'Emily Davis', 'emilyd@example.com', 'password5678', 'FREELANCER', '+1567890123', '', 'Software engineer specializing in AI and ML.', NOW(), NOW(), 'admin', 'admin'),
+(5, 'Alice Brown', 'aliceb@example.com', 'alicepass789', 'CLIENT', '+1456789012', '', 'Startup founder seeking developers.', NOW(), NOW(), 'admin', 'admin'),
+(6, 'Michael Brown', 'michaelb@example.com', 'michaelpass123', 'FREELANCER', '+1122334455', '', 'Experienced web developer.', NOW(), NOW(), 'admin', 'admin'),
+(7, 'Sophia Wilson', 'sophiaw@example.com', 'sophiapass456', 'FREELANCER', '+1678901234', '', 'Digital marketing expert.', NOW(), NOW(), 'admin', 'admin'),
+(8, 'Rajesh Kumar', 'rajeshk@example.com', 'rajeshpass789', 'FREELANCER', '+919876543210', '', 'Full-stack developer with a passion for coding.', NOW(), NOW(), 'admin', 'admin');
 
 INSERT INTO freelancer (user_id, rating, location, language, completed_projects, total_clients, years_experience, specialization, skills, joined_date)
 VALUES 
