@@ -41,7 +41,8 @@ public class FreelancerdashboardController {
   @PostMapping("/freelancer/project")
   public String projectAdd(@ModelAttribute Project project) {
       
-      projectRepository.save(project);
+      // projectRepository.save(project);
+      System.out.println(project);
       return "redirect:/freelancer/project";
   }
   @GetMapping("/earning")
