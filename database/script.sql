@@ -12,7 +12,6 @@ CREATE TABLE user (
     user_phone VARCHAR(20),
     user_profile_picture image,
     user_bio TEXT,
-    skills TEXT,
     created_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     created_by VARCHAR(255),
@@ -21,9 +20,9 @@ CREATE TABLE user (
 
 CREATE TABLE freelancer (
     freelancer_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
     full_name VARCHAR(255),
-    rating DECIMAL(3,2),
+    user_id INT NOT NULL,
+    rating DOUBLE(3,2),
     location VARCHAR(255), 
     language VARCHAR(100),
     completed_projects INT DEFAULT 0,
