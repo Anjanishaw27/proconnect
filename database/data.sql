@@ -42,26 +42,26 @@ VALUES
 (UUID(), 'Portfolio Website', 'A personal website for showcasing design work.', '', 'OPEN', 1, 6, 101),
 (UUID(), 'Food Delivery App', 'A cross-platform mobile app for online food delivery.', '', 'IN_PROGRESS', 5, 8, 104);
 
-INSERT INTO payment (payment_id, project_id, client_id, freelancer_id, amount, payment_status, payment_method, transaction_id, created_by, updated_by)
-VALUES 
-(UUID(), 'P001', 1, 2, 1500.00, 'COMPLETED', 'PAYPAL', 'TXN123456', 'John Doe', 'John Doe'),
-(UUID(), 'P002', 3, 4, 2500.50, 'PENDING', 'CREDIT_CARD', 'TXN789012', 'Michael Johnson', 'Michael Johnson'),
-(UUID(), 'P003', 5, 7, 800.75, 'FAILED', 'BANK_TRANSFER', 'TXN345678', 'Alice Brown', 'Sophia Wilson'),
-(UUID(), 'P004', 1, 6, 1200.00, 'COMPLETED', 'PAYPAL', 'TXN901234', 'Jane Smith', 'Jane Smith'),
-(UUID(), 'P005', 5, 8, 1800.30, 'PENDING', 'CREDIT_CARD', 'TXN567890', 'Rajesh Kumar', 'Rajesh Kumar');
+-- INSERT INTO payment (payment_id, project_id, client_id, freelancer_id, amount, payment_status, payment_method, transaction_id, created_by, updated_by)
+-- VALUES 
+-- (UUID(), 'P001', 1, 2, 1500.00, 'COMPLETED', 'PAYPAL', 'TXN123456', 'John Doe', 'John Doe'),
+-- (UUID(), 'P002', 3, 4, 2500.50, 'PENDING', 'CREDIT_CARD', 'TXN789012', 'Michael Johnson', 'Michael Johnson'),
+-- (UUID(), 'P003', 5, 7, 800.75, 'FAILED', 'BANK_TRANSFER', 'TXN345678', 'Alice Brown', 'Sophia Wilson'),
+-- (UUID(), 'P004', 1, 6, 1200.00, 'COMPLETED', 'PAYPAL', 'TXN901234', 'Jane Smith', 'Jane Smith'),
+-- (UUID(), 'P005', 5, 8, 1800.30, 'PENDING', 'CREDIT_CARD', 'TXN567890', 'Rajesh Kumar', 'Rajesh Kumar');
 
--- INSERT INTO category (category_id, category_name, category_description, category_status, created_by, updated_by) VALUES
--- (UUID(), 'Web Development', 'Building websites, front-end, back-end, and full-stack development','open', 'Admin', 'Admin'),
--- (UUID(), 'Graphic Design', 'Creating logos, branding, UI/UX, and digital illustrations','open', 'Admin', 'Admin'),
--- (UUID(), 'Writing & Translation', 'Content writing, copywriting, blogging, and language translation','in progress', 'Admin', 'Admin'),
--- (UUID(), 'Digital Marketing', 'SEO, social media marketing, PPC campaigns, and email marketing','open', 'Admin', 'Admin'),
--- (UUID(), 'Video & Animation', 'Explainer videos, video editing, animation, and motion graphics','canceled', 'Admin', 'Admin'),
--- (UUID(), 'Business Consulting', 'Financial planning, market research, and business strategy','open', 'Admin', 'Admin'),
--- (UUID(), 'Mobile App Development', 'Developing iOS and Android applications, including UI/UX design','in progress', 'Admin', 'Admin'),  
--- (UUID(), 'Cybersecurity', 'Protecting systems, networks, and data from cyber threats and attacks','open', 'Admin', 'Admin'),  
--- (UUID(), 'E-commerce & Dropshipping', 'Building online stores, managing dropshipping, and product listing optimization','completed', 'Admin', 'Admin'),  
--- (UUID(), 'Game Development', 'Designing and developing games for PC, mobile, and consoles using various engines','in progress', 'Admin', 'Admin'),  
--- (UUID(), 'Artificial Intelligence & Machine Learning', 'Creating AI models, chatbots, automation, and predictive analytics','completed', 'Admin', 'Admin');  
+INSERT INTO category (category_id, category_name, category_description, category_status, created_by, updated_by) VALUES
+(UUID(), 'Web Development', 'Building websites, front-end, back-end, and full-stack development','open', 'Admin', 'Admin'),
+(UUID(), 'Graphic Design', 'Creating logos, branding, UI/UX, and digital illustrations','open', 'Admin', 'Admin'),
+(UUID(), 'Writing & Translation', 'Content writing, copywriting, blogging, and language translation','in progress', 'Admin', 'Admin'),
+(UUID(), 'Digital Marketing', 'SEO, social media marketing, PPC campaigns, and email marketing','open', 'Admin', 'Admin'),
+(UUID(), 'Video & Animation', 'Explainer videos, video editing, animation, and motion graphics','canceled', 'Admin', 'Admin'),
+(UUID(), 'Business Consulting', 'Financial planning, market research, and business strategy','open', 'Admin', 'Admin'),
+(UUID(), 'Mobile App Development', 'Developing iOS and Android applications, including UI/UX design','in progress', 'Admin', 'Admin'),  
+(UUID(), 'Cybersecurity', 'Protecting systems, networks, and data from cyber threats and attacks','open', 'Admin', 'Admin'),  
+(UUID(), 'E-commerce & Dropshipping', 'Building online stores, managing dropshipping, and product listing optimization','completed', 'Admin', 'Admin'),  
+(UUID(), 'Game Development', 'Designing and developing games for PC, mobile, and consoles using various engines','in progress', 'Admin', 'Admin'),  
+(UUID(), 'Artificial Intelligence & Machine Learning', 'Creating AI models, chatbots, automation, and predictive analytics','completed', 'Admin', 'Admin');  
 
 -- INSERT INTO projects (client_id, title, description, budget, status) VALUES
 -- (1, 'Website Development', 'Need a responsive website for my business.', 500.00, 'open'),
