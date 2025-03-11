@@ -29,9 +29,9 @@ public class CategoryController {
     }
 
     @GetMapping("/freelancer")
-    public String categoryFreelancerList(Model model, @RequestParam String categoryId) {
+    public String categoryProjectList(Model model, @RequestParam String categoryId) {
         Category category = categoryRepository.findById(categoryId).orElseThrow();
         model.addAttribute("category", category);
-        return "client/freelancer";
+        return "client/project";
     }
 }

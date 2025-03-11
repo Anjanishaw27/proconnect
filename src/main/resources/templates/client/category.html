@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +11,14 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
 
     <header data-th-replace="~{fragment/common :: header}"></header>
 
     <nav data-th-replace="~{fragment/common :: nav}"></nav>
 
-    
+
     <section class="heading">
         <div class="hero-section">
             <h1>Find the Best Freelancers for Every Project</h1>
@@ -32,14 +34,15 @@
     <section id="categories">
         <h2>Browse Categories</h2>
         <div class="categories-container">
-            <a data-th-href="|/category/freelancer?categoryId=${category.categoryId}|" data-th-each="category:${categories}">
+            <a data-th-href="|/category/freelancer?categoryId=${category.categoryId}|"
+                data-th-each="category:${categories}">
                 <div class="category-card" data-category="web-dev">
-                    <img src="/images/web.jpeg" alt="Web Development">
+                    <img data-th-src="|/admin/category/image/${category.categoryId}|" alt="Web Development">
                     <h3 data-th-text="${category.categoryName}"></h3>
                     <p data-th-text="${category.categoryDescription}"></p>
                 </div>
             </a>
-            
+
         </div>
     </section>
 
@@ -73,7 +76,7 @@
         </div>
     </section>
 
-   
+
 
     <!-- Modal for Category Details -->
     <div id="category-modal" class="modal">
@@ -86,4 +89,5 @@
 
     <footer data-th-replace="~{fragment/common :: footer}"></footer>
 </body>
+
 </html>
