@@ -32,7 +32,8 @@ public class Project extends Auditable {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "freelancer_id", nullable = true) // Nullable because a project might not have a freelancer// assigned initially
+    @JoinColumn(name = "freelancer_id", nullable = true) // Nullable because a project might not have a freelancer//
+                                                         // assigned initially
     private Freelancer freelancer;
 
     @ManyToOne
@@ -41,4 +42,6 @@ public class Project extends Auditable {
 
     @OneToOne(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     private Payment payment;
+
+    private double price;
 }

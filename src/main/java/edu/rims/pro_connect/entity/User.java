@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @Table(name = "user")
 @Inheritance(strategy = InheritanceType.JOINED) // Separate table for each subclass
-public class User extends Auditable{
+public class User extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,4 +42,7 @@ public class User extends Auditable{
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Project> projects;
+
+    @Column(name = "location", length = 255)
+    private String location;
 }
