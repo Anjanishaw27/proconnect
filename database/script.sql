@@ -18,20 +18,17 @@ CREATE TABLE user (
     updated_by  VARCHAR(255),
 );
 
+
 CREATE TABLE freelancer (
-    freelancer_id INT AUTO_INCREMENT PRIMARY KEY,
-    full_name VARCHAR(255),
-    user_id INT NOT NULL,
-    rating DOUBLE(3,2),
-    location VARCHAR(255), 
+    user_id INT PRIMARY KEY, 
+    rating DOUBLE DEFAULT 0.0,
+    location VARCHAR(255),
     language VARCHAR(100),
     completed_projects INT DEFAULT 0,
     total_clients INT DEFAULT 0,
-    years_experience INT,
+    years_experience INT DEFAULT 0,
     specialization TEXT,
     skills TEXT,
-    profile_description TEXT,
-    profile_picture VARCHAR(255),
     joined_date DATE,
     FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE
 );
@@ -110,26 +107,7 @@ CREATE TABLE review (
     updated_by  VARCHAR(255),
 );
 
-CREATE TABLE skill (
-    skill_id INT AUTO_INCREMENT PRIMARY KEY,
-    skill_name VARCHAR(255) UNIQUE NOT NULL,
-    created_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    created_by VARCHAR(255),
-    updated_by  VARCHAR(255),
-);
 
-CREATE TABLE freelancer_skill (
-    freelancer_id INT NOT NULL,
-    skill_id INT NOT NULL,
-    PRIMARY KEY (freelancer_id, skill_id),
-    FOREIGN KEY (freelancer_id) REFERENCES users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (skill_id) REFERENCES skills(skill_id) ON DELETE CASCADE,
-    created_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    created_by VARCHAR(255),
-    updated_by  VARCHAR(255),
-);
 
 CREATE TABLE contact_message (
     id INT AUTO_INCREMENT PRIMARY KEY,
