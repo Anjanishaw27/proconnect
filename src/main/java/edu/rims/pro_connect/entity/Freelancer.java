@@ -16,9 +16,6 @@ public class Freelancer extends User {
     @Column(name = "rating")
     private Double rating;
 
-    @Column(name = "location", length = 255)
-    private String location;
-
     @Column(name = "language", length = 100)
     private String language;
 
@@ -36,8 +33,4 @@ public class Freelancer extends User {
 
     @Column(name = "skills", columnDefinition = "TEXT")
     private String skills;
-
-    @Column(name = "joined_date")
-    @Temporal(TemporalType.DATE)
-    private Date joinedDate;
 }
