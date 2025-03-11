@@ -48,7 +48,16 @@ CREATE TABLE category (
     created_by VARCHAR(255),
     updated_by  VARCHAR(255),
 );
-
+cat_001	admin		admin		All web-based projects including frontend and backend development.	web_dev.jpg	Web Development	AVAILABLE
+cat_002	admin		admin		Graphic design projects including logos, branding, and UI/UX.	graphic_design.jpg	Graphic Design	AVAILABLE
+cat_003	admin		admin		Content writing, blogging, and SEO article writing.	content_writing.jpg	Content Writing	AVAILABLE
+cat_004	admin		admin		SEO, social media marketing, and PPC campaigns.	digital_marketing.jpg	Digital Marketing	AVAILABLE
+cat_005	admin		admin		Data analysis, machine learning, and AI projects.	data_science.jpg	Data Science	AVAILABLE
+cat_006	admin		admin		Video production, animation, and motion graphics.	video_editing.jpg	Video Editing	AVAILABLE
+cat_007	admin		admin		Android and iOS app development.	mobile_dev.jpg	Mobile App Development	AVAILABLE
+cat_008	admin		admin		Ethical hacking, penetration testing, and security audits.	cybersecurity.jpg	Cybersecurity	UNAVAILABLE
+dc899645-fd2e-4e75-832d-e22f477ecfed					API,JPA REACT		Operating System developer	AVAILABLE
+								
 CREATE TABLE project (
     project_id VARCHAR(255) PRIMARY KEY,
     project_title VARCHAR(255) NOT NULL,
