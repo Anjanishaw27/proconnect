@@ -17,7 +17,7 @@
 <!-- Main Content -->
 <main class="content">
     <header>
-        <h1>Welcome, Freelancer</h1>
+        <h1>Welcome, Client</h1>
      
     </header>
 
@@ -27,19 +27,21 @@
         <table>
             <thead>
                 <tr>
-                    <th>Project Name</th>
-                    <th>Client</th>
-                    <th>Deadline</th>
+                    <th>Project Title</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Price</th>
                     <th>Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="projectTable">
-                <tr data-th-each="project:${projects}">
-                    <td data-th-text="${myproject.projectName}"></td>
-                    <td data-th-text="${myproject.clientName}" ></td>
-                    <td data-th-text="${myproject.deadline}"></td>
-                    <td data-th-text="${myproject.status}"><span class="status in-progress"></span></td>
+                <tr data-th-each="project:${user.projects}">
+                    <td data-th-text="${project.projectTitle}"></td>
+                    <td data-th-text="${project.projectDescription}" ></td>
+                    <td><img data-th-src="|project/image/${project.projectId}|" alt="" height="40"></td>
+                    <td data-th-text="${project.projectPrice}"></td>
+                    <td data-th-text="${project.projectStatus}"><span class="status in-progress"></span></td>
                     
                     <td><button class="edit-btn">Edit</button><button class="delete-btn">Delete</button></td>
                 </tr>
@@ -62,15 +64,26 @@
     <span class="close-btn" onclick="closeModal()">&times;</span>
     <h2>Add New Project</h2>
     <form id="projectForm">
-        <input type="text" id="projectName" placeholder="Project Name" required>
-        <input type="text" id="clientName" placeholder="Client Name" required>
-        <input type="date" id="deadline" required>
-        <select id="status">
+        <label for="projectTitle">Category Name:</label>
+        <input type="text" name="projectTitle" id="projectTitle">
+
+        <label for="projectDescription">Category Description:</label>
+        <input type="text" name="projectDescription" id="projectDescription">
+
+        <label for="projectImage">Category Image:</label>
+        <input type="file" name="projectImageFile" id="projectImage"
+                    accept="image/png, image/jpeg, image/jpg">
+
+        <label for="projectPrice">Category Status:</label>
+        <input type="text" name="projectPrice" id="projectPrice">
+
+        <label for="projectStatus">Category Status:</label>
+        <select id="projectStatus" name="projectStatus">
             <option value="In Progress">In Progress</option>
             <option value="Completed">Completed</option>
             <option value="Pending">Pending</option>
         </select>
-        <button type="submit">Add Project</button>
+        <input type="submit" value="Add Project">
     </form>
 </div>
 </div>
