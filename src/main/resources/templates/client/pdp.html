@@ -32,9 +32,10 @@
                     </span>
                 </h2>
                 <p class="text-gray-600">
-                    <label>Experience</label>
+                    <span th:text="|Joined Date: ${freelancer.createdDate}|"></span>
+
                     <span class="text-orange-500">•</span>
-                    <span th:text="${freelancer.yearsExperience} + ' years'"></span>
+                    <span th:text="|Experience: ${freelancer.yearsExperience} years|"></span>
 
                 </p>
                 <div class="flex items-center mt-2">
