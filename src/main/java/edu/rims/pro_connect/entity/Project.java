@@ -43,5 +43,6 @@ public class Project extends Auditable {
     @OneToOne(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     private Payment payment;
 
-    private double price;
+    @Column(name = "project_price", columnDefinition = "TEXT")
+    private double projectPrice;
 }

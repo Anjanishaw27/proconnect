@@ -1,3 +1,41 @@
+INSERT INTO user (user_id, user_name, user_email, user_password, user_type, user_phone, user_bio, user_profile_picture, location, created_date, updated_date, created_by, updated_by) 
+VALUES 
+(1, 'John Doe', 'johndoe@example.com', 'password123', 'CLIENT', '1234567890', 'Experienced software developer', '', 'New York', NOW(), NOW(), 'admin', 'admin'),
+(2, 'Jane Smith', 'janesmith@example.com', 'securepass', 'FREELANCER', '9876543210', 'Graphic designer with 5+ years of experience', '', 'Los Angeles', NOW(), NOW(), 'admin', 'admin'),
+(3, 'Mike Johnson', 'mikejohnson@example.com', 'mikepass', 'CLIENT', '4445556666', 'Marketing specialist with expertise in digital ads', '', 'Chicago', NOW(), NOW(), 'admin', 'admin'),
+(4, 'Emily Brown', 'emilybrown@example.com', 'emilypass', 'FREELANCER', '5556667777', 'Freelance writer and content creator', '', 'San Francisco', NOW(), NOW(), 'admin', 'admin'),
+(5, 'David Wilson', 'davidwilson@example.com', 'davidpass', 'CLIENT', '1112223333', 'Business consultant with 10+ years of experience', '', 'Boston', NOW(), NOW(), 'admin', 'admin'),
+(6, 'Sophia Martinez', 'sophiamartinez@example.com', 'sophiapass', 'FREELANCER', '7778889999', 'Software engineer specializing in AI and ML', '', 'Seattle', NOW(), NOW(), 'admin', 'admin'),
+(7, 'William Anderson', 'williamanderson@example.com', 'williampass', 'CLIENT', '9998887777', 'Entrepreneur and startup mentor', '', 'Austin', NOW(), NOW(), 'admin', 'admin'),
+(8, 'Olivia Thompson', 'oliviathompson@example.com', 'oliviapass', 'FREELANCER', '6665554444', 'UX/UI designer passionate about user experience', '', 'Denver', NOW(), NOW(), 'admin', 'admin');
+
+INSERT INTO freelancer (user_id, rating, language, completed_projects, total_clients, years_experience, specialization, skills)
+VALUES 
+(2, 4.75, 'English, Spanish', 15, 10, 5, 'Graphic Design & UI/UX', 'Adobe Photoshop, Illustrator, Figma, Sketch'),
+(4, 4.90, 'English', 20, 15, 7, 'AI & Machine Learning', 'Python, TensorFlow, PyTorch, NLP'),
+(6, 4.80, 'German, English', 12, 8, 4, 'Web Development', 'HTML, CSS, JavaScript, React, Node.js'),
+(8, 4.85, 'English, Hindi', 18, 14, 6, 'Full-Stack Development', 'Java, Spring Boot, Angular, MySQL');
+
+INSERT INTO project (project_id, project_title, project_description, project_image_url, project_price, project_status, client_id, freelancer_id, category_id) 
+VALUES 
+(UUID(), 'E-commerce Website Development', 'Develop a full-stack e-commerce website with payment integration.', '', 5000, 'IN_PROGRESS', 1, 2, '50c10e30-ff02-11ef-a4b7-507b9d88e91a'),
+(UUID(), 'Logo Design for Startup', 'Create a unique and modern logo for a new startup.', '', 3000, 'COMPLETED', 3, 4, '50c116f8-ff02-11ef-a4b7-507b9d88e91a'),
+(UUID(), 'Digital Marketing Strategy', 'Develop and implement a digital marketing strategy for an online business.', '', 15000, 'PENDING', 5, 6, '50c1198a-ff02-11ef-a4b7-507b9d88e91a'),
+(UUID(), 'Content Writing for Blog', 'Write SEO-optimized articles for a technology blog.', '', 7000, 'IN_PROGRESS', 7, 8, '50c11b83-ff02-11ef-a4b7-507b9d88e91a');
+
+INSERT INTO category (category_id, category_name, category_description, category_status, category_image_url, created_date, updated_date, created_by, updated_by) VALUES
+(UUID(), 'Web Development', 'Building websites, front-end, back-end, and full-stack development','available', '', NOW(), NOW(), 'Admin', 'Admin'),
+(UUID(), 'Graphic Design', 'Creating logos, branding, UI/UX, and digital illustrations','available', '', NOW(), NOW(), 'Admin', 'Admin'),
+(UUID(), 'Writing & Translation', 'Content writing, copywriting, blogging, and language translation','available', '', NOW(), NOW(), 'Admin', 'Admin'),
+(UUID(), 'Digital Marketing', 'SEO, social media marketing, PPC campaigns, and email marketing','available', '', NOW(), NOW(), 'Admin', 'Admin'),
+(UUID(), 'Video & Animation', 'Explainer videos, video editing, animation, and motion graphics','available', '', NOW(), NOW(), 'Admin', 'Admin'),
+(UUID(), 'Business Consulting', 'Financial planning, market research, and business strategy','available', '', NOW(), NOW(), 'Admin', 'Admin'),
+(UUID(), 'Mobile App Development', 'Developing iOS and Android applications, including UI/UX design','available', '', NOW(), NOW(), 'Admin', 'Admin'),  
+(UUID(), 'Cybersecurity', 'Protecting systems, networks, and data from cyber threats and attacks','available', '', NOW(), NOW(), 'Admin', 'Admin'),  
+(UUID(), 'E-commerce & Dropshipping', 'Building online stores, managing dropshipping, and product listing optimization','available', '', NOW(), NOW(), 'Admin', 'Admin'),  
+(UUID(), 'Game Development', 'Designing and developing games for PC, mobile, and consoles using various engines','available', '', NOW(), NOW(), 'Admin', 'Admin'),  
+(UUID(), 'Artificial Intelligence & Machine Learning', 'Creating AI models, chatbots, automation, and predictive analytics','available', '', NOW(), NOW(), 'Admin', 'Admin');  
+
 -- INSERT INTO users (user_id, user_name, user_email, user_password, user_type, user_phone, user_profile_picture, user_bio, skill, created_by, created_date, updated_by, updated_date) 
 -- VALUES
 -- (1, 'John Doe', 'john@example.com', 'password123', 'CLIENT', '+1234567890', 'john.jpg', 'I need expert developers.', '', 'system', NOW(), 'system', NOW()),
@@ -7,24 +45,16 @@
 -- (3, 'Mark Lee', 'mark@example.com', 'pass123', 'FREELANCER', '+1112223333', 'mark.jpg', 'Graphic designer & logo expert.', 'Photoshop, Illustrator, Branding', 'system', NOW(), 'system', NOW());
 
 
-INSERT INTO user (user_id, user_name, user_email, user_password, user_type, user_phone, user_profile_picture, user_bio, created_date, updated_date, created_by, updated_by)
-VALUES 
-(1, 'John Doe', 'johndoe@example.com', 'securepassword123', 'CLIENT', '+1234567890', '', 'Entrepreneur looking for tech solutions.', NOW(), NOW(), 'admin', 'admin'),
-(2, 'Jane Smith', 'janesmith@example.com', 'mypassword789', 'FREELANCER', '+1987654321', '', 'Freelance graphic designer.', NOW(), NOW(), 'admin', 'admin'),
-(3, 'Michael Johnson', 'michaelj@example.com', 'pass1234', 'CLIENT', '+1122334455', '', 'Business owner in need of automation.', NOW(), NOW(), 'admin', 'admin'),
-(4, 'Emily Davis', 'emilyd@example.com', 'password5678', 'FREELANCER', '+1567890123', '', 'Software engineer specializing in AI and ML.', NOW(), NOW(), 'admin', 'admin'),
-(5, 'Alice Brown', 'aliceb@example.com', 'alicepass789', 'CLIENT', '+1456789012', '', 'Startup founder seeking developers.', NOW(), NOW(), 'admin', 'admin'),
-(6, 'Michael Brown', 'michaelb@example.com', 'michaelpass123', 'FREELANCER', '+1122334455', '', 'Experienced web developer.', NOW(), NOW(), 'admin', 'admin'),
-(7, 'Sophia Wilson', 'sophiaw@example.com', 'sophiapass456', 'FREELANCER', '+1678901234', '', 'Digital marketing expert.', NOW(), NOW(), 'admin', 'admin'),
-(8, 'Rajesh Kumar', 'rajeshk@example.com', 'rajeshpass789', 'FREELANCER', '+919876543210', '', 'Full-stack developer with a passion for coding.', NOW(), NOW(), 'admin', 'admin');
-
-INSERT INTO freelancer (user_id, rating, location, language, completed_projects, total_clients, years_experience, specialization, skills, joined_date)
-VALUES 
-(2, 4.75, 'New York, USA', 'English, Spanish', 15, 10, 5, 'Graphic Design & UI/UX', 'Adobe Photoshop, Illustrator, Figma, Sketch', '2020-06-15'),
-(4, 4.90, 'San Francisco, USA', 'English', 20, 15, 7, 'AI & Machine Learning', 'Python, TensorFlow, PyTorch, NLP', '2018-09-10'),
-(6, 4.80, 'Berlin, Germany', 'German, English', 12, 8, 4, 'Web Development', 'HTML, CSS, JavaScript, React, Node.js', '2021-03-22'),
-(7, 4.65, 'Toronto, Canada', 'English, French', 10, 7, 3, 'Digital Marketing', 'SEO, Google Ads, Facebook Ads, Analytics', '2022-01-05'),
-(8, 4.85, 'Bangalore, India', 'English, Hindi', 18, 14, 6, 'Full-Stack Development', 'Java, Spring Boot, Angular, MySQL', '2019-11-12');
+-- INSERT INTO user (user_id, user_name, user_email, user_password, user_type, user_phone, user_profile_picture, user_bio, created_date, updated_date, created_by, updated_by)
+-- VALUES 
+-- (1, 'John Doe', 'johndoe@example.com', 'securepassword123', 'CLIENT', '+1234567890', '', 'Entrepreneur looking for tech solutions.', NOW(), NOW(), 'admin', 'admin'),
+-- (2, 'Jane Smith', 'janesmith@example.com', 'mypassword789', 'FREELANCER', '+1987654321', '', 'Freelance graphic designer.', NOW(), NOW(), 'admin', 'admin'),
+-- (3, 'Michael Johnson', 'michaelj@example.com', 'pass1234', 'CLIENT', '+1122334455', '', 'Business owner in need of automation.', NOW(), NOW(), 'admin', 'admin'),
+-- (4, 'Emily Davis', 'emilyd@example.com', 'password5678', 'FREELANCER', '+1567890123', '', 'Software engineer specializing in AI and ML.', NOW(), NOW(), 'admin', 'admin'),
+-- (5, 'Alice Brown', 'aliceb@example.com', 'alicepass789', 'CLIENT', '+1456789012', '', 'Startup founder seeking developers.', NOW(), NOW(), 'admin', 'admin'),
+-- (6, 'Michael Brown', 'michaelb@example.com', 'michaelpass123', 'FREELANCER', '+1122334455', '', 'Experienced web developer.', NOW(), NOW(), 'admin', 'admin'),
+-- (7, 'Sophia Wilson', 'sophiaw@example.com', 'sophiapass456', 'FREELANCER', '+1678901234', '', 'Digital marketing expert.', NOW(), NOW(), 'admin', 'admin'),
+-- (8, 'Rajesh Kumar', 'rajeshk@example.com', 'rajeshpass789', 'FREELANCER', '+919876543210', '', 'Full-stack developer with a passion for coding.', NOW(), NOW(), 'admin', 'admin');
 
 -- INSERT INTO project (project_id, project_title, project_description, project_image_url, project_status, created_date, updated_date, created_by, updated_by)
 -- VALUES 
@@ -34,14 +64,6 @@ VALUES
 -- ('P004', 'Portfolio Website', 'A personal portfolio website for a freelance designer.', '', 'OPEN', NOW(), NOW(), 'Jane Smith', 'Jane Smith'),
 -- ('P005', 'Mobile App Development', 'A cross-platform mobile app for a food delivery service.', '', 'IN_PROGRESS', NOW(), NOW(), 'Rajesh Kumar', 'Rajesh Kumar');
 
-INSERT INTO project (project_id, project_title, project_description, project_image_url, project_status, client_id, freelancer_id, category_id)
-VALUES 
-(UUID(), 'E-commerce Website', 'A fully functional e-commerce platform with payment integration.', '', 'OPEN', 1, 2, '79a6904a-fea4-11ef-9217-507b9d88e91a'),
-(UUID(), 'AI Chatbot', 'An AI-powered chatbot for customer service automation.', '', 'IN_PROGRESS', 3, 4, '79a693c8-fea4-11ef-9217-507b9d88e91a'),
-(UUID(), 'Marketing Campaign', 'A digital marketing strategy focusing on social media ads.', '', 'COMPLETED', 5, 7, '79a695a9-fea4-11ef-9217-507b9d88e91a'),
-(UUID(), 'Portfolio Website', 'A personal website for showcasing design work.', '', 'OPEN', 1, 6, '79a69695-fea4-11ef-9217-507b9d88e91a'),
-(UUID(), 'Food Delivery App', 'A cross-platform mobile app for online food delivery.', '', 'IN_PROGRESS', 5, 8, '79a6979f-fea4-11ef-9217-507b9d88e91a');
-
 -- INSERT INTO payment (payment_id, project_id, client_id, freelancer_id, amount, payment_status, payment_method, transaction_id, created_by, updated_by)
 -- VALUES 
 -- (UUID(), 'P001', 1, 2, 1500.00, 'COMPLETED', 'PAYPAL', 'TXN123456', 'John Doe', 'John Doe'),
@@ -49,19 +71,6 @@ VALUES
 -- (UUID(), 'P003', 5, 7, 800.75, 'FAILED', 'BANK_TRANSFER', 'TXN345678', 'Alice Brown', 'Sophia Wilson'),
 -- (UUID(), 'P004', 1, 6, 1200.00, 'COMPLETED', 'PAYPAL', 'TXN901234', 'Jane Smith', 'Jane Smith'),
 -- (UUID(), 'P005', 5, 8, 1800.30, 'PENDING', 'CREDIT_CARD', 'TXN567890', 'Rajesh Kumar', 'Rajesh Kumar');
-
-INSERT INTO category (category_id, category_name, category_description, category_status, created_by, updated_by) VALUES
-(UUID(), 'Web Development', 'Building websites, front-end, back-end, and full-stack development','open', 'Admin', 'Admin'),
-(UUID(), 'Graphic Design', 'Creating logos, branding, UI/UX, and digital illustrations','open', 'Admin', 'Admin'),
-(UUID(), 'Writing & Translation', 'Content writing, copywriting, blogging, and language translation','in progress', 'Admin', 'Admin'),
-(UUID(), 'Digital Marketing', 'SEO, social media marketing, PPC campaigns, and email marketing','open', 'Admin', 'Admin'),
-(UUID(), 'Video & Animation', 'Explainer videos, video editing, animation, and motion graphics','canceled', 'Admin', 'Admin'),
-(UUID(), 'Business Consulting', 'Financial planning, market research, and business strategy','open', 'Admin', 'Admin'),
-(UUID(), 'Mobile App Development', 'Developing iOS and Android applications, including UI/UX design','in progress', 'Admin', 'Admin'),  
-(UUID(), 'Cybersecurity', 'Protecting systems, networks, and data from cyber threats and attacks','open', 'Admin', 'Admin'),  
-(UUID(), 'E-commerce & Dropshipping', 'Building online stores, managing dropshipping, and product listing optimization','completed', 'Admin', 'Admin'),  
-(UUID(), 'Game Development', 'Designing and developing games for PC, mobile, and consoles using various engines','in progress', 'Admin', 'Admin'),  
-(UUID(), 'Artificial Intelligence & Machine Learning', 'Creating AI models, chatbots, automation, and predictive analytics','completed', 'Admin', 'Admin');  
 
 -- INSERT INTO projects (client_id, title, description, budget, status) VALUES
 -- (1, 'Website Development', 'Need a responsive website for my business.', 500.00, 'open'),
