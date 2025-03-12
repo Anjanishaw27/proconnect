@@ -11,17 +11,21 @@ import edu.rims.pro_connect.repository.UserRepository;
 
 import org.springframework.web.bind.annotation.PostMapping;
 
-
-
 @Controller
-@RequestMapping("/client")
+@RequestMapping("/login")
 public class LoginController {
 
     @Autowired
     private UserRepository userRepository;
+
     @GetMapping("/login")
-    public String loginPage(){
-        return "client/login";
+    public String loginPage() {
+        return "client/sign_in";
+    }
+
+    @GetMapping("/signup")
+    public String signUpPage() {
+        return "client/sign_up";
     }
 
     @PostMapping("/sign-up")
@@ -34,5 +38,5 @@ public class LoginController {
         // System.out.println(user.getUserBio());
         return "redirect:/client/login";
     }
-    
+
 }

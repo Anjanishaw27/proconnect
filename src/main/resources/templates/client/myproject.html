@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,84 +10,93 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <aside data-th-replace="~{client/clientdashboard :: aside}"></aside>
-<!-- Main Content -->
-<main class="content">
-    <header>
-        <h1>Welcome, Freelancer</h1>
-     
-    </header>
+    <!-- Main Content -->
+    <main class="content">
+        <header>
+            <h1>Welcome, Freelancer</h1>
 
-    <section class="projects">
-        <h2>My Projects</h2>
-        <button class="add-project-btn" onclick="openModal()">Add New Project</button>
-        <table>
-            <thead>
-                <tr>
-                    <th>Project Name</th>
-                    <th>Client</th>
-                    <th>Deadline</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="projectTable">
-                <tr data-th-each="project:${projects}">
-                    <td data-th-text="${myproject.projectName}"></td>
-                    <td data-th-text="${myproject.clientName}" ></td>
-                    <td data-th-text="${myproject.deadline}"></td>
-                    <td data-th-text="${myproject.status}"><span class="status in-progress"></span></td>
-                    
-                    <td><button class="edit-btn">Edit</button><button class="delete-btn">Delete</button></td>
-                </tr>
-                   <!-- <tr>
+        </header>
+
+        <section class="projects">
+            <h2>My Projects</h2>
+            <button class="add-project-btn" onclick="openModal()">Add New Project</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Project Title</th>
+                        <th>Description</th>
+                        <th>Listed Date</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="projectTable">
+                    <tr data-th-each="project:${user.projects}">
+                        <td data-th-text="${project.projectTitle}"></td>
+                        <td data-th-text="${project.projectDescription}"></td>
+                        <td data-th-text="${project.createdDate}"></td>
+                        <td>
+                            <img data-th-src="|/client/myproject/${project.projectId}|" alt="" style="width: 50px;">
+                        </td>
+                        <td data-th-text="${project.projectPrice}"></td>
+                        <td data-th-text="${project.projectStatus}"></td>
+                        <td><button class="edit-btn">Edit</button><button class="delete-btn">Delete</button></td>
+                    </tr>
+                    <!-- <tr>
                         <td>Website Development</td>
                         <td>John Doe</td>
                         <td>March 20, 2025</td>
                         <td><span class="status in-progress">In Progress</span></td>
                         <td><button class="edit-btn">Edit</button><button class="delete-btn">Delete</button></td>
                     </tr>-->
-            </tbody>
-        </table>
-    </section>
-</main>
-</div>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    </div>
 
-<!-- Add Project Modal -->
-<div id="projectModal" class="modal">
-<div class="modal-content">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
-    <h2>Add New Project</h2>
-    <form id="projectForm">
-        <input type="text" id="projectName" placeholder="Project Name" required>
-        <input type="text" id="clientName" placeholder="Client Name" required>
-        <input type="date" id="deadline" required>
-        <select id="status">
-            <option value="In Progress">In Progress</option>
-            <option value="Completed">Completed</option>
-            <option value="Pending">Pending</option>
-        </select>
-        <button type="submit">Add Project</button>
-    </form>
-</div>
-</div>
+    <!-- Add Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Add New Project</h2>
+            <form id="projectForm" action="/client/myproject" method="post" enctype="multipart/form-data">
+                <input type="text" id="projectTitle" name="projectTitle" placeholder="Project Name" required>
+                <input type="text" id="projectPrice" name="projectPrice" placeholder="Project Price" required>
+                <input type="file" id="projectImage" name="projectImage" placeholder="Project Image" required>
+                <textarea name="projectDescription" id="projectDescription"
+                    placeholder="Describe the Project Details"></textarea>
+                <select name="category">
+                    <option value="" disabled selected>Select Category</option>
+                    <option data-th-value="${category.categoryId}" data-th-each="category:${categories}"
+                        data-th-text="${category.categoryName}"></option>
+                </select>
+                <button type="submit">Add Project</button>
+            </form>
+        </div>
+    </div>
 
-<script>
-function openModal() {
-    document.getElementById("projectModal").style.display = "flex";
-}
+    <script>
+        function openModal() {
+            document.getElementById("projectModal").style.display = "flex";
+        }
 
-function closeModal() {
-    document.getElementById("projectModal").style.display = "none";
-}
-</script>
+        function closeModal() {
+            document.getElementById("projectModal").style.display = "none";
+        }
+    </script>
 
 
 
 
 </body>
+
 </html>
