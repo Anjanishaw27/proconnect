@@ -16,79 +16,44 @@
 
 <body>
     <aside data-th-replace="~{client/clientdashboard :: aside}"></aside>
-    <div class="container">
+    <main class="content">
+        <header>
+            <h1>Welcome, Admin</h1>
+
+        </header>
+        <section class="projects">
         <h1>Your Project Requests</h1>
+        <!-- <button class="add-project-btn" onclick="openModal()">Add New Project</button> -->
         <table>
             <thead>
                 <tr>
-                    <th>Project Name</th>
+                    <th>Freelancer Name</th>
+                    <th>Project Title</th>
+                    <th>Project Description</th>
+                    <th>Image</th>
+                    <th>Price</th>
                     <th>Status</th>
-                    <th>Freelancer Applications</th>
-                    <th>Actions</th>
+                    <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="projectTable">
                 <tr>
-                    <td>Website Redesign</td>
-                    <td>Open</td>
-                    <td><a onclick="toggleApplicants()">5 Applied</a></td>
-                    <td class="action-buttons">
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
+                    <td>John Doe</td>
+                    <td>4.8</td>
+                    <td>$1000</td>
+                    <td>2 Weeks</td>
+                    <td>Expert in UX/UI, can complete efficiently.</td>
+                    <td></td>
+                    <td>
+                        <button class="btn-close">Hire</button>
+                        <button class="btn-close">Disapprove</button>
                     </td>
                 </tr>
+                
             </tbody>
         </table>
-
-        <div class="applicant-list" id="applicantList">
-            <h2>Applicants</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Rating</th>
-                        <th>Bid Amount</th>
-                        <th>Estimated Time</th>
-                        <th>Proposal</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>John Doe</td>
-                        <td>4.8</td>
-                        <td>$1000</td>
-                        <td>2 Weeks</td>
-                        <td>Expert in UX/UI, can complete efficiently.</td>
-                        <td>
-                            <button class="btn-close">Hire</button>
-                            <button class="btn-close">Disapprove</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- <h2>Post a New Project</h2>
-        <form>
-            <label>Project Title</label>
-            <input type="text" placeholder="Enter project title" required>
-            <label>Project Description</label>
-            <textarea placeholder="Describe your project"></textarea>
-            <label>Budget ($)</label>
-            <input type="number" placeholder="Enter budget" required>
-            <label>Deadline</label>
-            <input type="date" required>
-            <button type="submit">Submit</button>
-        </form> -->
-    </div>
-
-    <script>
-        function toggleApplicants() {
-            var list = document.getElementById("applicantList");
-            list.style.display = list.style.display === "none" ? "block" : "none";
-        }
-    </script>
+    </section>
+    </main>
+    
 </body>
-
 </html>
