@@ -49,6 +49,11 @@ public class ClientdashboardController {
         return "client/profile";
     }
 
+    @GetMapping("/request")
+    String clientrequest() {
+        return "client/request";
+    }
+
     @GetMapping("/myproject")
     String clientmyproject(Model model) {
         User user = userRepository.findById(1).orElseThrow();

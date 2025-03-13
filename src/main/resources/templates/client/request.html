@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard - Project Requests</title>
+    <link rel="stylesheet" href="/style/client.clientdashboard.css">
+    <link rel="stylesheet" href="/style/client.request.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <aside data-th-replace="~{client/clientdashboard :: aside}"></aside>
+    <div class="container">
+        <h1>Your Project Requests</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Status</th>
+                    <th>Freelancer Applications</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Website Redesign</td>
+                    <td>Open</td>
+                    <td><a onclick="toggleApplicants()">5 Applied</a></td>
+                    <td class="action-buttons">
+                        <button class="btn-edit">Edit</button>
+                        <button class="btn-delete">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="applicant-list" id="applicantList">
+            <h2>Applicants</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Rating</th>
+                        <th>Bid Amount</th>
+                        <th>Estimated Time</th>
+                        <th>Proposal</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>4.8</td>
+                        <td>$1000</td>
+                        <td>2 Weeks</td>
+                        <td>Expert in UX/UI, can complete efficiently.</td>
+                        <td>
+                            <button class="btn-close">Hire</button>
+                            <button class="btn-close">Disapprove</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- <h2>Post a New Project</h2>
+        <form>
+            <label>Project Title</label>
+            <input type="text" placeholder="Enter project title" required>
+            <label>Project Description</label>
+            <textarea placeholder="Describe your project"></textarea>
+            <label>Budget ($)</label>
+            <input type="number" placeholder="Enter budget" required>
+            <label>Deadline</label>
+            <input type="date" required>
+            <button type="submit">Submit</button>
+        </form> -->
+    </div>
+
+    <script>
+        function toggleApplicants() {
+            var list = document.getElementById("applicantList");
+            list.style.display = list.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+
+</html>
