@@ -74,5 +74,11 @@ public class AdmindashboardController {
     fis.close();
     return image;
   }
+  
+  @GetMapping("/usermanagment")
+  String adminusermanagment() {
+      return "admin/usermanagment";
+  }
+  
 
 }
