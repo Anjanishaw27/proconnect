@@ -9,15 +9,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import edu.rims.pro_connect.constant.ProjectStatus;
 import edu.rims.pro_connect.entity.Category;
+import edu.rims.pro_connect.entity.Project;
 //import edu.rims.pro_connect.entity.Freelancer;
 import edu.rims.pro_connect.repository.CategoryRepository;
+import edu.rims.pro_connect.repository.ProjectRepository;
 
 @Controller
 @RequestMapping("/category")
 public class CategoryController {
     @Autowired
     private CategoryRepository categoryRepository;
+
+    @Autowired
+    private ProjectRepository projectRepository;
 
     @GetMapping("/category")
     public String category(Model model) {
@@ -30,8 +36,9 @@ public class CategoryController {
 
     @GetMapping("/freelancer")
     public String categoryProjectList(Model model, @RequestParam String categoryId) {
-        Category category = categoryRepository.findById(categoryId).orElseThrow();
-        model.addAttribute("category", category);
+        List<Project> projects = projectRepository.findByCategoryCategoryIdAndProjectStatus(categoryId,
+                ProjectStatus.OPEN.toString());
+        model.addAttribute("projects", projects);
         return "client/project";
     }
 }

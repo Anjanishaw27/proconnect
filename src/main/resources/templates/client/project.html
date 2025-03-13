@@ -12,8 +12,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        
-
         .java-section {
             text-align: center;
             margin: 50px auto;
@@ -59,7 +57,7 @@
             padding: 1rem;
             text-align: center;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-          
+
         }
 
         .developer-card img {
@@ -123,21 +121,18 @@
     </div>
 
 
-    <h5 data-th-if="${#lists.size(category.projects) == 0}" style="text-align: center; color: red;"> No Projects Listed
+    <h5 data-th-if="${#lists.size(projects) == 0}" style="text-align: center; color: red;"> No Projects Listed
         Yet!!!
     </h5>
     <div class="developers-container">
-        <div class="developer-card" th:each="project : ${category.projects}">
-            <img src="/images/image1.jpg" alt="">
+        <div class="developer-card" th:each="project : ${projects}">
+            <img data-th-src="|/client/myproject/${project.projectId}|" alt="">
             <h3 th:text="${project.projectTitle}"></h3>
             <p th:text="|Listed By: ${project.user.userName}|"></p>
             <p class="rating" th:text="${project.projectStatus}"></p>
             <p class="rating" th:text="|Listed: ${project.createdDate}|"></p>
             <div class="description-div">
-                <p class="description">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam aperiam officia atque minus incidunt
-                    sapiente repellendus tenetur adipisci dolorem fugiat.
-                </p>
+                <p class="description" data-th-text="${project.projectDescription}"></p>
             </div>
             <div class="see-btn">
                 <a data-th-href="|/project/pdp?id=${project.projectId}|" class="see-more">See more</a>

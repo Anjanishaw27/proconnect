@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.rims.pro_connect.entity.Project;
 import edu.rims.pro_connect.repository.ProjectRepository;
@@ -20,8 +21,15 @@ public class ProjectController {
 
     @GetMapping("/project")
     public String project(Model model) {
-        List<Project> projects = projectRepository.findAll();  // Call findAll() on the instance
-        model.addAttribute("projects", projects);  // Use a meaningful attribute name
+        List<Project> projects = projectRepository.findAll(); // Call findAll() on the instance
+        model.addAttribute("projects", projects); // Use a meaningful attribute name
         return "client/category";
+    }
+
+    @GetMapping("/pdp")
+    public String projectDetails(@RequestParam String id, Model model) {
+        Project project = projectRepository.findById(id).orElseThrow();
+        model.addAttribute("project", project);
+        return "client/project_pdp";
     }
 }
