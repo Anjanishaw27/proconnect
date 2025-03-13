@@ -80,5 +80,9 @@ public class AdmindashboardController {
       return "admin/usermanagment";
   }
   
+  @GetMapping("/freelancermanagment")
+  String adminfreelancermanagment() {
+      return "admin/freelancermanagment";
+  }
 
 }
