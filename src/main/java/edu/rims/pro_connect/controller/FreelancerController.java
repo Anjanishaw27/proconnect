@@ -37,7 +37,7 @@ public class FreelancerController {
     }
 
     @GetMapping("/pdp")
-    public String freelancerPdp(@RequestParam long id, Model model) {
+    public String freelancerPdp(@RequestParam int id, Model model) {
         Freelancer freelancer = freelancerRepository.findById(id).orElseThrow();
         model.addAttribute("freelancer", freelancer);
         return "client/pdp";

@@ -45,4 +45,7 @@ public class User extends Auditable {
 
     @Column(name = "location", length = 255)
     private String location;
+
+    @OneToMany(mappedBy = "user")
+    private List<ServiceRequest> serviceRequests;
 }

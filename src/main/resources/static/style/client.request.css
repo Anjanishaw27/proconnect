@@ -1,16 +1,157 @@
-* {
+
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+    /* Main Content */
+.content {
+    margin-left: 20px;
+    padding: 20px;
+    flex: 1;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logout-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .logout-btn:hover {
+    background: #c0392b;
+  }
+  
+  /* Project Table */
+  .projects {
+    margin-top: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .projects h2 {
+    margin-bottom: 15px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background: #007bff;
+    color: white;
+  }
+  
+  .status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  .in-progress {
+    background: #f39c12;
+  }
+  
+  .completed {
+    background: #2ecc71;
+  }
+  
+  .pending {
+    background: #e74c3c;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .edit-btn {
+    background: #f1c40f;
+    color: white;
+  }
+  
+  .delete-btn {
+    background: #e74c3c;
+    color: white;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 350px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* Close Button */
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .close-btn:hover {
+    color: red;
+  }
+
+
+  
+
+  
 
 /* body {
     background-color: #f7f9fc;
     padding: 20px;
     } */
 
-.container {
+/* .container {
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -65,17 +206,17 @@ th {
 .btn-close {
     background-color: #ffc107;
     color: #fff;
-}
+} */ 
 
-.btn-progress {
+/* .btn-progress {
     background-color: #17a2b8;
     color: #fff;
-}
+} */
 
-.applicant-list {
+/* .applicant-list {
     display: none;
     margin-top: 20px;
-}
+} */
 
 /* form {
             background-color: #fff;
@@ -92,11 +233,11 @@ input, select, textarea {
             border-radius: 5px;
 }*/
 
-button {
+/* button {
     padding: 10px 15px;
     border: none;
     background-color: #007bff;
     color: white;
     cursor: pointer;
     border-radius: 5px;
-}
+} */ 
