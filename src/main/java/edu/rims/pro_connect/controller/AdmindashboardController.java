@@ -83,7 +83,7 @@ public class AdmindashboardController {
 
   @GetMapping("/usermanagment")
   String adminusermanagment(Model model) {
-    List<User> users = userRepository.findByUserType(UserType.CLIENT.toString());
+    List<User> users = userRepository.findByUserType(UserType.CLIENT);
     model.addAttribute("users", users);
     return "admin/usermanagment";
   }
