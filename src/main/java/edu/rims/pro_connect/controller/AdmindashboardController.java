@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import edu.rims.pro_connect.constant.UserType;
 import edu.rims.pro_connect.entity.Category;
+import edu.rims.pro_connect.entity.User;
 import edu.rims.pro_connect.repository.CategoryRepository;
+import edu.rims.pro_connect.repository.UserRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,6 +33,9 @@ public class AdmindashboardController {
 
   @Autowired
   private CategoryRepository categoryRepository;
+
+  @Autowired
+  private UserRepository userRepository;
 
   @GetMapping("/admindashboard")
   String admindashboard() {
@@ -74,11 +80,12 @@ public class AdmindashboardController {
     fis.close();
     return image;
   }
-  
+
   @GetMapping("/usermanagment")
-  String adminusermanagment() {
-      return "admin/usermanagment";
+  String adminusermanagment(Model model) {
+    List<User> users = userRepository.findByUserType(UserType.CLIENT.toString());
+    model.addAttribute("users", users);
+    return "admin/usermanagment";
   }
-  
 
 }
