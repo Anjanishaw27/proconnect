@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Freelancer Managment</title>
-        <link rel="stylesheet" href="/style/admin/admindashboard.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="  /../style/admin/usermanagment.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Managment</title>
+    <link rel="stylesheet" href="/style/admin/admindashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="  /../style/admin/usermanagment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
 <body>
     <aside data-th-replace="~{admin/admindashboard :: aside}"></aside>
     <main class="content">
@@ -19,7 +21,7 @@
         <p>Manage platform users, edit details, or remove accounts.</p>
         <table class="user-table">
             <tr>
-                
+
                 <th>Name</th>
                 <th>Email</th>
                 <th>Completed project</th>
@@ -28,22 +30,24 @@
                 <th>Year of experience</th>
                 <th>Specialization</th>
                 <th>Skill</th>
+                <th>Location</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>John Doe</td>
-                <td>johndoe@example.com</td>
+            <tr data-th-each="freelancer:${freelancers}">
+                <td data-th-text="${freelancer.userName}"></td>
+                <td data-th-text="${freelancer.userEmail}"></td>
                 <td>10</td>
                 <td>12</td>
-                <td>English</td>
-                <td>5</td>
-                <td>java</td>
-                
+                <td data-th-text="${freelancer.language}"></td>
+                <td data-th-text="${freelancer.yearsExperience}"></td>
+                <td data-th-text="${freelancer.specialization}"></td>
+                <td data-th-text="${freelancer.skills}"></td>
+                <td data-th-text="${freelancer.location}"></td>
             </tr>
-            
+
         </table>
     </main>
-       
-   
+
+
 </body>
+
 </html>

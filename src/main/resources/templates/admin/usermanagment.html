@@ -22,7 +22,6 @@
         <p>Manage platform users, edit details, or remove accounts.</p>
         <table class="user-table">
             <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>
@@ -32,7 +31,6 @@
                 <th>Location</th>
             </tr>
             <tr data-th-each="user: ${users}">
-                <td data-th-text="${user.userId}"></td>
                 <td data-th-text="${user.userName}"></td>
                 <td data-th-text="${user.userEmail}"></td>
                 <td data-th-text="${user.userType}"></td>

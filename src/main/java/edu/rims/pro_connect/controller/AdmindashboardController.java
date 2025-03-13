@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.rims.pro_connect.constant.UserType;
 import edu.rims.pro_connect.entity.Category;
+import edu.rims.pro_connect.entity.Freelancer;
 import edu.rims.pro_connect.entity.User;
 import edu.rims.pro_connect.repository.CategoryRepository;
+import edu.rims.pro_connect.repository.FreelancerRepository;
 import edu.rims.pro_connect.repository.UserRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,11 +33,17 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/admin")
 public class AdmindashboardController {
 
+  private final FreelancerRepository freelancerRepository;
+
   @Autowired
   private CategoryRepository categoryRepository;
 
   @Autowired
   private UserRepository userRepository;
+
+  AdmindashboardController(FreelancerRepository freelancerRepository) {
+    this.freelancerRepository = freelancerRepository;
+  }
 
   @GetMapping("/admindashboard")
   String admindashboard() {
@@ -86,6 +94,13 @@ public class AdmindashboardController {
     List<User> users = userRepository.findByUserType(UserType.CLIENT);
     model.addAttribute("users", users);
     return "admin/usermanagment";
+  }
+
+  @GetMapping("/freelancermanagment")
+  String adminFreelancermanagment(Model model) {
+    List<Freelancer> freelancers = freelancerRepository.findByUserType(UserType.FREELANCER);
+    model.addAttribute("freelancers", freelancers);
+    return "admin/freelancermanagment";
   }
 
 }
