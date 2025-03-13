@@ -75,7 +75,7 @@
                 <p data-th-text="${project.projectDescription}"></p>
             </div>
             <div class="apply">
-                <button>Apply for this Project</button>
+                <a data-th-href="|/serviceRequest/apply?id=${project.projectId}|">Apply for this Project</a>
             </div>
         </section>
     </main>

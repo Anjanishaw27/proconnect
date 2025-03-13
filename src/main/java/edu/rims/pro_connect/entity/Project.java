@@ -1,5 +1,7 @@
 package edu.rims.pro_connect.entity;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -45,4 +47,7 @@ public class Project extends Auditable {
 
     @Column(name = "project_price")
     private Double projectPrice;
+
+    @OneToMany(mappedBy = "project")
+    private List<ServiceRequest> serviceRequests;
 }
