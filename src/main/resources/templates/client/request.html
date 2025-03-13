@@ -22,38 +22,39 @@
 
         </header>
         <section class="projects">
-        <h1>Your Project Requests</h1>
-        <!-- <button class="add-project-btn" onclick="openModal()">Add New Project</button> -->
-        <table>
-            <thead>
-                <tr>
-                    <th>Freelancer Name</th>
-                    <th>Project Title</th>
-                    <th>Project Description</th>
-                    <th>Image</th>
-                    <th>Price</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="projectTable">
-                <tr>
-                    <td>John Doe</td>
-                    <td>4.8</td>
-                    <td>$1000</td>
-                    <td>2 Weeks</td>
-                    <td>Expert in UX/UI, can complete efficiently.</td>
-                    <td></td>
-                    <td>
-                        <button class="btn-close">Hire</button>
-                        <button class="btn-close">Disapprove</button>
-                    </td>
-                </tr>
-                
-            </tbody>
-        </table>
-    </section>
+            <h1>Your Project Requests</h1>
+            <!-- <button class="add-project-btn" onclick="openModal()">Add New Project</button> -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Freelancer Name</th>
+                        <th>Project Title</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="projectTable">
+                    <tr data-th-each="request : ${user.serviceRequests}">
+                        <td data-th-text="${request.freelancer.userName}"></td>
+                        <td data-th-text="${request.project.projectTitle}"></td>
+                        <td>Image</td>
+                        <td data-th-text="${request.project.projectPrice}"></td>
+                        <td data-th-text="${request.project.category.categoryName}"></td>
+                        <td data-th-text="${request.serviceRequestStatus}"></td>
+                        <td>
+                            <button class="btn-close">Hire</button>
+                            <button class="btn-close">Disapprove</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
     </main>
-    
+
 </body>
+
 </html>

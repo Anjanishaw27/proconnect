@@ -1,5 +1,6 @@
 package edu.rims.pro_connect.entity;
 
+import edu.rims.pro_connect.constant.ServiceRequestStatus;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,4 +25,6 @@ public class ServiceRequest extends Auditable {
 
     @ManyToOne
     private Project project;
+
+    private ServiceRequestStatus serviceRequestStatus = ServiceRequestStatus.REJECTED;
 }
