@@ -31,22 +31,27 @@ public class FreelancerdashboardController {
       return "freelancer/freelancerdashboard";
     }
 
-  @GetMapping("/project")
-  String freelancerproject(Model model){
-    List<Project> projects = projectRepository.findAll();  // Call findAll() on the instance
-        model.addAttribute("projects", projects);  // Use a meaningful attribute name
-        return "freelancer/project";
-  }
+  // @GetMapping("/project")
+  // String freelancerproject(Model model){
+  //   List<Project> projects = projectRepository.findAll();  // Call findAll() on the instance
+  //       model.addAttribute("projects", projects);  // Use a meaningful attribute name
+  //       return "freelancer/project";
+  // }
 
-  @PostMapping("/freelancer/project")
-  public String projectAdd(@ModelAttribute Project project) {
+  // @PostMapping("/freelancer/project")
+  // public String projectAdd(@ModelAttribute Project project) {
       
-      // projectRepository.save(project);
-      System.out.println(project);
-      return "redirect:/freelancer/project";
-  }
+  //     // projectRepository.save(project);
+  //     System.out.println(project);
+  //     return "redirect:/freelancer/project";
+  // }
   @GetMapping("/earning")
     String freelancerearning(){
       return "freelancer/earning";
   } 
+
+  @GetMapping("/project_request")
+  String freelancerprojectrequest(){
+    return "freelancer/project_request";
+} 
 }
