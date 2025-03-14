@@ -40,13 +40,16 @@
                     <tr data-th-each="request : ${user.serviceRequests}">
                         <td data-th-text="${request.freelancer.userName}"></td>
                         <td data-th-text="${request.project.projectTitle}"></td>
-                        <td>Image</td>
+                        <td><img data-th-src="|/client/myproject/${request.project.projectId}|" alt=""
+                                style="width: 50px;"></td>
                         <td data-th-text="${request.project.projectPrice}"></td>
                         <td data-th-text="${request.project.category.categoryName}"></td>
                         <td data-th-text="${request.serviceRequestStatus}"></td>
                         <td>
-                            <button class="btn-close">Hire</button>
-                            <button class="btn-close">Disapprove</button>
+                            <a
+                                data-th-href="|/serviceRequest/approve?id=${request.serviceRequestId}&status=approve|">Approve</a>
+                            <a
+                                data-th-href="|/serviceRequest/approve?id=${request.serviceRequestId}&status=cancel|">cancel</a>
                         </td>
                     </tr>
 

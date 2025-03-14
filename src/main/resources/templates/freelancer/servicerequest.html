@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <aside data-th-replace="~{freelancer/freelancerdashboard :: aside}"></aside>
     <main class="content">
@@ -35,7 +37,7 @@
                     </tr>
                 </thead>
                 <tbody id="projectTable">
-                    <tr data-th-each="request : ${user.serviceRequests}">
+                    <tr data-th-each="request : ${serviceRequests}">
                         <td data-th-text="${request.freelancer.userName}"></td>
                         <td data-th-text="${request.project.projectTitle}"></td>
                         <td>Image</td>
@@ -43,8 +45,7 @@
                         <td data-th-text="${request.project.category.categoryName}"></td>
                         <td data-th-text="${request.serviceRequestStatus}"></td>
                         <td>
-                            <button class="btn-close">Hire</button>
-                            <button class="btn-close">Disapprove</button>
+                            <button>cancel</button>
                         </td>
                     </tr>
 
@@ -54,4 +55,5 @@
     </main>
 
 </body>
+
 </html>

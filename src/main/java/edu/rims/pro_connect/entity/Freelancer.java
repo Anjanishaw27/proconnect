@@ -1,5 +1,7 @@
 package edu.rims.pro_connect.entity;
 
+import java.util.ArrayList;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,4 +35,13 @@ public class Freelancer extends User {
 
     @Column(name = "skills", columnDefinition = "TEXT")
     private String skills;
+
+    public void addServiceRequest(ServiceRequest request) {
+        if (getServiceRequests() == null) {
+            setServiceRequests(new ArrayList<>());
+        }
+
+        request.setFreelancer(this);
+        getServiceRequests().add(request);
+    }
 }
