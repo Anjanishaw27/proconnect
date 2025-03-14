@@ -54,4 +54,8 @@ public class FreelancerdashboardController {
   String freelancerprojectrequest(){
     return "freelancer/project_request";
 } 
+  @GetMapping("/servicerequest")
+  String freelancerservicerequest(){
+    return "freelancer/servicerequest";
+}      
 }

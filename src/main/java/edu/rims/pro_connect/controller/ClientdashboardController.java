@@ -51,14 +51,14 @@ public class ClientdashboardController {
 
     @GetMapping("/request")
     String clientrequest(Model model) {
-        User user = userRepository.findById(2).orElseThrow();
+        User user = userRepository.findById(1).orElseThrow();
         model.addAttribute("user", user);
         return "client/request";
     }
 
     @GetMapping("/myproject")
     String clientmyproject(Model model) {
-        User user = userRepository.findById(2).orElseThrow();
+        User user = userRepository.findById(1).orElseThrow();
         List<Category> categories = categoryRepository.findAll();
         model.addAttribute("user", user);
         model.addAttribute("categories", categories);
@@ -78,7 +78,7 @@ public class ClientdashboardController {
 
             project.setProjectImageUrl(fileName);
         }
-        project.setUser(userRepository.findById(2).orElseThrow());
+        project.setUser(userRepository.findById(1).orElseThrow());
         project.setCreatedDate(LocalDate.now());
         project.setProjectStatus(ProjectStatus.OPEN.toString());
         projectRepository.save(project);
