@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Request</title>
+    <link rel="stylesheet" href="../style/admin/admindashboard.css">
+    <link rel="stylesheet" href="/style/client.request.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <aside data-th-replace="~{freelancer/freelancerdashboard :: aside}"></aside>
+    <main class="content">
+        <header>
+            <h1>Welcome, Freelancer</h1>
+
+        </header>
+        <section class="projects">
+            <h1>Your Project Requests</h1>
+            <!-- <button class="add-project-btn" onclick="openModal()">Add New Project</button> -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Freelancer Name</th>
+                        <th>Project Title</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="projectTable">
+                    <tr data-th-each="request : ${user.serviceRequests}">
+                        <td data-th-text="${request.freelancer.userName}"></td>
+                        <td data-th-text="${request.project.projectTitle}"></td>
+                        <td>Image</td>
+                        <td data-th-text="${request.project.projectPrice}"></td>
+                        <td data-th-text="${request.project.category.categoryName}"></td>
+                        <td data-th-text="${request.serviceRequestStatus}"></td>
+                        <td>
+                            <button class="btn-close">Hire</button>
+                            <button class="btn-close">Disapprove</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+</body>
+</html>
