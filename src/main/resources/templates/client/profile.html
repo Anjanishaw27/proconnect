@@ -125,13 +125,14 @@
     <div class="container">
         <!-- Profile Header -->
         <div class="profile-header">
-            <img src="profile.jpg" alt="User Picture" class="profile-picture">
+            <img data-th-src="|/client/image/${user.userId}|" alt="User Picture" class="profile-picture">
             <div class="profile-info">
-                <h1>John Doe</h1>
-                <p>Freelance Web Developer | HTML, CSS, JavaScript, React</p>
-                <p><strong>Location:</strong> New York, USA</p>
-                <p><strong>Email:</strong> johndoe@example.com</p>
-                <p><strong>Phone:</strong> +1 234 567 890</p>
+                <h1 data-th-text="${user.userName}"></h1>
+                <p data-th-text="${user.userBio}"></p>
+                <p ><strong>Location:</strong><span data-th-text="${user.location}"></span></p>
+                <p ><strong>Email:</strong><span data-th-text="${user.userEmail}"></span> </p>
+                <p ><strong>Phone:</strong><span data-th-text="${user.userPhone}"></span></p>
+              
                 <a href="#" class="contact-btn">Contact</a>
             </div>
         </div>

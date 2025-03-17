@@ -36,7 +36,7 @@
                 <td data-th-text="${user.userType}"></td>
                 <td data-th-text="${user.userBio}"></td>
                 <td data-th-text="${user.userPhone}"></td>
-                <td><img src="" alt=""></td>
+                <td><img data-th-src="|/client/image/${user.userId}|" alt="" width="50"></td>
                 <td data-th-text="${user.location}"></td>
             </tr>
         </table>
