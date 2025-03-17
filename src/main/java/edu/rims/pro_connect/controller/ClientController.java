@@ -4,7 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.security.PrivateKey;
 import java.time.LocalDate;
-import java.time.LocalDateTime; 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +31,16 @@ public class ClientController {
   @GetMapping("/home")
   String clienthome() {
     return "client/home";
+  }
+
+  @GetMapping("/solution")
+  public String solution() {
+    return "client/solution";
+  }
+
+  @GetMapping("/howitworks")
+  public String howitworks() {
+    return "client/howitworks";
   }
 
   @PostMapping("/signup")
