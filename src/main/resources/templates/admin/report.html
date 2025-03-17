@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports & Analytics</title>
+    <link rel="stylesheet" href="/style/admin/admindashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .card {
+            background: #007bff;
+            color: #fff;
+            padding: 20px;
+            flex: 1;
+            text-align: center;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card i {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        .charts {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        .chart {
+            background: #e3e3e3;
+            padding: 40px;
+            flex: 1;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .table-container {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: #007bff;
+            color: #fff;
+        }
+        .export-buttons {
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <aside data-th-replace="~{admin/admindashboard :: aside}"></aside>
+    <div class="container">
+        <h1>Reports & Analytics</h1>
+        
+        <!-- Overview Cards -->
+        <div class="cards">
+            <div class="card">
+                <i class="fas fa-dollar-sign"></i>
+                <h2>Total Spend</h2>
+                <p>$12,540</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-briefcase"></i>
+                <h2>Active Projects</h2>
+                <p>4</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-check-circle"></i>
+                <h2>Completed Projects</h2>
+                <p>18</p>
+            </div>
+        </div>
+        
+        <!-- Charts Section -->
+        <div class="charts">
+            <div class="chart">Spending Trend (Chart Placeholder)</div>
+            <div class="chart">Expense Breakdown (Chart Placeholder)</div>
+        </div>
+        
+        <!-- Transactions Table -->
+        <div class="table-container">
+            <h2>Invoices & Payments</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Project</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2025-03-15</td>
+                        <td>Website Development</td>
+                        <td>$2,000</td>
+                        <td>Paid</td>
+                    </tr>
+                    <tr>
+                        <td>2025-03-10</td>
+                        <td>Logo Design</td>
+                        <td>$500</td>
+                        <td>Pending</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Export Buttons -->
+            <div class="export-buttons">
+                <button>Export as PDF</button>
+                <button>Export as Excel</button>
+                <button>Export as CSV</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

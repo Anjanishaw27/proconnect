@@ -102,5 +102,10 @@ public class AdmindashboardController {
     model.addAttribute("freelancers", freelancers);
     return "admin/freelancermanagment";
   }
+  @GetMapping("/report")
+  String adminreport() {
+    return "admin/report";
+
+  }
 
 }

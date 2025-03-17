@@ -36,6 +36,16 @@ public class ClientController {
     return "client/home";
   }
 
+  @GetMapping("/solution")
+  public String solution() {
+    return "client/solution";
+  }
+
+  @GetMapping("/howitworks")
+  public String howitworks() {
+    return "client/howitworks";
+  }
+
   @PostMapping("/signup")
   String signUpClient(@ModelAttribute Client client, @RequestParam("userProfilePic") MultipartFile file)
       throws IOException {
