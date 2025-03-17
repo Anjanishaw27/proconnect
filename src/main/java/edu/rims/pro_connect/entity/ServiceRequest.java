@@ -26,5 +26,5 @@ public class ServiceRequest extends Auditable {
     @ManyToOne
     private Project project;
 
-    private ServiceRequestStatus serviceRequestStatus = ServiceRequestStatus.REJECTED;
+    private ServiceRequestStatus serviceRequestStatus = ServiceRequestStatus.PENDING;
 }
