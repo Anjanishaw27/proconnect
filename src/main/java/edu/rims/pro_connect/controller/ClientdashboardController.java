@@ -98,4 +98,8 @@ public class ClientdashboardController {
         return fis.readAllBytes();
     }
 
+    @GetMapping("/reviewrating")
+    String clientreviewrating() {
+        return "client/reviewrating";
+    }
 }
