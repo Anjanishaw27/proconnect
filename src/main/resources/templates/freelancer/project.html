@@ -22,33 +22,6 @@
         <div class="search-container">
             <input type="text" id="pageSearchBar" placeholder="Search categories..." class="search-bar">
         </div>
-        <button onclick="openModal()">Add Project</button>
-
-        <div id="projectModal" class="modal" style="display: none;">
-            <h2>Add Project</h2>
-
-            <form id="projectForm" method="post" action="/freelancer/freelancer/project" enctype="multipart/form-data">
-                <label for="projectTitle">Project Name:</label>
-                <input type="text" name="projectTitle" id="projectTitle">
-
-                <label for="projectDescription">Project Description:</label>
-                <input type="text" name="projectDescription" id="projectDescription">
-
-                <label for="projectImage">Project Image:</label>
-                <input type="file" name="ProjectImageFile" id="projectImage" accept="image/png, image/jpeg, image/jpg">
-
-                <label for="projectStatus">Project Status:</label>
-                <select id="projectStatus" name="projectStatus">
-                    <option value="Open">Open</option>
-                    <option value="In_Progress">In_Progress</option>
-                    <option value="Completed">Completed</option>
-                    <option value="Cancel">Cancel</option>
-                </select>
-
-                <!-- <button onclick="addCategory()">Submit</button> -->
-                <input type="submit" value="Add" style="color: red;">
-            </form>
-            <button onclick="closeModal()">Cancel</button>
 
         </div>
 
@@ -63,14 +36,18 @@
                 </tr>
             </thead>
             <tbody id="projectTableBody">
-                <tr data-th-each="project:${projects}">
+                <tr data-th-if="${freelancer != null and freelancer.projects != null and #lists.isEmpty(freelancer.projects)}"
+                    style="color: red;">
+                    No Project Yet!!
+                </tr>
+                <tr
+                    data-th-each="project : ${freelancer != null and freelancer.projects != null ? freelancer.projects : {}}">
                     <td data-th-text="${project.projectTitle}"></td>
                     <td data-th-text="${project.projectDescription}"></td>
-                    <td></td>
-                    <td data-th-text="${project.projectStatus}"></td>
+                    <td><img data-th-src="|/client/myproject/${project.projectId}|" alt="" width="50"></td>
+                    <td data-th-text=" ${project.projectStatus}"></td>
                     <td>
-                        <button class="edit-btn">Edit</button>
-                        <button class="delete-btn">Delete</button>
+                        <a data-th-href="|/projectRequest/apply?id=${project.projectId}|">Completion Request</a>
                     </td>
                 </tr>
             </tbody>
@@ -87,7 +64,7 @@
             document.getElementById("projectModal").style.display = "none";
         }
 
-        
+
     </script>
 </body>
 

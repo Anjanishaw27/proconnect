@@ -18,7 +18,7 @@
     <aside data-th-replace="~{client/clientdashboard :: aside}"></aside>
     <main class="content">
         <header>
-            <h1>Welcome, Admin</h1>
+            <h1>Welcome, Client</h1>
 
         </header>
         <section class="projects">
@@ -46,8 +46,7 @@
                         <td data-th-text="${request.project.category.categoryName}"></td>
                         <td data-th-text="${request.serviceRequestStatus}"></td>
                         <td>
-                            <a
-                                data-th-href="|/serviceRequest/approve?id=${request.serviceRequestId}&status=approve|">Approve</a>
+                            <a data-th-href="|/payment/approve?id=${request.serviceRequestId}|">Approve</a>
                             <a
                                 data-th-href="|/serviceRequest/approve?id=${request.serviceRequestId}&status=cancel|">cancel</a>
                         </td>

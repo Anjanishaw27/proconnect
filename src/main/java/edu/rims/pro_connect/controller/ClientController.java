@@ -3,9 +3,7 @@ package edu.rims.pro_connect.controller;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.security.PrivateKey;
 import java.time.LocalDate;
-import java.time.LocalDateTime; 
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.rims.pro_connect.constant.UserType;
+import edu.rims.pro_connect.entity.Client;
 import edu.rims.pro_connect.entity.User;
+import edu.rims.pro_connect.repository.ClientRepository;
 import edu.rims.pro_connect.repository.UserRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ClientController {
 
   @Autowired
-  private UserRepository userRepository;
+  private ClientRepository clientRepository;
 
   @GetMapping("/home")
   String clienthome() {
@@ -37,7 +37,7 @@ public class ClientController {
   }
 
   @PostMapping("/signup")
-  String signUpClient(@ModelAttribute User user, @RequestParam("userProfilePic") MultipartFile file)
+  String signUpClient(@ModelAttribute Client client, @RequestParam("userProfilePic") MultipartFile file)
       throws IOException {
 
     if (!file.isEmpty()) {
@@ -48,19 +48,19 @@ public class ClientController {
       fileOutputStream.write(file.getBytes());
       fileOutputStream.close();
 
-      user.setUserProfilePicture(fileName);
+      client.setUserProfilePicture(fileName);
     }
-    user.setCreatedDate(LocalDate.now());
-    user.setUserType(UserType.CLIENT);
-    userRepository.save(user);
+    client.setCreatedDate(LocalDate.now());
+    client.setUserType(UserType.CLIENT);
+    clientRepository.save(client);
 
     return "redirect:/login/login";
   }
 
   @GetMapping("/image/{id}")
   @ResponseBody
-  byte[] clientGetImage(@PathVariable int id) throws IOException{
-    User user = userRepository.findById(id).orElseThrow();
+  byte[] clientGetImage(@PathVariable int id) throws IOException {
+    User user = clientRepository.findById(id).orElseThrow();
     String image = user.getUserProfilePicture();
 
     FileInputStream fileInputStream = new FileInputStream(image);

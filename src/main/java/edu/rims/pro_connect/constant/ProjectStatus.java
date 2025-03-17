@@ -2,7 +2,7 @@ package edu.rims.pro_connect.constant;
 
 public enum ProjectStatus {
     OPEN,
-    IN_PROGESS,
+    IN_PROGRESS,
     COMPLETED,
     CANCELED
 }

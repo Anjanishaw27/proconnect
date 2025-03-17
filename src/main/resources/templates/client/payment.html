@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,10 @@
     <link rel="stylesheet" href="/script/payment.js">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
 
     <header data-th-replace="~{fragment/common :: header}"></header>
@@ -23,26 +25,17 @@
         <!-- Order Summary -->
         <div class="order-summary">
             <h3>📜 Order Summary</h3>
-            <p><strong>Freelancer:</strong> John Smith</p>
-            <p><strong>Service:</strong> Graphic Design</p>
-            <p><strong>Base Price:</strong> $250.00</p>
-            <p><strong>Tax (5%):</strong> $12.50</p>
-            <p class="total"><strong>Total Payable:</strong> <span>$262.50</span></p>
+            <p><strong>Freelancer:</strong> <span data-th-text="${serviceRequest.freelancer.userName}"></span></p>
+            <p><strong>Service:</strong> <span data-th-text="${serviceRequest.project.projectTitle}"></span></p>
+            <p class="total"><strong>Price:</strong><span
+                    data-th-text="|$${serviceRequest.project.projectPrice}|"></span>
+            </p>
         </div>
-        
+
 
         <form id="payment-form">
             <!-- Billing Info -->
             <h3>👤 Billing Details</h3>
-            <div class="input-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" placeholder="John Doe" required>
-            </div>
-
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="example@gmail.com" required>
-            </div>
 
             <!-- Payment Method -->
             <h3>💰 Payment Method</h3>
@@ -84,10 +77,15 @@
                 </div>
             </div>
 
-            <button type="submit">💰 Pay Now</button>
+            <div class="paynow">
+                <a type="submit"
+                    data-th-href="|/serviceRequest/approve?id=${serviceRequest.serviceRequestId}&status=approve|">💰
+                    Pay Now</a>
+            </div>
         </form>
     </div>
 
     <footer data-th-replace="~{fragment/common :: footer}"></footer>
 </body>
+
 </html>

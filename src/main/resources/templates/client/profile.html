@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -120,6 +121,7 @@
         }
     </style>
 </head>
+
 <body>
     <aside data-th-replace="~{client/clientdashboard :: aside}"></aside>
     <div class="container">
@@ -129,10 +131,10 @@
             <div class="profile-info">
                 <h1 data-th-text="${user.userName}"></h1>
                 <p data-th-text="${user.userBio}"></p>
-                <p ><strong>Location:</strong><span data-th-text="${user.location}"></span></p>
-                <p ><strong>Email:</strong><span data-th-text="${user.userEmail}"></span> </p>
-                <p ><strong>Phone:</strong><span data-th-text="${user.userPhone}"></span></p>
-              
+                <p><strong>Location:</strong><span data-th-text="${user.location}"></span></p>
+                <p><strong>Email:</strong><span data-th-text="${user.userEmail}"></span> </p>
+                <p><strong>Phone:</strong><span data-th-text="${user.userPhone}"></span></p>
+
                 <a href="#" class="contact-btn">Contact</a>
             </div>
         </div>
@@ -159,9 +161,8 @@
 
             <div class="details-box portfolio">
                 <h3>Portfolio</h3>
-                <img src="project1.jpg" alt="Project 1">
-                <img src="project2.jpg" alt="Project 2">
-                <img src="project3.jpg" alt="Project 3">
+                <img data-th-each="project: ${user.projects}" data-th-src="|/client/myproject/${project.projectId}|"
+                    alt="Project 1">
             </div>
 
             <div class="details-box reviews">
@@ -177,4 +178,5 @@
     </div>
 
 </body>
+
 </html>

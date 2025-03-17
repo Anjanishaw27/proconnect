@@ -1,5 +1,5 @@
 package edu.rims.pro_connect.constant;
 
-public enum ServiceRequestStatus {
+public enum ProjectRequestStatus {
     APPROVED, PENDING, REJECTED, CANCELED
 }

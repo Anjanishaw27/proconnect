@@ -128,7 +128,7 @@
         <div class="developer-card" th:each="project : ${projects}">
             <img data-th-src="|/client/myproject/${project.projectId}|" alt="">
             <h3 th:text="${project.projectTitle}"></h3>
-            <p th:text="|Listed By: ${project.user.userName}|"></p>
+            <p th:text="|Listed By: ${project.client.userName}|"></p>
             <p class="rating" th:text="${project.projectStatus}"></p>
             <p class="rating" th:text="|Listed: ${project.createdDate}|"></p>
             <div class="description-div">

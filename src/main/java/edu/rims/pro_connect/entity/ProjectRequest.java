@@ -1,6 +1,6 @@
 package edu.rims.pro_connect.entity;
 
-import edu.rims.pro_connect.constant.ServiceRequestStatus;
+import edu.rims.pro_connect.constant.ProjectRequestStatus;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,10 +12,10 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class ServiceRequest extends Auditable {
+public class ProjectRequest extends Auditable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String serviceRequestId;
+    private String projectRequestId;
 
     @ManyToOne
     private Client client;
@@ -26,5 +26,5 @@ public class ServiceRequest extends Auditable {
     @ManyToOne
     private Project project;
 
-    private ServiceRequestStatus serviceRequestStatus = ServiceRequestStatus.PENDING;
+    private ProjectRequestStatus projectRequestStatus = ProjectRequestStatus.PENDING;
 }

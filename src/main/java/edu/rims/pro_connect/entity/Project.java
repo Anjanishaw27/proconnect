@@ -31,7 +31,7 @@ public class Project extends Auditable {
 
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
-    private User user;
+    private Client client;
 
     @ManyToOne
     @JoinColumn(name = "freelancer_id", nullable = true) // Nullable because a project might not have a freelancer//
@@ -50,4 +50,7 @@ public class Project extends Auditable {
 
     @OneToMany(mappedBy = "project")
     private List<ServiceRequest> serviceRequests;
+
+    @OneToMany(mappedBy = "project")
+    private List<ProjectRequest> projectRequests;
 }

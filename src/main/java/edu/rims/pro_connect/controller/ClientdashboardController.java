@@ -20,13 +20,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.rims.pro_connect.constant.ProjectStatus;
-import edu.rims.pro_connect.constant.UserType;
 import edu.rims.pro_connect.entity.Category;
+import edu.rims.pro_connect.entity.Client;
 import edu.rims.pro_connect.entity.Project;
 import edu.rims.pro_connect.entity.User;
 import edu.rims.pro_connect.repository.CategoryRepository;
+import edu.rims.pro_connect.repository.ClientRepository;
 import edu.rims.pro_connect.repository.ProjectRepository;
-import edu.rims.pro_connect.repository.UserRepository;
 
 @Controller
 @RequestMapping("/client")
@@ -38,34 +38,30 @@ public class ClientdashboardController {
     private ProjectRepository projectRepository;
 
     @Autowired
-    private UserRepository userRepository;
+    private ClientRepository clientRepository;
 
     @GetMapping("/clientdashboard")
     String clientdashboard() {
         return "client/clientdashboard";
     }
 
-
     @GetMapping("/profile")
     String clientprofile(Model model) {
-        User user = userRepository.findById(1).orElseThrow();
-         model.addAttribute("user", user);
+        User user = clientRepository.findById(1).orElseThrow();
+        model.addAttribute("user", user);
         return "client/profile";
     }
 
-    
-   
-
     @GetMapping("/request")
     String clientrequest(Model model) {
-        User user = userRepository.findById(1).orElseThrow();
+        User user = clientRepository.findById(1).orElseThrow();
         model.addAttribute("user", user);
         return "client/request";
     }
 
     @GetMapping("/myproject")
     String clientmyproject(Model model) {
-        User user = userRepository.findById(1).orElseThrow();
+        Client user = clientRepository.findById(1).orElseThrow();
         List<Category> categories = categoryRepository.findAll();
         model.addAttribute("user", user);
         model.addAttribute("categories", categories);
@@ -85,7 +81,7 @@ public class ClientdashboardController {
 
             project.setProjectImageUrl(fileName);
         }
-        project.setUser(userRepository.findById(1).orElseThrow());
+        project.setClient(clientRepository.findById(1).orElseThrow());
         project.setCreatedDate(LocalDate.now());
         project.setProjectStatus(ProjectStatus.OPEN.toString());
         projectRepository.save(project);
@@ -108,5 +104,12 @@ public class ClientdashboardController {
     @GetMapping("/reviewrating")
     String clientreviewrating() {
         return "client/reviewrating";
+    }
+
+    @GetMapping("/projectRequest")
+    String clientProjectRequest(Model model) {
+        User user = clientRepository.findById(1).orElseThrow();
+        model.addAttribute("user", user);
+        return "client/projectRequest";
     }
 }

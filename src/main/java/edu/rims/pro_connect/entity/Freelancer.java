@@ -1,6 +1,7 @@
 package edu.rims.pro_connect.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -36,6 +37,15 @@ public class Freelancer extends User {
     @Column(name = "skills", columnDefinition = "TEXT")
     private String skills;
 
+    @OneToMany(mappedBy = "freelancer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Project> projects = new ArrayList<>();
+
+    @OneToMany(mappedBy = "freelancer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<ServiceRequest> serviceRequests;
+
+    @OneToMany(mappedBy = "freelancer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<ProjectRequest> projectRequests;
+
     public void addServiceRequest(ServiceRequest request) {
         if (getServiceRequests() == null) {
             setServiceRequests(new ArrayList<>());
@@ -43,5 +53,22 @@ public class Freelancer extends User {
 
         request.setFreelancer(this);
         getServiceRequests().add(request);
+    }
+
+    public void addProjects(Project project) {
+        if (getProjects() == null) {
+            setProjects(new ArrayList<>());
+        }
+
+        project.setFreelancer(this);
+        getProjects().add(project);
+    }
+
+    public void addProjectRequest(ProjectRequest projectRequest) {
+        if (getProjectRequests() == null) {
+            setProjectRequests(new ArrayList<>());
+        }
+        getProjectRequests().add(projectRequest);
+        projectRequest.setFreelancer(this);
     }
 }

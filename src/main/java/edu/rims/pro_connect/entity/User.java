@@ -1,7 +1,5 @@
 package edu.rims.pro_connect.entity;
 
-import java.util.List;
-
 import edu.rims.pro_connect.constant.UserType;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -40,12 +38,6 @@ public class User extends Auditable {
     @Column(columnDefinition = "TEXT")
     private String userProfilePicture;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Project> projects;
-
     @Column(name = "location", length = 255)
     private String location;
-
-    @OneToMany(mappedBy = "user")
-    private List<ServiceRequest> serviceRequests;
 }
