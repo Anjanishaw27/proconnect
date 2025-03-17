@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.rims.pro_connect.constant.ProjectStatus;
+import edu.rims.pro_connect.constant.UserType;
 import edu.rims.pro_connect.entity.Category;
 import edu.rims.pro_connect.entity.Project;
 import edu.rims.pro_connect.entity.User;
@@ -44,10 +45,16 @@ public class ClientdashboardController {
         return "client/clientdashboard";
     }
 
+
     @GetMapping("/profile")
-    String clientprofile() {
+    String clientprofile(Model model) {
+        User user = userRepository.findById(1).orElseThrow();
+         model.addAttribute("user", user);
         return "client/profile";
     }
+
+    
+   
 
     @GetMapping("/request")
     String clientrequest(Model model) {

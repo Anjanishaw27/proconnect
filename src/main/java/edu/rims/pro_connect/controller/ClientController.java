@@ -1,5 +1,6 @@
 package edu.rims.pro_connect.controller;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.security.PrivateKey;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.rims.pro_connect.constant.UserType;
@@ -19,6 +21,7 @@ import edu.rims.pro_connect.repository.UserRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -62,5 +65,16 @@ public class ClientController {
     userRepository.save(user);
 
     return "redirect:/login/login";
+  }
+
+  @GetMapping("/image/{id}")
+  @ResponseBody
+  byte[] clientGetImage(@PathVariable int id) throws IOException{
+    User user = userRepository.findById(id).orElseThrow();
+    String image = user.getUserProfilePicture();
+
+    FileInputStream fileInputStream = new FileInputStream(image);
+
+    return fileInputStream.readAllBytes();
   }
 }
