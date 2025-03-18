@@ -47,7 +47,12 @@
                     <td><img data-th-src="|/client/myproject/${project.projectId}|" alt="" width="50"></td>
                     <td data-th-text=" ${project.projectStatus}"></td>
                     <td>
-                        <a data-th-href="|/projectRequest/apply?id=${project.projectId}|">Completion Request</a>
+                        <span data-th-if="${project.projectStatus != 'COMPLETED'}">
+                            <a data-th-href="|/projectRequest/apply?id=${project.projectId}|">Completion Request</a>
+                        </span>
+                        <span data-th-if="${project.projectStatus == 'COMPLETED'}">
+                            <i class="fa-solid fa-check-double"></i>
+                        </span>
                     </td>
                 </tr>
             </tbody>

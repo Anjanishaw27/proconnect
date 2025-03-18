@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import edu.rims.pro_connect.constant.ProjectRequestStatus;
 import edu.rims.pro_connect.constant.ProjectStatus;
 import edu.rims.pro_connect.constant.ServiceRequestStatus;
 import edu.rims.pro_connect.entity.Client;
@@ -62,44 +63,27 @@ public class ProjectRequestController {
         return "redirect:/client/home";
     }
 
-    // @GetMapping("/approve")
-    // @Transactional
-    // String requestApprove(@RequestParam("id") String id, @RequestParam("status")
-    // String status) {
-    // ServiceRequest serviceRequest =
-    // serviceRequestRepository.findById(id).orElseThrow();
-    // Project project = serviceRequest.getProject();
-    // Freelancer freelancer = serviceRequest.getFreelancer();
-    // System.out.println(status);
+    @GetMapping("/approve")
+    @Transactional
+    String requestApprove(@RequestParam("id") String id, @RequestParam("status") String status) {
+        ProjectRequest projectRequest = projectRequestRepository.findById(id).orElseThrow();
+        Project project = projectRequest.getProject();
+        System.out.println(status);
 
-    // if (status.equals("approve")) {
-    // // payment update
-    // Payment payment = new Payment();
-    // payment.setCreatedBy(serviceRequest.getClient().getUserName());
-    // payment.setCreatedDate(LocalDate.now());
-    // payment.setClient(serviceRequest.getClient());
-    // payment.setFreelancer(freelancer);
-    // payment.setAmount(project.getProjectPrice());
-    // payment.setProject(serviceRequest.getProject());
-    // paymentRepository.save(payment);
+        if (status.equals("approve")) {
+            // Save the freelancer to persist the updated project list
+            projectRequest.setProjectRequestStatus(ProjectRequestStatus.APPROVED);
+            project.setProjectStatus(ProjectStatus.COMPLETED.toString());
+            projectRepository.save(project);
 
-    // // project update
-    // project.setFreelancer(freelancer);
-    // project.setProjectStatus(ProjectStatus.IN_PROGRESS.toString());
-    // project.setPayment(payment);
-
-    // // Save the freelancer to persist the updated project list
-    // serviceRequest.setServiceRequestStatus(ServiceRequestStatus.APPROVED);
-    // projectRepository.save(project);
-
-    // freelancer.addProjects(project);
-    // freelancerRepository.save(freelancer);
-    // } else if (status.equals("cancel")) {
-    // System.out.println("cancel block executed");
-    // serviceRequest.setServiceRequestStatus(ServiceRequestStatus.REJECTED);
-    // }
-    // System.out.println("product saved executed");
-    // serviceRequestRepository.save(serviceRequest);
-    // return "redirect:/client/home";
-    // }
+        } else if (status.equals("cancel")) {
+            System.out.println("cancel block executed");
+            projectRequest.setProjectRequestStatus(ProjectRequestStatus.REJECTED);
+        } else if (status.equals("canceled")) {
+            projectRequest.setProjectRequestStatus(ProjectRequestStatus.CANCELED);
+        }
+        System.out.println("product saved executed");
+        projectRequestRepository.save(projectRequest);
+        return "redirect:/client/home";
+    }
 }

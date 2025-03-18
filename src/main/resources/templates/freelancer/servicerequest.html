@@ -27,7 +27,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Freelancer Name</th>
+                        <th>Client Name</th>
                         <th>Project Title</th>
                         <th>Image</th>
                         <th>Price</th>
@@ -45,8 +45,17 @@
                         <td data-th-text="${request.project.category.categoryName}"></td>
                         <td data-th-text="${request.serviceRequestStatus}"></td>
                         <td>
-                            <a class="cancel-btn"
-                                data-th-href="|servicerequest/cancel?id={$request.serviceRequestId}|">cancel</a>
+                            <span data-th-if="${request.serviceRequestStatus.name() == 'PENDING'}">
+                                <a class="cancel-btn"
+                                    data-th-href="|/serviceRequest/approve?id=${request.serviceRequestId}&status=canceled|">Cancel</a>
+                            </span>
+                            <span
+                                data-th-if="${request.serviceRequestStatus.name() == 'CANCELED' or request.serviceRequestStatus.name() == 'REJECTED'}">
+                                <i class="fa-solid fa-ban"></i>
+                            </span>
+                            <span data-th-if="${request.serviceRequestStatus.name() == 'APPROVED'}">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </span>
                         </td>
                     </tr>
 

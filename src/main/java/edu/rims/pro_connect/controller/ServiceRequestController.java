@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import edu.rims.pro_connect.constant.ProjectRequestStatus;
 import edu.rims.pro_connect.constant.ProjectStatus;
 import edu.rims.pro_connect.constant.ServiceRequestStatus;
 import edu.rims.pro_connect.entity.Freelancer;
@@ -86,6 +87,8 @@ public class ServiceRequestController {
         } else if (status.equals("cancel")) {
             System.out.println("cancel block executed");
             serviceRequest.setServiceRequestStatus(ServiceRequestStatus.REJECTED);
+        } else if (status.equals("canceled")) {
+            serviceRequest.setServiceRequestStatus(ServiceRequestStatus.CANCELED);
         }
         System.out.println("product saved executed");
         serviceRequestRepository.save(serviceRequest);
