@@ -35,6 +35,7 @@ public class ClientController {
   String clienthome() {
     return "client/home";
   }
+  
 
   @GetMapping("/solution")
   public String solution() {
@@ -77,4 +78,5 @@ public class ClientController {
 
     return fileInputStream.readAllBytes();
   }
+ 
 }
