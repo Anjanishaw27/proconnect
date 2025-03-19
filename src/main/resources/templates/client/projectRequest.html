@@ -45,10 +45,17 @@
                         <td data-th-text="${request.project.category.categoryName}"></td>
                         <td data-th-text="${request.projectRequestStatus}"></td>
                         <td>
-                            <a class="cancel-btn"
-                                data-th-href="|servicerequest/approve?id={$request.serviceRequestId}|">Approve</a>
-                            <a class="cancel-btn"
-                                data-th-href="|servicerequest/cancel?id={$request.serviceRequestId}|">Reject</a>
+                            <span
+                                data-th-if="${request.projectRequestStatus.name() == 'APPROVED' or  request.projectRequestStatus.name() == 'REJECTED' or request.projectRequestStatus.name() == 'PENDING'}">
+                                <a class="cancel-btn"
+                                    data-th-href="|/projectRequest/approve?id=${request.projectRequestId}&status=approve|">Approve</a>
+                                <a class="cancel-btn"
+                                    data-th-href="|/projectRequest/approve?id=${request.projectRequestId}&status=cancel|">Reject</a>
+                            </span>
+                            <span
+                                data-th-if="${request.projectRequestStatus.name() != 'APPROVED' and  request.projectRequestStatus.name() != 'REJECTED' and request.projectRequestStatus.name() != 'PENDING'}">
+                                <i class="fa-solid fa-ban"></i>
+                            </span>
                         </td>
                     </tr>
 
