@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import edu.rims.pro_connect.constant.CategoryStatus;
 import edu.rims.pro_connect.constant.ProjectStatus;
 import edu.rims.pro_connect.entity.Category;
 import edu.rims.pro_connect.entity.Project;
@@ -29,6 +30,16 @@ public class CategoryController {
     public String category(Model model) {
 
         List<Category> categories = categoryRepository.findAll();
+
+        model.addAttribute("categories", categories);
+        return "client/category";
+    }
+
+    @GetMapping("/category/search")
+    public String searchCategory(@RequestParam("search") String categoryName,Model model) {
+
+        List<Category> categories = categoryRepository.
+        findByCategoryNameContainingIgnoreCaseAndCategoryStatus(categoryName, CategoryStatus.AVAILABLE.toString());
 
         model.addAttribute("categories", categories);
         return "client/category";
