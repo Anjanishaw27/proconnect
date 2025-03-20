@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hire Java Developers</title>
+    <title>Hire  Developers</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="/style/fragment/common.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -130,6 +130,7 @@
             <h3 th:text="${freelancer.userName}"></h3>
             <p class="rating" th:text="|${freelancer.rating}/5|"></p>
             <p class="rating" th:text="|Experience: ${freelancer.yearsExperience} years|"></p>
+    
             <div class="skills-container">
                 <div class="skills">
                     <span th:each="skill : ${#strings.arraySplit(freelancer.skills, ',')}"

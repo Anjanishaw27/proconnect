@@ -48,9 +48,21 @@
                         </td>
                         <td data-th-text="${project.projectPrice}"></td>
                         <td data-th-text="${project.projectStatus}"></td>
-                        <td><button class="edit-btn">Edit</button><button class="delete-btn">Delete</button></td>
+                        <td>
+                            <span data-th-if="${project.projectStatus == 'OPEN' or project.projectStatus == 'CANCELED'}">
+                                <button class="edit-btn"
+                                    data-th-onclick="openModel([[${project.projectId}]])">Edit</button>
+                                <button class="delete-btn">Delete</button>
+                            </span>
+                            <span data-th-if="${project.projectStatus == 'IN_PROGRESS'}">
+                                <i class="fa-solid fa-ban"></i>
+                            </span>
+                            <span data-th-if="${project.projectStatus == 'COMPLETED'}">
+                                <i class="fa-solid fa-check-double"></i>
+                            </span>
+                        </td>
                     </tr>
-                    
+
                 </tbody>
             </table>
         </section>

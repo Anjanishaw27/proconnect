@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.rims.pro_connect.constant.UserType;
+import edu.rims.pro_connect.dto.CategoryResponseDTO;
 import edu.rims.pro_connect.entity.Category;
 import edu.rims.pro_connect.entity.Freelancer;
 import edu.rims.pro_connect.entity.User;
@@ -59,7 +60,7 @@ public class AdmindashboardController {
   }
 
   @PostMapping("/admin/category")
-  public String categoryAdd(@ModelAttribute Category category, @RequestParam("categoryImageFile") MultipartFile file)
+  public String categoryAdd(@ModelAttribute Category category, @RequestParam("categoryImageFile") MultipartFile file, @RequestParam(required = false) String categoryImages)
       throws IOException {
     if (!file.isEmpty()) {
       String originalFilename = file.getOriginalFilename();
@@ -69,6 +70,9 @@ public class AdmindashboardController {
       fileOutputStream.write(file.getBytes());
       fileOutputStream.close();
       category.setCategoryImageUrl(fileName);
+    }
+    if (categoryImages != null) {
+      category.setCategoryImageUrl(categoryImages);
     }
     categoryRepository.save(category);
     return "redirect:/admin/category";
@@ -107,5 +111,18 @@ public class AdmindashboardController {
     return "admin/report";
 
   }
+  
+  @GetMapping("/category/{categoryId}")
+  @ResponseBody
+  public CategoryResponseDTO getcategory(@PathVariable String categoryId){
+  Category category=categoryRepository.findById(categoryId).orElseThrow();
+  CategoryResponseDTO dto = new CategoryResponseDTO();
+  dto.setCategoryId(categoryId);
+  dto.setCategoryName(category.getCategoryName());
+  dto.setCategoryDescription(category.getCategoryDescription());
+  dto.setCategoryImageUrl(category.getCategoryImageUrl());
+  dto.setCategoryStatus(category.getCategoryStatus());
 
+    return dto;
+  }
 }

@@ -31,6 +31,8 @@
             <h2>Add Category</h2>
 
             <form id="categoryForm" method="post" action="/admin/admin/category" enctype="multipart/form-data">
+                <input type="hidden" id="categoryId" name="categoryId">
+                <input type="hidden" id="categoryImages" name="categoryImages">
                 <label for="categoryName">Category Name:</label>
                 <input type="text" name="categoryName" id="categoryName">
 
@@ -70,7 +72,7 @@
                     <td><img data-th-src="|category/image/${category.categoryId}|" alt="" height="40"></td>
                     <td data-th-text="${category.categoryStatus}"></td>
                     <td>
-                        <button class="edit-btn">Edit</button>
+                        <button class="edit-btn" data-th-onclick="openModal([[${category.categoryId}]])">Edit</button>
                         <button class="delete-btn">Delete</button>
                     </td>
                 </tr>
