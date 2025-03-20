@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import edu.rims.pro_connect.constant.CategoryStatus;
 import edu.rims.pro_connect.constant.UserType;
 import edu.rims.pro_connect.dto.CategoryResponseDTO;
 import edu.rims.pro_connect.entity.Category;
@@ -92,6 +93,15 @@ public class AdmindashboardController {
     fis.close();
     return image;
   }
+
+  @GetMapping("/category/delete")
+  public String deleteCategory(@RequestParam("category") String categoryId) {
+      Category category = categoryRepository.findById(categoryId).orElseThrow();
+      category.setCategoryStatus(CategoryStatus.UNAVAILABLE.toString());
+      categoryRepository.save(category);
+      return "redirect:/admin/category";
+  }
+  
 
   @GetMapping("/usermanagment")
   String adminusermanagment(Model model) {

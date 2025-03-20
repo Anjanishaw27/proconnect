@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import edu.rims.pro_connect.constant.CategoryStatus;
+import edu.rims.pro_connect.constant.ProjectStatus;
+import edu.rims.pro_connect.entity.Category;
 import edu.rims.pro_connect.dto.CategoryResponseDTO;
 import edu.rims.pro_connect.dto.ProjectResponseDTO;
 import edu.rims.pro_connect.dto.ProjectResponseDTO.CategoryResponse;
@@ -36,6 +39,16 @@ public class ProjectController {
         Project project = projectRepository.findById(id).orElseThrow();
         model.addAttribute("project", project);
         return "client/project_pdp";
+    }
+
+    @GetMapping("/project/search")
+    public String searchProject(@RequestParam("search") String projectTitle,Model model) {
+
+        List<Project> projects = projectRepository.
+        findByProjectTitleContainingIgnoreCaseAndProjectStatus(projectTitle, ProjectStatus.OPEN.toString());
+
+        model.addAttribute("projects", projects);
+        return "client/project";
     }
 
     @GetMapping("/projects/{projectId}")
