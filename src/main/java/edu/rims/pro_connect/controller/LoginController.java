@@ -18,6 +18,10 @@ public class LoginController {
     @Autowired
     private UserRepository userRepository;
 
+   // @Autowired
+  //  Private PasswordEncoder encoder;
+
+
     @GetMapping("/login")
     public String loginPage() {
         return "client/sign_in";
@@ -30,6 +34,7 @@ public class LoginController {
 
     @PostMapping("/sign-up")
     public String signUp(@ModelAttribute User user) {
+        //user.setuserpassword(encoder.encoder.(user.getUserpassword()));
         userRepository.save(user);
        return "redirect:/client/login";
     }

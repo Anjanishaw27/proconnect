@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -123,17 +122,17 @@
 </head>
 
 <body>
-    <aside data-th-replace="~{client/clientdashboard :: aside}"></aside>
+    <aside data-th-replace="~{freelancer/freelancerdashboard :: aside}"></aside>
     <div class="container">
         <!-- Profile Header -->
         <div class="profile-header">
-            <img data-th-src="|/client/image/${user.userId}|" alt="User Picture" class="profile-picture">
+            <img data-th-src="|/freelancer/image/${freelancer.freelancerId}|" alt="User Picture" class="profile-picture">
             <div class="profile-info">
                 <h1 data-th-text="${user.userName}"></h1>
                 <p data-th-text="${user.userBio}"></p>
-                <p><strong>Location:</strong><span data-th-text="${user.location}"></span></p>
+                <p><strong>Location:</strong><span data-th-text="${freelancer.location}"></span></p>
                 <p><strong>Email:</strong><span data-th-text="${user.userEmail}"></span> </p>
-                <p><strong>Phone:</strong><span data-th-text="${user.userPhone}"></span></p>
+                <p><strong>Phone:</strong><span data-th-text="${freelancer.Phone}"></span></p>
 
                 <a href="#" class="contact-btn">Contact</a>
             </div>
@@ -142,7 +141,7 @@
         <!-- Profile Details -->
         <div class="profile-details">
             <div class="details-box skills">
-                <h3 data-th-text="${user.}">Skills</h3>
+                <h3>Skills</h3>
                 <ul>
                     <li>HTML</li>
                     <li>CSS</li>
@@ -176,7 +175,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.rims.pro_connect.entity.Freelancer;
 import edu.rims.pro_connect.entity.ServiceRequest;
+import edu.rims.pro_connect.entity.User;
 import edu.rims.pro_connect.repository.FreelancerRepository;
 import edu.rims.pro_connect.repository.ProjectRepository;
 import edu.rims.pro_connect.repository.ServiceRequestRepository;
@@ -66,4 +67,11 @@ public class FreelancerdashboardController {
     System.out.println(freelancer.getServiceRequests().size());
     return "freelancer/projectRequest";
   }
+  @GetMapping("/profile")
+    String freelancerprofile(Model model) {
+        Freelancer freelancer= freelancerRepository.findById(3).orElseThrow();
+        model.addAttribute("freelancer", freelancer);
+        return "freelancer/profile";
+    }
+
 }
