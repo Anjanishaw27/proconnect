@@ -1,20 +1,11 @@
-function openModal() {
-    document.getElementById("projectModal").style.display = "flex";
-}
-
-function closeModal() {
-    document.getElementById("projectModal").style.display = "none";
-}
-
-
 async function openModal(id = null) {
-    document.getElementById("ProjectModal").style.display = "block";
+    document.getElementById("projectModal").style.display = "block";
 
     if(id){
-        const response =await fetch(`/client/myproject/${id}`).catch((err)=>
+        const response =await fetch(`/client/myprojectedit/${id}`).catch((err)=>
             console.log(err)
         );
-        const category = await response.json();
+        const project = await response.json();
         console.log(project);
         setFields(project);
         
@@ -24,11 +15,11 @@ async function openModal(id = null) {
 
 function setFields(project){
     document.getElementById("projectId").value=project.projectId;
+    document.getElementById("projectImageName").value=project.projectImageUrl;
     document.getElementById("projectTitle").value=project.projectTitle;
     document.getElementById("projectDescription").value=project.projectDescription;
-    document.getElementById("projectImages").value=project.projectImageUrl;
-    document.getElementById("projectprice").value=project.projectprice;
-    document.getElementById("projectStatus").value=project.projectStatus;
+    document.getElementById("projectPrice").value=project.projectPrice;
+    document.getElementById("category").value=project.category.categoryId;
 }
 
 function closeModal() {

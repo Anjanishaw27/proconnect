@@ -19,7 +19,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.rims.pro_connect.constant.CategoryStatus;
 import edu.rims.pro_connect.constant.ProjectStatus;
+import edu.rims.pro_connect.dto.ProjectResponseDTO;
+import edu.rims.pro_connect.dto.ProjectResponseDTO.CategoryResponse;
 import edu.rims.pro_connect.entity.Category;
 import edu.rims.pro_connect.entity.Client;
 import edu.rims.pro_connect.entity.Project;
@@ -69,7 +72,7 @@ public class ClientdashboardController {
     }
 
     @PostMapping("/myproject")
-    String clientmyproject(@ModelAttribute Project project, @RequestParam("projectImage") MultipartFile file)
+    String clientmyproject(@ModelAttribute Project project, @RequestParam("projectImage") MultipartFile file,@RequestParam("projectImageName") String imageName)
             throws IOException {
         if (!file.isEmpty()) {
             String originalFilename = file.getOriginalFilename();
@@ -80,6 +83,8 @@ public class ClientdashboardController {
             fileOutputStream.close();
 
             project.setProjectImageUrl(fileName);
+        }else if(imageName!= null){
+            project.setProjectImageUrl(imageName);
         }
         project.setClient(clientRepository.findById(1).orElseThrow());
         project.setCreatedDate(LocalDate.now());
@@ -101,6 +106,14 @@ public class ClientdashboardController {
         return fis.readAllBytes();
     }
 
+    @GetMapping("/myproject/delete")
+    public String deletemyproject(@RequestParam("project") String projectId) {
+      Project project = projectRepository.findById(projectId).orElseThrow();
+      project.setProjectStatus(ProjectStatus.CANCELED.toString());
+      projectRepository.save(project);
+      return "redirect:/client/myproject";
+  }
+
     @GetMapping("/reviewrating")
     String clientreviewrating() {
         return "client/reviewrating";
@@ -111,5 +124,24 @@ public class ClientdashboardController {
         User user = clientRepository.findById(1).orElseThrow();
         model.addAttribute("user", user);
         return "client/projectRequest";
+    }
+
+    @GetMapping("/myprojectedit/{id}")
+    @ResponseBody
+    ProjectResponseDTO myProjectEdit(@PathVariable String id){
+        Project project = projectRepository.findById(id).orElseThrow();
+        
+        ProjectResponseDTO dto =  new ProjectResponseDTO();
+        dto.setProjectId(project.getProjectId());
+        dto.setProjectTitle(project.getProjectTitle());
+        dto.setProjectPrice(project.getProjectPrice());
+        dto.setProjectDescription(project.getProjectDescription());
+        dto.setProjectImageUrl(project.getProjectImageUrl());
+        dto.setProjectStatus(project.getProjectStatus());
+        CategoryResponse categoryResponse = dto.new CategoryResponse();
+        categoryResponse.setCategoryId(project.getCategory().getCategoryId());
+        categoryResponse.setCategoryName(project.getCategory().getCategoryName());
+        dto.setCategory(categoryResponse);
+        return dto;
     }
 }

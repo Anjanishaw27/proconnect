@@ -25,7 +25,7 @@
 
         <section class="projects">
             <h2>My Projects</h2>
-            <button class="add-project-btn" onclick="openModal()">Add New Project</button>
+            <button class="add-project-btn" onclick="openModal(null)">Add New Project</button>
             <table>
                 <thead>
                     <tr>
@@ -51,8 +51,8 @@
                         <td>
                             <span data-th-if="${project.projectStatus == 'OPEN' or project.projectStatus == 'CANCELED'}">
                                 <button class="edit-btn"
-                                    data-th-onclick="openModel([[${project.projectId}]])">Edit</button>
-                                <button class="delete-btn">Delete</button>
+                                    data-th-onclick="openModal([[${project.projectId}]])">Edit</button>
+                                    <a data-th-href="|/client/myproject/delete?project=${project.projectId}|" class="delete-btn">Delete</a>
                             </span>
                             <span data-th-if="${project.projectStatus == 'IN_PROGRESS'}">
                                 <i class="fa-solid fa-ban"></i>
@@ -75,12 +75,14 @@
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <h2>Add New Project</h2>
             <form id="projectForm" action="/client/myproject" method="post" enctype="multipart/form-data">
+                <input type="hidden" id="projectId" name="projectId">
+                <input type="hidden" id="projectImageName" name="projectImageName">
                 <input type="text" id="projectTitle" name="projectTitle" placeholder="Project Name" required>
                 <input type="text" id="projectPrice" name="projectPrice" placeholder="Project Price" required>
-                <input type="file" id="projectImage" name="projectImage" placeholder="Project Image" required>
+                <input type="file" id="projectImage" name="projectImage" placeholder="Project Image">
                 <textarea name="projectDescription" id="projectDescription"
                     placeholder="Describe the Project Details"></textarea>
-                <select name="category">
+                <select name="category" id="category">
                     <option value="" disabled selected>Select Category</option>
                     <option data-th-value="${category.categoryId}" data-th-each="category:${categories}"
                         data-th-text="${category.categoryName}"></option>
