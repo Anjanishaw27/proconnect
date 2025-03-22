@@ -111,3 +111,10 @@ tbody tr:hover {
         width: 90%;
     }
 }
+.delete-btn{
+    text-decoration: none;
+    padding: 0.5rem 0.8rem;
+    background-color: red;
+    color: white;
+    border-radius: 0.5rem;
+}

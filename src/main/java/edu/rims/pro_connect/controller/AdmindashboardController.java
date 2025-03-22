@@ -71,8 +71,7 @@ public class AdmindashboardController {
       fileOutputStream.write(file.getBytes());
       fileOutputStream.close();
       category.setCategoryImageUrl(fileName);
-    }
-    if (categoryImages != null) {
+    }else if (categoryImages != null) {
       category.setCategoryImageUrl(categoryImages);
     }
     categoryRepository.save(category);

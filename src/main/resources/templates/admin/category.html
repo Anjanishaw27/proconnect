@@ -73,7 +73,7 @@
                     <td data-th-text="${category.categoryStatus}"></td>
                     <td>
                         <button class="edit-btn" data-th-onclick="openModal([[${category.categoryId}]])">Edit</button>
-                        <button class="delete-btn">Delete</button>
+                        <a data-th-href="|/admin/category/delete?category=${category.categoryId}|" class="delete-btn">Delete</a>
                     </td>
                 </tr>
             </tbody>
