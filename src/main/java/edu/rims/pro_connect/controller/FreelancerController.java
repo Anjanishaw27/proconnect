@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.rims.pro_connect.constant.CategoryStatus;
 import edu.rims.pro_connect.constant.UserType;
+import edu.rims.pro_connect.entity.Category;
 import edu.rims.pro_connect.entity.Freelancer;
 import edu.rims.pro_connect.entity.User;
 import edu.rims.pro_connect.repository.FreelancerRepository;
+import edu.rims.pro_connect.repository.UserRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,6 +29,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @RequestMapping("/freelancer")
 public class FreelancerController {
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private FreelancerRepository freelancerRepository;
@@ -45,6 +51,16 @@ public class FreelancerController {
         Freelancer freelancer = freelancerRepository.findById(id).orElseThrow();
         model.addAttribute("freelancer", freelancer);
         return "client/pdp";
+    }
+
+    @GetMapping("/freelancer/search")
+    public String searchFreelancer(@RequestParam("search") String userName,Model model) {
+
+        List<User> freelancers = userRepository.
+        findByUserNameContainingIgnoreCaseAndUserType(userName,UserType.FREELANCER);
+        System.out.println(freelancers.size());
+        model.addAttribute("freelancers", freelancers);
+        return "client/freelancer";
     }
 
     @PostMapping("/signup")
