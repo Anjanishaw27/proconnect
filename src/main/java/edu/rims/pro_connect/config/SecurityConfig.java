@@ -1,43 +1,59 @@
 package edu.rims.pro_connect.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 // import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+
+import edu.rims.pro_connect.constant.UserType;
+import edu.rims.pro_connect.entity.User;
+import edu.rims.pro_connect.repository.UserRepository;
 
 @Configuration
 public class SecurityConfig {
+    @Autowired
+    private UserRepository userRepository;
+
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // http.authorizeHttpRequests(request ->
-        // request.requestMatchers("/client/login", "/style/**","/images/* ",
-        // "/images/**","/admin/category")
-        // .permitAll()
-        //.requestmatcher("/admin/**")
-       // .anyRequest().authenticated());
-        // http.formLogin(form -> form.loginPage("/client/login"));
-        // http.logout(Customizer.withDefaults());
-        http.authorizeHttpRequests(request -> request.anyRequest().permitAll())
-                .csrf(csrf -> csrf.disable()) // Disable CSRF
-                .headers(headers -> headers.frameOptions().disable());
-        ;
+        http.authorizeHttpRequests(
+                request -> request
+                        .requestMatchers("/client/sign_in", "/style/**", "/images/*", "/script/**", "/client",
+                                "/images/**", "/client/category", "/client/home", "/client/myproject", "/client/category/project", "/client/sign_up" , "/freelancer/signup")
+                        .permitAll()
+                        .requestMatchers("/admin/**").hasRole(UserType.ADMIN.toString())
+                        .requestMatchers("/freelancer/**").hasRole(UserType.FREELANCER.toString())
+                        .requestMatchers("/client/**").hasRole(UserType.CLIENT.toString())
+                        .anyRequest().authenticated());
+        http.formLogin(form -> form.loginPage("/client/sign_in").defaultSuccessUrl("/client/home"));
+        http.logout(Customizer.withDefaults());
+
         return http.build();
     }
-    //@Bean
-    //passwordEncoder encoder(){
-       // return new BCryptPasswordEncoder(12);
-   // }
-   //@Bean 
-   //UserDetailsService detailsService(){
-   //return(username)->{
-   //User user=UserRepository.findByUserEmail(username)
-   //.orElseThrow(()->new UsernameNotFoundException("UserNotFound"));
-   //return org.springFramework.security.core.userdetails.User.builder()
-   //.username(username)
-   //.password(user.getUserPassword())
-   //.roles(user.getUserRole().toString())
-   //.build();
-   //};
+
+    @Bean
+    PasswordEncoder encoder() {
+        return new BCryptPasswordEncoder(12);
+    }
+
+    @Bean
+    UserDetailsService detailsService() {
+        return (username) -> {
+            User user = userRepository.findByUserEmail(username)
+                    .orElseThrow(() -> new UsernameNotFoundException("userNotFound"));
+
+            return org.springframework.security.core.userdetails.User.builder()
+                    .username(username)
+                    .password(user.getUserPassword())
+                    .roles(user.getUserType().toString())
+                    .build();
+        };
+    }
 }

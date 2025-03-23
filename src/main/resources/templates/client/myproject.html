@@ -38,7 +38,7 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody id="projectTable">
+                <tbody id="projectTable" th:if="${user != null and user.projects != null}">
                     <tr data-th-each="project:${user.projects}">
                         <td data-th-text="${project.projectTitle}"></td>
                         <td data-th-text="${project.projectDescription}"></td>
@@ -87,6 +87,7 @@
                     <option data-th-value="${category.categoryId}" data-th-each="category:${categories}"
                         data-th-text="${category.categoryName}"></option>
                 </select>
+                <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
                 <button type="submit">Add Project</button>
             </form>
         </div>

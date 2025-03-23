@@ -23,10 +23,10 @@ public class Client extends User {
     private List<Project> projects = new ArrayList<>();
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<ServiceRequest> serviceRequests;
+    private List<ServiceRequest> serviceRequests = new ArrayList<>();
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<ProjectRequest> projectRequests;
+    private List<ProjectRequest> projectRequests = new ArrayList<>();
 
     public void addProjectRequest(ProjectRequest projectRequest) {
         if (getProjectRequests() == null) {

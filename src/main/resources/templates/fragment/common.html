@@ -36,13 +36,15 @@
 
         <div class="sign">
             <button class="sign-in"><span><i class="fa-solid fa-right-to-bracket"></i></span>
-                <a href="/login/login">Sign-In</a></button>
+                <a href="/client/sign_in">Sign-In</a></button>
             <button class="call"><span><i class="fa-solid fa-phone"></i></span>
                 <a href="/client/contact">Call-Us</a></button>
-            <button class="logout"><span><i class="fas fa-sign-out-alt"></i></span>
-                <a href="#">Logout</a>
-
-            </button>
+            <form method="post" action="/logout" data-sec-authorize="isAuthenticated()">
+                <button class="logout" type="submit "><span><i class="fas fa-sign-out-alt"></i></span>
+                    Logout
+                </button>
+                <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
+            </form>
         </div>
 
     </header>

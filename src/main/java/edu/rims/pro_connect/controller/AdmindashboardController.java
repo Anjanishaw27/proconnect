@@ -63,6 +63,9 @@ public class AdmindashboardController {
   @PostMapping("/admin/category")
   public String categoryAdd(@ModelAttribute Category category, @RequestParam("categoryImageFile") MultipartFile file, @RequestParam(required = false) String categoryImages)
       throws IOException {
+
+    String categoryId = category.getCategoryId();
+    category.setCategoryId(categoryId == null || categoryId.isEmpty()? null : categoryId);
     if (!file.isEmpty()) {
       String originalFilename = file.getOriginalFilename();
       String extName = originalFilename.substring(originalFilename.lastIndexOf("."));
