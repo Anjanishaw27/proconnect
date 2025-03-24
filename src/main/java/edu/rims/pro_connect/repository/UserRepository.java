@@ -11,5 +11,8 @@ import edu.rims.pro_connect.entity.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
     List<User> findByUserType(UserType userType);
     List<User> findByUserNameContainingIgnoreCaseAndUserType(String userName,UserType userType);
-
+    Optional<User> findByUserEmail(String userEmail);
 }
+
+
+
