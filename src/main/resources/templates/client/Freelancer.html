@@ -27,8 +27,7 @@
     
     <div class="developers-container">
         <div class="developer-card" th:each="freelancer : ${freelancers}">
-            <img src="/images/sd.jpg" alt="Profile">
-            <h3 th:text="${freelancer.userName}"></h3>
+            <img data-th-src="|/freelancer/image/${freelancer.userId}|" alt="User Picture" class="profile-picture">            <h3 th:text="${freelancer.userName}"></h3>
             <p class="rating" th:text="|${freelancer.rating}/5|"></p>
             <p class="rating" th:text="|Experience: ${freelancer.yearsExperience} years|"></p>
     
