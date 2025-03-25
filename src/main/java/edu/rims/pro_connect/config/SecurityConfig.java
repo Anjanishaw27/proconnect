@@ -26,11 +26,12 @@ public class SecurityConfig {
         http.authorizeHttpRequests(
                 request -> request
                         .requestMatchers("/client/sign_in", "/style/**", "/images/*", "/script/**", "/client",
-                                "/images/**", "/client/category", "/client/home", "/client/myproject", "/client/category/project", "/client/sign_up" , "/freelancer/signup")
+                                "/images/**", "/client/category", "/client/home", "/client/myproject",
+                                "/category/category/search","/freelancer/freelancer/search","/client/howitworks","/client/solution","/client/contact","/client/category/project", "/client/sign_up" , "/freelancer/signup")
                         .permitAll()
-                        .requestMatchers("/admin/**").hasRole(UserType.ADMIN.toString())
+                        .requestMatchers("/admin/**","/client/howitworks","/client/contact","/client/category").hasRole(UserType.ADMIN.toString())
                         .requestMatchers("/freelancer/**").hasRole(UserType.FREELANCER.toString())
-                        .requestMatchers("/client/**").hasRole(UserType.CLIENT.toString())
+                        .requestMatchers("/client/**","/client/howitworks","/client/contact").hasRole(UserType.CLIENT.toString())
                         .anyRequest().authenticated());
         http.formLogin(form -> form.loginPage("/client/sign_in").defaultSuccessUrl("/client/home"));
         http.logout(Customizer.withDefaults());
