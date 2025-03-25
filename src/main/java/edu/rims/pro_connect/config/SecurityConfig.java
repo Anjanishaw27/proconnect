@@ -26,8 +26,9 @@ public class SecurityConfig {
         http.authorizeHttpRequests(
                 request -> request
                         .requestMatchers("/client/sign_in", "/style/**", "/images/*", "/script/**", "/client",
-                                "/images/**", "/client/category", "/client/home", "/client/myproject",
-                                "/category/category/search","/freelancer/freelancer/search","/client/howitworks","/client/solution","/client/contact","/client/category/project", "/client/sign_up" , "/freelancer/signup")
+                                "/images/**", "/category/category", "/freelancer/freelancer", "/client/home", "/client/myproject",
+                                "/category/category/search","/freelancer/freelancer/search","/client/howitworks","/client/solution",
+                                "/client/contact","/client/category/project", "/client/sign_up" , "/freelancer/signup")
                         .permitAll()
                         .requestMatchers("/admin/**","/client/howitworks","/client/contact","/client/category").hasRole(UserType.ADMIN.toString())
                         .requestMatchers("/freelancer/**").hasRole(UserType.FREELANCER.toString())
