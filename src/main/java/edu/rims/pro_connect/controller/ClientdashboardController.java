@@ -70,8 +70,8 @@ public class ClientdashboardController {
 
     @GetMapping("/myproject")
     String clientmyproject(Model model, Principal principal) {
-        User user = userService.getUser(principal.getName());
-        Client user1 = clientRepository.findById(user.getUserId()).orElseThrow(); 
+        // User user = userService.getUser(principal.getName());
+        Client user1 = clientRepository.findByUserEmail(principal.getName()); 
         List<Category> categories = categoryRepository.findAll();
         model.addAttribute("user", user1);
         model.addAttribute("categories", categories);

@@ -25,14 +25,15 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(
                 request -> request
-                        .requestMatchers("/client/sign_in", "/style/**", "/images/*", "/script/**", "/client",
-                                "/images/**", "/category/category", "/freelancer/freelancer", "/client/home", "/client/myproject",
-                                "/category/category/search","/freelancer/freelancer/search","/client/howitworks","/client/solution",
-                                "/client/contact","/client/category/project", "/client/sign_up" , "/freelancer/signup")
+                        .requestMatchers("/client/sign_in", "/style/**", "/images/*", "/script/**",
+                                "/category/category", "/freelancer/freelancer", "/client/home",
+                                "/category/category/search", "/freelancer/freelancer/search", "/client/howitworks",
+                                "/client/solution", "/client/project","/client/myproject",
+                                "/client/contact", "/client/category/project", "/client/sign_up", "/freelancer/sign_up")
                         .permitAll()
-                        .requestMatchers("/admin/**","/client/howitworks","/client/contact","/client/category").hasRole(UserType.ADMIN.toString())
-                        .requestMatchers("/freelancer/**").hasRole(UserType.FREELANCER.toString())
-                        .requestMatchers("/client/**","/client/howitworks","/client/contact").hasRole(UserType.CLIENT.toString())
+                        // .requestMatchers("/admin/**").hasRole(UserType.ADMIN.toString())
+                        // .requestMatchers("/freelancer/**").hasRole(UserType.FREELANCER.toString())
+                        // .requestMatchers("/client/**").hasRole(UserType.CLIENT.toString())
                         .anyRequest().authenticated());
         http.formLogin(form -> form.loginPage("/client/sign_in").defaultSuccessUrl("/client/home"));
         http.logout(Customizer.withDefaults());

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.rims.pro_connect.constant.UserType;
+import edu.rims.pro_connect.entity.Client;
 import edu.rims.pro_connect.entity.User;
 import edu.rims.pro_connect.repository.UserRepository;
 
@@ -26,7 +27,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class LoginController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserRepository clientRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -42,7 +43,7 @@ public class LoginController {
     }
 
     @PostMapping("/sign_up")
-    public String signUp(@ModelAttribute User user, @RequestParam("userProfilePic") MultipartFile file) 
+    public String signUp(@ModelAttribute Client user, @RequestParam("userProfilePic") MultipartFile file) 
      throws IOException {
         
 
@@ -62,11 +63,11 @@ public class LoginController {
         user.setUpdatedDate(LocalDate.now());
         user.setCreatedBy("user");
         user.setUpdatedBy("user");
-        user.setUserType(UserType.ADMIN);
+        user.setUserType(UserType.CLIENT);
         
         user.setUserPassword(passwordEncoder.encode(user.getUserPassword()));
         System.out.println(user.getUserPassword());
-        userRepository.save(user);
+        clientRepository.save(user);
         return "redirect:/client/sign_in";
     }
 

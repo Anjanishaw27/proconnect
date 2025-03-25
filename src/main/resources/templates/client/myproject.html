@@ -25,7 +25,7 @@
 
         <section class="projects">
             <h2>My Projects</h2>
-            <button class="add-project-btn" onclick="openModal(null)">Add New Project</button>
+            <button class="add-project-btn" onclick="openModal()">Add New Project</button>
             <table>
                 <thead>
                     <tr>
@@ -77,8 +77,8 @@
             <form id="projectForm" action="/client/myproject" method="post" enctype="multipart/form-data">
                 <input type="hidden" id="projectId" name="projectId">
                 <input type="hidden" id="projectImageName" name="projectImageName">
-                <input type="text" id="projectTitle" name="projectTitle" placeholder="Project Name" required>
-                <input type="text" id="projectPrice" name="projectPrice" placeholder="Project Price" required>
+                <input type="text" id="projectTitle" name="projectTitle" placeholder="Project Name">
+                <input type="text" id="projectPrice" name="projectPrice" placeholder="Project Price">
                 <input type="file" id="projectImage" name="projectImage" placeholder="Project Image">
                 <textarea name="projectDescription" id="projectDescription"
                     placeholder="Describe the Project Details"></textarea>
