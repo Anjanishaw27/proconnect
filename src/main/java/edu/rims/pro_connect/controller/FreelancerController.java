@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +38,9 @@ public class FreelancerController {
 
     @Autowired
     private FreelancerRepository freelancerRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @GetMapping("/freelancer")
     public String freelancerList(Model model) {
@@ -88,9 +92,10 @@ public class FreelancerController {
             freelancer.setUserProfilePicture(fileName);
         }
         freelancer.setCreatedDate(LocalDate.now());
+        freelancer.setUserPassword(passwordEncoder.encode(freelancer.getUserPassword()));
         freelancer.setUserType(UserType.FREELANCER);
         freelancerRepository.save(freelancer);
 
-        return "redirect:/login/login";
+        return "redirect:/client/sign_in";
     }
 }

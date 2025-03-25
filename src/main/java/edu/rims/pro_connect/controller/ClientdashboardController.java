@@ -3,6 +3,7 @@ package edu.rims.pro_connect.controller;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.security.Principal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
@@ -30,6 +31,8 @@ import edu.rims.pro_connect.entity.User;
 import edu.rims.pro_connect.repository.CategoryRepository;
 import edu.rims.pro_connect.repository.ClientRepository;
 import edu.rims.pro_connect.repository.ProjectRepository;
+import edu.rims.pro_connect.repository.UserRepository;
+import edu.rims.pro_connect.service.UserService;
 
 @Controller
 @RequestMapping("/client")
@@ -42,6 +45,9 @@ public class ClientdashboardController {
 
     @Autowired
     private ClientRepository clientRepository;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/clientdashboard")
     String clientdashboard() {
@@ -63,17 +69,21 @@ public class ClientdashboardController {
     }
 
     @GetMapping("/myproject")
-    String clientmyproject(Model model) {
-        Client user = clientRepository.findById(1).orElseThrow();
+    String clientmyproject(Model model, Principal principal) {
+        User user = userService.getUser(principal.getName());
+        Client user1 = clientRepository.findById(user.getUserId()).orElseThrow(); 
         List<Category> categories = categoryRepository.findAll();
-        model.addAttribute("user", user);
+        model.addAttribute("user", user1);
         model.addAttribute("categories", categories);
         return "client/myproject";
     }
 
     @PostMapping("/myproject")
-    String clientmyproject(@ModelAttribute Project project, @RequestParam("projectImage") MultipartFile file,@RequestParam("projectImageName") String imageName)
+    String clientmyproject(@ModelAttribute Project project, @RequestParam("projectImage") MultipartFile file,@RequestParam("projectImageName") String imageName, Principal principal)
             throws IOException {
+
+        String projectId = project.getProjectId();
+        project.setProjectId(projectId == null || projectId.isEmpty() ? null : projectId);
         if (!file.isEmpty()) {
             String originalFilename = file.getOriginalFilename();
             String extName = originalFilename.substring(originalFilename.lastIndexOf("."));
@@ -86,7 +96,9 @@ public class ClientdashboardController {
         }else if(imageName!= null){
             project.setProjectImageUrl(imageName);
         }
-        project.setClient(clientRepository.findById(1).orElseThrow());
+        int  userId = userService.getuserId(principal.getName());
+        Client client2 = clientRepository.findById(userId).orElseThrow();
+        project.setClient(client2);
         project.setCreatedDate(LocalDate.now());
         project.setProjectStatus(ProjectStatus.OPEN.toString());
         projectRepository.save(project);

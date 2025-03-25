@@ -176,28 +176,31 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-in">
-            <form>
+            <form action="/client/sign_in" method="post" enctype="multipart/form-data">
                 <h1>Sign In</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <h1 data-th-if="${param.error}!=null">Invalid Username/Password</h1>
-                </div>
+                    <!-- <h1 data-th-if="${param.error}" style="color: red;">Invalid Username/Password</h1>-->
+                </div> 
                 <span>or use your email password</span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input type="email" placeholder="Email" name="username">
+                <input type="password" placeholder="Password" name="password">
+                <input type="hidden" name="_csrf" data-th-value="${_csrf.token}"/>
                 <a href="#">Forget Your Password?</a>
-                <button>Sign In</button>
-                <p>Donot have an Account? <a href="signup">Sign up</a></p>
+                <button type="submit">Sign In</button>
+                <p>Donot have an Account? <a href="/client/sign_up">Sign up</a></p>
             </form>
         </div>
         <div class="image-box">
             <img src="/images/sd.jpg" alt="Side Image">
         </div>
     </div>
-
+   
+    
+    
 </body>
 
 </html>

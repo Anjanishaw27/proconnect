@@ -24,8 +24,13 @@
                 <li><a href="/client/projectRequest"><i class="fas fa-users"></i> Project Request</a></li>
                 <li><a href="/client/profile"><i class="fas fa-money-bill"></i> Profile</a></li>
                 <li><a href="/client/reviewrating"><i class="fa-solid fa-star"></i>Review and Rating</a></li>
-                <li><a href="#"><i class="fas fa-sign-out-alt"></i></i> Logout</a></li>
+                
+                <form method="post" action="/logout" data-sec-authorize="isAuthenticated()">
+                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
 
+            
+                     
             </ul>
         </aside>
 

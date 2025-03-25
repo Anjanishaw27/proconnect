@@ -124,15 +124,15 @@
 <body>
     <aside data-th-replace="~{freelancer/freelancerdashboard :: aside}"></aside>
       <div class="container">
-       Profile Header
+
         <div class="profile-header">
-            <img data-th-src="|/freelancer/image/${freelancer.freelancerId}|" alt="User Picture" class="profile-picture">
+            <img data-th-src="|/freelancer/image/${freelancer.userId}|" alt="User Picture" class="profile-picture">
             <div class="profile-info">
-                <h1 data-th-text="${user.userName}"></h1>
-                <p data-th-text="${user.userBio}"></p>
+                <h1 data-th-text="${freelancer.userName}"></h1>
+                <p data-th-text="${freelancer.userBio}"></p>
                 <p><strong>Location:</strong><span data-th-text="${freelancer.location}"></span></p>
-                <p><strong>Email:</strong><span data-th-text="${user.userEmail}"></span> </p>
-                <p><strong>Phone:</strong><span data-th-text="${freelancer.Phone}"></span></p>
+                <p><strong>Email:</strong><span data-th-text="${freelancer.userEmail}"></span> </p>
+                <p><strong>Phone:</strong><span data-th-text="${freelancer.userPhone}"></span></p>
 
                 <a href="#" class="contact-btn">Contact</a>
             </div>
@@ -156,12 +156,6 @@
                 <p>🔹 5+ years in Web Development</p>
                 <p>🔹 Worked with 100+ clients</p>
                 <p>🔹 Specializing in Frontend & Backend</p>
-            </div>
-
-            <div class="details-box portfolio">
-                <h3>Portfolio</h3>
-                <img data-th-each="project: ${user.projects}" data-th-src="|/client/myproject/${project.projectId}|"
-                    alt="Project 1">
             </div>
 
             <div class="details-box reviews">
