@@ -70,7 +70,7 @@ public class ClientController {
     client.setUserType(UserType.CLIENT);
     clientRepository.save(client);
 
-    return "redirect:/login/login";
+    return "redirect:/sign_in/sign_in";
   }
 
   @GetMapping("/image/{id}")

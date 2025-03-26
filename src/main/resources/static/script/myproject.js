@@ -6,6 +6,7 @@ async function openModal(id = null) {
             console.log(err)
         );
         const project = await response.json();
+        console.log(project);
         setFields(project);
     }
     return false;

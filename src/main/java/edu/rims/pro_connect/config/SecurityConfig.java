@@ -33,10 +33,11 @@ public class SecurityConfig {
                         .permitAll()
                         // .requestMatchers("/admin/**").hasRole(UserType.ADMIN.toString())
                         // .requestMatchers("/freelancer/**").hasRole(UserType.FREELANCER.toString())
-                        // .requestMatchers("/client/**").hasRole(UserType.CLIENT.toString())
+                         .requestMatchers("/client/**").hasRole(UserType.CLIENT.toString())
                         .anyRequest().authenticated());
         http.formLogin(form -> form.loginPage("/client/sign_in").defaultSuccessUrl("/client/home"));
         http.logout(Customizer.withDefaults());
+        
 
         return http.build();
     }
