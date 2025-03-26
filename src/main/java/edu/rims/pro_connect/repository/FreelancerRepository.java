@@ -11,4 +11,6 @@ public interface FreelancerRepository extends JpaRepository<Freelancer, Integer>
 
     List<Freelancer> findByUserType(UserType freelancer);
 
+    Freelancer findByUserEmail(String name);
+
 }

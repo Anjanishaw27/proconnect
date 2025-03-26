@@ -1,4 +1,3 @@
-/* Main Content */
 .content {
   margin-left: 20px;
   padding: 20px;
@@ -28,7 +27,6 @@ header {
   background: #c0392b;
 }
 
-/* Project Table */
 .projects {
   margin-top: 20px;
   background: white;
@@ -95,7 +93,7 @@ th {
 }
 
 .modal {
-  display: none;
+  display: flex;
   position: fixed;
   z-index: 1000;
   left: 0;
@@ -103,12 +101,11 @@ th {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  /* display: flex; */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-/* Modal Content */
 .modal-content {
   background: white;
   padding: 20px;
@@ -134,7 +131,6 @@ th {
   color: red;
 }
 
-/* Form Inputs */
 .modal-content form input,
 select,
 textarea {
@@ -145,7 +141,6 @@ textarea {
   border-radius: 5px;
 }
 
-/* Submit Button */
 .modal-content form button {
   background: #28a745;
   color: white;
@@ -160,7 +155,6 @@ textarea {
   background: #218838;
 }
 
-/* Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;

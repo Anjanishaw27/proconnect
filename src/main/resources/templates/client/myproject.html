@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Myproject</title>
     <link rel="stylesheet" href="/style/client.clientdashboard.css">
-    <link rel="stylesheet" href="/style/client.myproject.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -16,6 +15,7 @@
 
 <body>
     <aside data-th-replace="~{client/clientdashboard :: aside}"></aside>
+    <link rel="stylesheet" href="/style/client.myproject.css">
     <!-- Main Content -->
     <main class="content">
         <header>
@@ -49,10 +49,12 @@
                         <td data-th-text="${project.projectPrice}"></td>
                         <td data-th-text="${project.projectStatus}"></td>
                         <td>
-                            <span data-th-if="${project.projectStatus == 'OPEN' or project.projectStatus == 'CANCELED'}">
+                            <span
+                                data-th-if="${project.projectStatus == 'OPEN' or project.projectStatus == 'CANCELED'}">
                                 <button class="edit-btn"
                                     data-th-onclick="openModal([[${project.projectId}]])">Edit</button>
-                                    <a data-th-href="|/client/myproject/delete?project=${project.projectId}|" class="delete-btn">Delete</a>
+                                <a data-th-href="|/client/myproject/delete?project=${project.projectId}|"
+                                    class="delete-btn">Delete</a>
                             </span>
                             <span data-th-if="${project.projectStatus == 'IN_PROGRESS'}">
                                 <i class="fa-solid fa-ban"></i>
