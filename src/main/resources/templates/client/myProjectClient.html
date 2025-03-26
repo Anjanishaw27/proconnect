@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <aside data-th-replace="~{client/clientdashboard :: aside}"></aside>
+
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Add New Project</h2>
+            <form action="" method="post">
+                <input type="hidden" id="projectId" name="projectId">
+                <input type="hidden" id="projectImageName" name="projectImageName">
+                <input type="text" id="projectTitle" name="projectTitle" placeholder="Project Name">
+                <input type="text" id="projectPrice" name="projectPrice" placeholder="Project Price">
+                <input type="file" id="projectImage" name="projectImage" placeholder="Project Image">
+                <textarea name="projectDescription" id="projectDescription"
+                    placeholder="Describe the Project Details"></textarea>
+                <select name="category" id="category">
+                    <option value="" disabled selected>Select Category</option>
+                    <option data-th-value="${category.categoryId}" data-th-each="category:${categories}"
+                        data-th-text="${category.categoryName}"></option>
+                </select>
+                <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
+                <button type="submit">Add Project</button>
+            </form>
+        </div>
+    </div>
+    <script src="/script/myproject.js"></script>
+
+</body>
+
+</html>

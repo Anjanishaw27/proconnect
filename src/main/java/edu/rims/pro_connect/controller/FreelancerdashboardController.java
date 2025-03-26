@@ -1,5 +1,6 @@
 package edu.rims.pro_connect.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,25 +36,24 @@ public class FreelancerdashboardController {
 
   @Transactional
   @GetMapping("/project")
-  String freelancerproject(Model model) {
-    Freelancer freelancer = freelancerRepository.findById(3).orElseThrow();
-    System.out.println(freelancer.getProjects().size()); // This will now fetch the projects
+  String freelancerproject(Principal principal, Model model) {
+    Freelancer freelancer = freelancerRepository.findByUserEmail(principal.getName());
+    System.out.println(freelancer.getProjects().size());
     model.addAttribute("freelancer", freelancer);
     return "freelancer/project";
   }
 
   @GetMapping("/earning")
-  String freelancerearning(Model model) {
-    Freelancer freelancer = freelancerRepository.findById(3).orElseThrow();
+  String freelancerearning(Principal principal, Model model) {
+    Freelancer freelancer = freelancerRepository.findByUserEmail(principal.getName());
     model.addAttribute("projects", freelancer.getProjects());
     return "freelancer/earning";
   }
 
   @Transactional
   @GetMapping("/servicerequest")
-  String freelancerServiceRequest(Model model) {
-    Freelancer freelancer = freelancerRepository.findById(3).orElseThrow();
-    List<ServiceRequest> serviceRequests = serviceRequestRepository.findByFreelancer(freelancer);
+  String freelancerServiceRequest(Principal principal, Model model) {
+    Freelancer freelancer = freelancerRepository.findByUserEmail(principal.getName());
     model.addAttribute("freelancer", freelancer);
     System.out.println(freelancer.getServiceRequests().size());
     return "freelancer/servicerequest";
@@ -61,17 +61,18 @@ public class FreelancerdashboardController {
 
   @Transactional
   @GetMapping("/projectRequest")
-  String freelancerProjectRequest(Model model) {
-    Freelancer freelancer = freelancerRepository.findById(3).orElseThrow();
+  String freelancerProjectRequest(Principal principal, Model model) {
+    Freelancer freelancer = freelancerRepository.findByUserEmail(principal.getName());
     model.addAttribute("freelancer", freelancer);
     System.out.println(freelancer.getServiceRequests().size());
     return "freelancer/projectRequest";
   }
+
   @GetMapping("/profile")
-    String freelancerprofile(Model model) {
-        Freelancer freelancer= freelancerRepository.findById(3).orElseThrow();
-        model.addAttribute("freelancer", freelancer);
-        return "freelancer/profile";
-    }
+  String freelancerprofile(Principal principal, Model model) {
+    Freelancer freelancer = freelancerRepository.findByUserEmail(principal.getName());
+    model.addAttribute("freelancer", freelancer);
+    return "freelancer/profile";
+  }
 
 }

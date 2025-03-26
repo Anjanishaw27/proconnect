@@ -1,5 +1,6 @@
 package edu.rims.pro_connect.controller;
 
+import java.security.Principal;
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,13 +39,13 @@ public class ServiceRequestController {
     private PaymentRepository paymentRepository;
 
     @GetMapping("/apply")
-    String serviceRequest(@RequestParam String id) {
+    String serviceRequest(Principal principal, @RequestParam String id) {
         Project project = projectRepository.findById(id).orElseThrow();
         ServiceRequest serviceRequest = new ServiceRequest();
         serviceRequest.setProject(project);
         serviceRequest.setClient(project.getClient());
 
-        Freelancer freelancer = freelancerRepository.findById(3).orElseThrow();
+        Freelancer freelancer = freelancerRepository.findByUserEmail(principal.getName());
         serviceRequest.setCreatedDate(LocalDate.now());
         serviceRequest.setCreatedBy(freelancer.getUserName());
         freelancer.addServiceRequest(serviceRequest);

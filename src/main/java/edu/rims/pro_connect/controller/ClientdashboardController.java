@@ -55,9 +55,9 @@ public class ClientdashboardController {
     }
 
     @GetMapping("/profile")
-    String clientprofile(Model model) {
-        User user = clientRepository.findById(1).orElseThrow();
-        model.addAttribute("user", user);
+    String clientprofile(Principal principal, Model model) {
+        Client client = clientRepository.findByUserEmail(principal.getName());
+        model.addAttribute("user", client);
         return "client/profile";
     }
 
@@ -71,7 +71,7 @@ public class ClientdashboardController {
     @GetMapping("/myproject")
     String clientmyproject(Model model, Principal principal) {
         // User user = userService.getUser(principal.getName());
-        Client user1 = clientRepository.findByUserEmail(principal.getName()); 
+        Client user1 = clientRepository.findByUserEmail(principal.getName());
         List<Category> categories = categoryRepository.findAll();
         model.addAttribute("user", user1);
         model.addAttribute("categories", categories);
@@ -79,7 +79,8 @@ public class ClientdashboardController {
     }
 
     @PostMapping("/myproject")
-    String clientmyproject(@ModelAttribute Project project, @RequestParam("projectImage") MultipartFile file,@RequestParam("projectImageName") String imageName, Principal principal)
+    String clientmyproject(@ModelAttribute Project project, @RequestParam("projectImage") MultipartFile file,
+            @RequestParam("projectImageName") String imageName, Principal principal)
             throws IOException {
 
         String projectId = project.getProjectId();
@@ -93,10 +94,10 @@ public class ClientdashboardController {
             fileOutputStream.close();
 
             project.setProjectImageUrl(fileName);
-        }else if(imageName!= null){
+        } else if (imageName != null) {
             project.setProjectImageUrl(imageName);
         }
-        int  userId = userService.getuserId(principal.getName());
+        int userId = userService.getuserId(principal.getName());
         Client client2 = clientRepository.findById(userId).orElseThrow();
         project.setClient(client2);
         project.setCreatedDate(LocalDate.now());
@@ -120,11 +121,11 @@ public class ClientdashboardController {
 
     @GetMapping("/myproject/delete")
     public String deletemyproject(@RequestParam("project") String projectId) {
-      Project project = projectRepository.findById(projectId).orElseThrow();
-      project.setProjectStatus(ProjectStatus.CANCELED.toString());
-      projectRepository.save(project);
-      return "redirect:/client/myproject";
-  }
+        Project project = projectRepository.findById(projectId).orElseThrow();
+        project.setProjectStatus(ProjectStatus.CANCELED.toString());
+        projectRepository.save(project);
+        return "redirect:/client/myproject";
+    }
 
     @GetMapping("/reviewrating")
     String clientreviewrating() {
@@ -140,10 +141,10 @@ public class ClientdashboardController {
 
     @GetMapping("/myprojectedit/{id}")
     @ResponseBody
-    ProjectResponseDTO myProjectEdit(@PathVariable String id){
+    ProjectResponseDTO myProjectEdit(@PathVariable String id) {
         Project project = projectRepository.findById(id).orElseThrow();
-        
-        ProjectResponseDTO dto =  new ProjectResponseDTO();
+
+        ProjectResponseDTO dto = new ProjectResponseDTO();
         dto.setProjectId(project.getProjectId());
         dto.setProjectTitle(project.getProjectTitle());
         dto.setProjectPrice(project.getProjectPrice());
