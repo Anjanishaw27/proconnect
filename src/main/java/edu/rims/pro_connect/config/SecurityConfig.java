@@ -28,7 +28,7 @@ public class SecurityConfig {
                         .requestMatchers("/client/sign_in", "/style/**", "/images/*", "/script/**",
                                 "/category/category", "/freelancer/freelancer", "/client/home",
                                 "/category/category/search", "/freelancer/freelancer/search", "/admin/category/image",
-                                "/client/howitworks", "/freelancer/pdp",
+                                "/client/howitworks", "/freelancer/pdp","/video/**",
                                 "/client/solution", "/client/project",
                                 "/client/contact", "/client/category/project", "/client/sign_up", "/freelancer/signup")
                         .permitAll()
