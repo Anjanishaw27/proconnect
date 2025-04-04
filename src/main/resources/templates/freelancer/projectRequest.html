@@ -29,7 +29,7 @@
                     <tr>
                         <th>Client Name</th>
                         <th>Project Title</th>
-                        <th>Image</th>
+                        <!-- <th>Image</th> -->
                         <th>Price</th>
                         <th>Category</th>
                         <th>Status</th>
@@ -40,7 +40,7 @@
                     <tr data-th-each="request : ${freelancer.projectRequests}">
                         <td data-th-text="${request.client.userName}"></td>
                         <td data-th-text="${request.project.projectTitle}"></td>
-                        <td>Image</td>
+                        <!-- <td>Image</td> -->
                         <td data-th-text="${request.project.projectPrice}"></td>
                         <td data-th-text="${request.project.category.categoryName}"></td>
                         <td data-th-text="${request.projectRequestStatus}"></td>

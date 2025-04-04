@@ -39,7 +39,7 @@
                     <tr data-th-each="request : ${user.projectRequests}">
                         <td data-th-text="${request.freelancer.userName}"></td>
                         <td data-th-text="${request.project.projectTitle}"></td>
-                        <td>Image</td>
+                        <td><img data-th-src="|/client/myproject/${project.projectId}|" alt="" style="width: 50px;"></td>
                         <td data-th-text="${request.project.projectPrice}"></td>
                         <td data-th-text="${request.project.category.categoryName}"></td>
                         <td data-th-text="${request.projectRequestStatus}"></td>
