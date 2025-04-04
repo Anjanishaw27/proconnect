@@ -16,7 +16,7 @@
 <body>
     <div class="dashboard-container">
         <aside class="sidebar">
-            <h2>ProConnect</h2>
+            <h2><a href="/client/home">ProConnect</a></h2>
             <ul>
                 <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a></li>
                 <li><a href="/freelancer/project"><i class="fas fa-project-diagram"></i> Projects</a></li>
@@ -24,7 +24,13 @@
                 <li><a href="/freelancer/servicerequest"><i class="fas fa-users"></i>Service Request</a></li>
                 <li><a href="/freelancer/projectRequest"><i class="fas fa-briefcase"></i>Project Complete Req.</a></li>
                 <li><a href="/freelancer/profile"><i class="fas fa-money-bill"></i> Profile</a></li>
-                <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                <li><form method="post" action="/logout" data-sec-authorize="isAuthenticated()">
+
+                    <button>
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                    <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
+                </form></li>
 
             </ul>
         </aside>
